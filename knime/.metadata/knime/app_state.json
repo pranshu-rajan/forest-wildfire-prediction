@@ -1,0 +1,39 @@
+{
+  "version" : "5.12.0.v202606180846",
+  "projects" : [ {
+    "name" : "01_data_import_and_quality",
+    "active" : true,
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "relativePath" : "01_data_import_and_quality"
+    }
+  }, {
+    "name" : "02_missing_values_imputation",
+    "active" : false,
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "relativePath" : "02_missing_values_imputation"
+    }
+  } ],
+  "mostRecentlyUsedProjects" : [ {
+    "name" : "01_data_import_and_quality",
+    "timeUsed" : "2026-10-11T14:58:14.4650626+05:30",
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "projectType" : "WORKFLOW",
+      "relativePath" : "01_data_import_and_quality"
+    }
+  }, {
+    "name" : "02_missing_values_imputation",
+    "timeUsed" : "2026-10-11T14:59:14.3277125+05:30",
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "projectType" : "WORKFLOW",
+      "relativePath" : "02_missing_values_imputation"
+    }
+  } ]
+}

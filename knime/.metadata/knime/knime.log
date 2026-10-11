@@ -1,0 +1,307 @@
+2026-10-11 14:57:48,668 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:57:48,669 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # Welcome to KNIME Analytics Platform v5.12.0.v202606180846 (Build June 15, 2026)       #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # Based on Eclipse, http://www.eclipse.org                                              #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # Copyright by KNIME AG, Zurich, Switzerland and others.                                #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # Website: http://www.knime.com                                                         #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # E-mail: contact@knime.com                                                             #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # For more details see the KNIME log file:                                              #
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : # C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\knime.log
+2026-10-11 14:57:48,670 : INFO  : main :  : NodeLogger :  :  : #---------------------------------------------------------------------------------------#
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # logging date=Sun Oct 11 14:57:48 IST 2026
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # java.version=21.0.9
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # java.vm.version=21.0.9+10-LTS
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # java.vendor=Eclipse Adoptium
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # os.name=Windows 11
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # os.arch=amd64
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # number of CPUs=10
+2026-10-11 14:57:48,682 : INFO  : main :  : NodeLogger :  :  : # assertions=off
+2026-10-11 14:57:48,688 : INFO  : main :  : NodeLogger :  :  : # host=DESKTOP-BGEMQP7
+2026-10-11 14:57:48,689 : INFO  : main :  : NodeLogger :  :  : # username=pranshu
+2026-10-11 14:57:48,689 : INFO  : main :  : NodeLogger :  :  : # max mem=8028MB
+2026-10-11 14:57:48,690 : INFO  : main :  : NodeLogger :  :  : # application=org.knime.product.KNIME_APPLICATION
+2026-10-11 14:57:48,695 : INFO  : main :  : NodeLogger :  :  : # KNID=11-654887acb7c5fda6-01-0308aaa45f3b867c
+2026-10-11 14:57:48,695 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:57:48,131 : INFO  : main :  : RegisterBouncyCastleProvider :  :  : Added BouncyCastleProvider to Java Security providers
+2026-10-11 14:57:51,581 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_database_drivers.txt' does not exist.
+2026-10-11 14:57:51,581 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_database_urls.txt' does not exist.
+2026-10-11 14:57:54,221 : INFO  : Node Repository Initializer :  : MovingAggregationNodeFactory :  :  : Modern dialog for Moving Aggregator node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:57:54,229 : INFO  : Node Repository Initializer :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_string2date-formats.txt' does not exist.
+2026-10-11 14:57:54,474 : INFO  : main :  : ProcessWatchdog :  :  : KNIME Process Watchdog memory limit not configured
+2026-10-11 14:57:54,474 : INFO  : main :  : ProcessWatchdog :  :  : External process memory watchdog is disabled, because the memory limit is set to -1
+2026-10-11 14:57:55,303 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_org.knime.kerberos.name.txt' does not exist.
+2026-10-11 14:57:55,888 : INFO  : Thread-164 :  : KnimeBrowserView :  :  : %cinfo%c Injecting global logger 
+      background: #00BCD4;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      (source: https://org.knime.ui.java/editor/assets/editor-CIijjzSo.js; line: 55)
+2026-10-11 14:57:57,065 : INFO  : Node Repository Initializer :  : ColumnAggregatorNodeFactory :  :  : Modern dialog for Column Aggregator node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:57:58,124 : INFO  : Node Repository Initializer :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_createFileNameHistoryKey.txt' does not exist.
+2026-10-11 14:57:59,161 : INFO  : Node Repository Initializer :  : GroupByNodeFactory :  :  : Modern dialog for GroupBy node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:57:59,204 : INFO  : Node Repository Initializer :  : Pivot2NodeFactory :  :  : Modern dialog for Pivot node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:58:00,796 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:00,797 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:00,818 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:01,064 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:01,070 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:01,070 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:01,075 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:58:01,075 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:58:01,078 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:58:10,090 : WARN  : ModalContext :  : FileNodePersistor : CSV Reader : 3:1 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:58:10,111 : WARN  : ModalContext :  : Node : CSV Reader : 3:1 : Loading model settings failed: Config for key "csvReaderParameters" not found.
+2026-10-11 14:58:10,118 : WARN  : ModalContext :  : Node : CSV Reader : 3:1 : Please specify a file
+2026-10-11 14:58:10,119 : WARN  : ModalContext :  : FileNodePersistor : MISSING Table Validator : 3:2 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:58:10,121 : WARN  : ModalContext :  : FileNodePersistor : Statistics : 3:3 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:58:10,122 : WARN  : ModalContext :  : Node : Statistics : 3:3 : Loading model settings failed: Int for key "num_nominal-values" not found.
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  : Errors during load: Status: DataLoadError: 01_data_import_and_quality 3 loaded with error during data load
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: Error: Unable to load credentials: Config for key "workflow_credentials" not found.
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: Error: Can't restore node's state, fallback to IDLE: String for key "state" not found.
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: DataLoadError: 01_data_import_and_quality 3
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 1, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 2, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Node "Table Validator" not available (provided by "KNIME AG, Zurich, Switzerland"; plugin "org.knime.base" is installed)
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 3, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: CSV Reader 3:1
+2026-10-11 14:58:10,549 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Warning: Loading model settings failed: Config for key "csvReaderParameters" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "CSV Reader": Config for key "filestores" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load port content for node "CSV Reader": Config for key "ports" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: State has changed from EXECUTED to IDLE
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: MISSING Table Validator 3:2
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "MISSING Table Validator": Config for key "filestores" not found.
+2026-10-11 14:58:10,550 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load port content for node "MISSING Table Validator": Config for key "ports" not found.
+2026-10-11 14:58:10,551 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: Statistics 3:3
+2026-10-11 14:58:10,551 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:58:10,551 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Warning: Loading model settings failed: Int for key "num_nominal-values" not found.
+2026-10-11 14:58:10,551 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "Statistics": Config for key "filestores" not found.
+2026-10-11 14:58:10,551 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load port content for node "Statistics": Config for key "ports" not found.
+2026-10-11 14:58:15,769 : WARN  : Thread-1893 :  : KnimeBrowserView :  :  : [.WebGL-00003C5803EB0700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_19eb30bb-e150-47e0-a1ab-2607913075ae/root?version; line: 0)
+2026-10-11 14:58:15,785 : WARN  : Thread-1895 :  : KnimeBrowserView :  :  : [.WebGL-00003C5803EB0700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_19eb30bb-e150-47e0-a1ab-2607913075ae/root?version; line: 0)
+2026-10-11 14:58:15,937 : WARN  : Thread-1898 :  : KnimeBrowserView :  :  : [.WebGL-00003C5803EB0700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_19eb30bb-e150-47e0-a1ab-2607913075ae/root?version; line: 0)
+2026-10-11 14:58:16,037 : WARN  : Thread-1900 :  : KnimeBrowserView :  :  : [.WebGL-00003C5803EB0700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_19eb30bb-e150-47e0-a1ab-2607913075ae/root?version; line: 0)
+2026-10-11 14:58:24,565 : INFO  : KNIME shutdown hooks - org.knime.core.util.FileUtil$$Lambda/0x0000012a09310ab8 :  : FileUtil :  :  : Deleting 1 temporary files.
+2026-10-11 14:58:26,810 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:58:26,811 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # Welcome to KNIME Analytics Platform v5.12.0.v202606180846 (Build June 15, 2026)       #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # Based on Eclipse, http://www.eclipse.org                                              #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # Copyright by KNIME AG, Zurich, Switzerland and others.                                #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # Website: http://www.knime.com                                                         #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # E-mail: contact@knime.com                                                             #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : #                                                                                       #
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:58:26,812 : INFO  : main :  : NodeLogger :  :  : # For more details see the KNIME log file:                                              #
+2026-10-11 14:58:26,813 : INFO  : main :  : NodeLogger :  :  : # C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\knime.log
+2026-10-11 14:58:26,813 : INFO  : main :  : NodeLogger :  :  : #---------------------------------------------------------------------------------------#
+2026-10-11 14:58:26,825 : INFO  : main :  : NodeLogger :  :  : # logging date=Sun Oct 11 14:58:26 IST 2026
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # java.version=21.0.9
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # java.vm.version=21.0.9+10-LTS
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # java.vendor=Eclipse Adoptium
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # os.name=Windows 11
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # os.arch=amd64
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # number of CPUs=10
+2026-10-11 14:58:26,826 : INFO  : main :  : NodeLogger :  :  : # assertions=off
+2026-10-11 14:58:26,835 : INFO  : main :  : NodeLogger :  :  : # host=DESKTOP-BGEMQP7
+2026-10-11 14:58:26,837 : INFO  : main :  : NodeLogger :  :  : # username=pranshu
+2026-10-11 14:58:26,837 : INFO  : main :  : NodeLogger :  :  : # max mem=8028MB
+2026-10-11 14:58:26,838 : INFO  : main :  : NodeLogger :  :  : # application=org.knime.product.KNIME_APPLICATION
+2026-10-11 14:58:26,844 : INFO  : main :  : NodeLogger :  :  : # KNID=11-654887acb7c5fda6-01-0308aaa45f3b867c
+2026-10-11 14:58:26,844 : INFO  : main :  : NodeLogger :  :  : #########################################################################################
+2026-10-11 14:58:26,202 : INFO  : main :  : RegisterBouncyCastleProvider :  :  : Added BouncyCastleProvider to Java Security providers
+2026-10-11 14:58:30,025 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_database_drivers.txt' does not exist.
+2026-10-11 14:58:30,025 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_database_urls.txt' does not exist.
+2026-10-11 14:58:31,980 : INFO  : Node Repository Initializer :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_string2date-formats.txt' does not exist.
+2026-10-11 14:58:32,005 : INFO  : Node Repository Initializer :  : MovingAggregationNodeFactory :  :  : Modern dialog for Moving Aggregator node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:58:32,446 : INFO  : main :  : ProcessWatchdog :  :  : KNIME Process Watchdog memory limit not configured
+2026-10-11 14:58:32,448 : INFO  : main :  : ProcessWatchdog :  :  : External process memory watchdog is disabled, because the memory limit is set to -1
+2026-10-11 14:58:33,351 : INFO  : main :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_org.knime.kerberos.name.txt' does not exist.
+2026-10-11 14:58:33,924 : INFO  : Thread-168 :  : KnimeBrowserView :  :  : %cinfo%c Injecting global logger 
+      background: #00BCD4;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      (source: https://org.knime.ui.java/editor/assets/editor-CIijjzSo.js; line: 55)
+2026-10-11 14:58:34,277 : INFO  : Node Repository Initializer :  : ColumnAggregatorNodeFactory :  :  : Modern dialog for Column Aggregator node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:58:34,762 : WARN  : ModalContext :  : Node : CSV Reader : 3:1 : Please specify a file
+2026-10-11 14:58:34,769 : WARN  : ModalContext :  : Node : CSV Reader : 3:1 : Please specify a file
+2026-10-11 14:58:34,789 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  : Errors during load: Status: Error: 01_data_import_and_quality 3 loaded with errors
+2026-10-11 14:58:34,789 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: Error: 01_data_import_and_quality 3
+2026-10-11 14:58:34,790 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Node "Table Validator" not available (provided by "KNIME AG, Zurich, Switzerland"; plugin "org.knime.base" is installed)
+2026-10-11 14:58:35,116 : INFO  : Node Repository Initializer :  : StringHistory :  :  : History file 'C:\Users\pranshu\Desktop\forest-cover-wildfire\knime\.metadata\knime\history_createFileNameHistoryKey.txt' does not exist.
+2026-10-11 14:58:35,218 : INFO  : Node Repository Initializer :  : GroupByNodeFactory :  :  : Modern dialog for GroupBy node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:58:36,212 : INFO  : Node Repository Initializer :  : Pivot2NodeFactory :  :  : Modern dialog for Pivot node can be enabled via system property "org.knime.base.node.preproc.groupby.dialog". Note: This property will be removed in a future version.
+
+2026-10-11 14:58:38,677 : WARN  : Thread-1342 :  : KnimeBrowserView :  :  : [.WebGL-000049400411AA00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_70760da4-5154-4283-a41b-f5f603ba507a/root?version; line: 0)
+2026-10-11 14:58:38,920 : WARN  : Thread-1344 :  : KnimeBrowserView :  :  : [.WebGL-000049400411AA00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_70760da4-5154-4283-a41b-f5f603ba507a/root?version; line: 0)
+2026-10-11 14:58:38,939 : WARN  : Thread-1346 :  : KnimeBrowserView :  :  : [.WebGL-000049400411AA00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_70760da4-5154-4283-a41b-f5f603ba507a/root?version; line: 0)
+2026-10-11 14:58:39,090 : WARN  : Thread-1348 :  : KnimeBrowserView :  :  : [.WebGL-000049400411AA00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) (source: https://org.knime.ui.java/editor/index.html#/workflow/01_data_import_and_quality_70760da4-5154-4283-a41b-f5f603ba507a/root?version; line: 0)
+2026-10-11 14:58:39,515 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:39,563 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:39,563 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=mssqlserver, name=Microsoft SQL Server, description=null)
+2026-10-11 14:58:40,306 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:40,307 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:40,311 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=oracle, name=Oracle, description=null)
+2026-10-11 14:58:40,318 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:58:40,332 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:58:40,332 : INFO  : Node Repository Initializer :  : DBDriverRegistry :  :  : Could not find any driver for DBType: DBType(id=vertica, name=Vertica, description=Vertica Analytics Platform)
+2026-10-11 14:59:05,915 : WARN  : ModalContext :  : FileNodePersistor : CSV Reader : 4:1 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:59:05,922 : WARN  : ModalContext :  : Node : CSV Reader : 4:1 : Loading model settings failed: Config for key "csvReaderParameters" not found.
+2026-10-11 14:59:05,924 : WARN  : ModalContext :  : Node : CSV Reader : 4:1 : Please specify a file
+2026-10-11 14:59:05,925 : WARN  : ModalContext :  : FileNodePersistor : MISSING Missing Value : 4:2 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:59:05,926 : WARN  : ModalContext :  : FileNodePersistor : MISSING CSV Writer : 4:3 : Unable to load hasContent flag: Boolean for key "hasContent" not found.
+org.knime.core.node.InvalidSettingsException: Boolean for key "hasContent" not found.
+	at org.knime.core.node.config.base.ConfigBase.getBoolean(ConfigBase.java:500)
+	at org.knime.core.node.FileNodePersistor.loadHasContent(FileNodePersistor.java:232)
+	at org.knime.core.node.FileNodePersistor.preLoad(FileNodePersistor.java:890)
+	at org.knime.core.node.workflow.FileNativeNodeContainerPersistor.loadNCAndModelSettings(FileNativeNodeContainerPersistor.java:245)
+	at org.knime.core.node.workflow.FileSingleNodeContainerPersistor.loadNodeContainer(FileSingleNodeContainerPersistor.java:265)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9207)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.postLoad(WorkflowManager.java:9223)
+	at org.knime.core.node.workflow.WorkflowManager.loadContent(WorkflowManager.java:9109)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8973)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8894)
+	at org.knime.core.node.workflow.WorkflowManager.load(WorkflowManager.java:8867)
+	at org.knime.core.node.workflow.WorkflowManager.loadProject(WorkflowManager.java:8704)
+	at org.knime.workbench.editor2.LoadWorkflowRunnable.run(LoadWorkflowRunnable.java:200)
+	at org.knime.ui.java.util.DesktopAPUtil.loadWorkflowManager(DesktopAPUtil.java:171)
+	at org.knime.ui.java.util.CreateProject.lambda$1(CreateProject.java:146)
+	at org.knime.ui.java.util.DesktopAPUtil.lambda$10(DesktopAPUtil.java:422)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:123)
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  : Errors during load: Status: DataLoadError: 02_missing_values_imputation 4 loaded with error during data load
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: Error: Unable to load credentials: Config for key "workflow_credentials" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: Error: Can't restore node's state, fallback to IDLE: String for key "state" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :   Status: DataLoadError: 02_missing_values_imputation 4
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 1, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 2, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Node "Missing Value" not available (provided by "KNIME AG, Zurich, Switzerland"; plugin "org.knime.base" is installed)
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Can't retrieve node type for contained node with id suffix 3, attempting to read ordinary (native) node: Can't parse node type: Native
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: Error: Node "CSV Writer" not available (provided by "KNIME AG, Zurich, Switzerland"; plugin "org.knime.base" is installed)
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: CSV Reader 4:1
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Warning: Loading model settings failed: Config for key "csvReaderParameters" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "CSV Reader": Config for key "filestores" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load port content for node "CSV Reader": Config for key "ports" not found.
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: State has changed from EXECUTED to IDLE
+2026-10-11 14:59:06,497 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: MISSING Missing Value 4:2
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "MISSING Missing Value": Config for key "filestores" not found.
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load port content for node "MISSING Missing Value": Config for key "ports" not found.
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :     Status: DataLoadError: MISSING CSV Writer 4:3
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: Error: Unable to load hasContent flag: Boolean for key "hasContent" not found.
+2026-10-11 14:59:06,499 : ERROR : ModalContext :  : LoadWorkflowRunnable :  :  :       Status: DataLoadError: Unable to load file store handler for node "MISSING CSV Writer": Config for key "filestores" not found.
+2026-10-11 18:10:35,917 : INFO  : KNIME shutdown hooks - org.knime.core.util.FileUtil$$Lambda/0x0000020d9d48c6a0 :  : FileUtil :  :  : Deleting 1 temporary files.
