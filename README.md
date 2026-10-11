@@ -4,7 +4,7 @@
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-1.0.0-009688.svg)](https://fastapi.tiangolo.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4-black.svg)](https://nextjs.org/)
-[![Tests](https://img.shields.io/badge/pytest-22%20passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/pytest-25%20passed-brightgreen.svg)]()
 
 ---
 
@@ -117,6 +117,57 @@ Features:
 
 - [KNIME Workflows Guide](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/knime_guide.md): Specifications for 6 workflows consuming `exports/knime/*.csv`.
 - [Tableau Dashboard Guide](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/tableau_guide.md): Layout and blueprints for Dashboards 1, 2, and 3.
+- [Pipeline Architecture Guide](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/pipeline_architecture.md): 12-stage DAG orchestration and multi-platform data lineage.
 - [Requirements Traceability Matrix](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/requirements_traceability.md): Complete requirements-to-code mapping.
 - [Viva Voce Questions](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/viva_questions.md): Oral examination questions and answers.
 - [Deployment Guide](file:///c:/Users/pranshu/Desktop/forest-cover-wildfire/docs/deployment.md): Docker, compose, and environment settings.
+
+---
+
+## 7. Push to GitHub (Ready & Compliant)
+
+This repository is verified and ready for pushing to GitHub:
+- **Zero Files Over 100 MB**: Scanned and verified. (Compressed Random Forest model is 19.3 MB; largest raw file is 71.69 MB).
+- **Secrets Excluded**: `.env` and local credentials are protected in `.gitignore`.
+- **Clean Working Tree**: Fully committed on branch `main`.
+
+```bash
+# 1. Add your GitHub remote repository
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/forest-cover-wildfire.git
+
+# 2. Ensure main branch is active
+git branch -M main
+
+# 3. Push to GitHub
+git push -u origin main
+```
+
+---
+
+## 8. Cloud Production Deployments
+
+### 8.1 Database: Supabase (PostgreSQL)
+1. Create a project at [supabase.com](https://supabase.com).
+2. Open the **SQL Editor** in your Supabase Dashboard.
+3. Paste and execute the contents of `database/supabase_migration.sql`.
+4. Copy your database connection string and API key into your production environment variables.
+
+### 8.2 Backend: Render (FastAPI)
+1. Create a **New Web Service** at [render.com](https://render.com) connected to your GitHub repository.
+2. Configure settings:
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
+   - **Start Command**: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+3. Set Environment Variables:
+   - `CORS_ORIGINS`: `https://your-app.vercel.app`
+   - `DATABASE_URL`: `your_supabase_postgres_pooler_url`
+
+### 8.3 Frontend: Vercel (Next.js)
+1. Create a **New Project** at [vercel.com](https://vercel.com) imported from your GitHub repository.
+2. Configure settings:
+   - **Framework Preset**: `Next.js`
+   - **Root Directory**: `frontend`
+3. Set Environment Variables:
+   - `NEXT_PUBLIC_API_URL`: `https://your-backend.onrender.com`
+4. Click **Deploy**. Vercel will build and host your production dashboard.
+
