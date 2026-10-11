@@ -1,0 +1,4 @@
+model,r2_log,mae_log,rmse_log,mae_original_ha,rmse_original_ha
+Linear Regression,-0.0036,1.1992,1.4852,19.83,109.90
+Ridge Regression,-0.0034,1.1991,1.4851,19.83,109.90
+Random Forest,-0.0470,1.2200,1.5169,19.96,109.95

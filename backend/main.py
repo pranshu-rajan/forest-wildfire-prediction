@@ -147,6 +147,35 @@ def get_supabase_status():
     }
 
 
+@app.get("/api/integrations/roundtrip-audit", tags=["Integrations"])
+def get_roundtrip_integration_audit():
+    """Returns complete bidirectional integration audit for KNIME, Tableau, and Supabase."""
+    from python_src.knime_integration import run_full_roundtrip_audit
+    return run_full_roundtrip_audit()
+
+
+@app.get("/api/integrations/knime-status", tags=["Integrations"])
+def get_knime_integration_status():
+    """Returns input/output verification status and statistical parity delta for KNIME."""
+    from python_src.knime_integration import (
+        compare_python_and_knime_metrics,
+        ingest_and_verify_knime_outputs,
+        verify_python_to_knime_inputs,
+    )
+    return {
+        "inputs": verify_python_to_knime_inputs(),
+        "outputs": ingest_and_verify_knime_outputs(),
+        "statistical_parity": compare_python_and_knime_metrics(),
+    }
+
+
+@app.get("/api/integrations/tableau-status", tags=["Integrations"])
+def get_tableau_integration_status():
+    """Returns status of Tableau data extracts, workbooks, and calculated fields."""
+    from python_src.knime_integration import verify_tableau_integration
+    return verify_tableau_integration()
+
+
 @app.get("/api/dataset/summary", tags=["Dataset"])
 def get_dataset_summary():
     """Returns dataset summary metrics and schema definitions."""

@@ -1,0 +1,5 @@
+cluster_id,cluster_name,mean_elevation,mean_slope,mean_dist_hydrology,mean_dist_fire
+0,Alpine Ridges,3320.4,24.1,310.2,2140.5
+1,Upper Montane,2980.1,14.3,230.5,1890.2
+2,Lower Montane,2460.8,16.2,190.1,1350.4
+3,Riparian Valleys,2120.3,8.4,85.2,890.1

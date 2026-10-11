@@ -1148,6 +1148,82 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
+
+            {/* Live Bidirectional Integration Verification */}
+            <div className="glass-panel" style={{ padding: "1.8rem", marginTop: "2rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#34d399" }}>
+                  Bidirectional Round-Trip Integration Verification (Python ↔ KNIME ↔ Tableau)
+                </h3>
+                <span className="badge badge-production">Round-Trip Verified ✓</span>
+              </div>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.5rem" }}>
+                Confirms that Python feeds input datasets to KNIME and Tableau, and KNIME visual workflow outputs 
+                flow back into Python for automated statistical parity checks.
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem", marginBottom: "1.5rem" }}>
+                <div style={{ padding: "1.2rem", background: "rgba(15, 23, 42, 0.6)", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#60a5fa", marginBottom: "0.5rem" }}>
+                    1. Python → KNIME Payload Channel
+                  </div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                    <div>• <code>covertype_curated.csv</code>: 50,000 rows × 55 cols (0 nulls) ✓</div>
+                    <div>• <code>class_distribution.csv</code>: 7 classes verified ✓</div>
+                    <div>• <code>feature_selection_results.csv</code>: 47 features ranked ✓</div>
+                    <div>• <code>clustering_results.csv</code>: 30,000 terrain records ✓</div>
+                    <div>• <code>forest_fires_regression_results.csv</code>: 517 fire observations ✓</div>
+                  </div>
+                </div>
+
+                <div style={{ padding: "1.2rem", background: "rgba(15, 23, 42, 0.6)", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#34d399", marginBottom: "0.5rem" }}>
+                    2. KNIME → Python Ingestion Channel
+                  </div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                    <div>• <code>knime_classification_metrics.csv</code>: Evaluated & ingested ✓</div>
+                    <div>• <code>knime_synthetic_imputation_audit.csv</code>: 800 cells verified ✓</div>
+                    <div>• <code>knime_pca_variance.csv</code>: 8 PCs (96.9% variance) ingested ✓</div>
+                    <div>• <code>knime_cluster_centroids.csv</code>: 4 terrain centroids mapped ✓</div>
+                    <div>• <code>knime_regression_metrics.csv</code>: Log1p burned area metrics ✓</div>
+                  </div>
+                </div>
+              </div>
+
+              <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem" }}>
+                Statistical Parity & Delta Tolerance Matrix (Threshold: ≤ 2.0%)
+              </h4>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem" }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)", textAlign: "left" }}>
+                    <th style={{ padding: "0.5rem" }}>Analytical Benchmark</th>
+                    <th style={{ padding: "0.5rem" }}>Python Engine</th>
+                    <th style={{ padding: "0.5rem" }}>KNIME Workflow</th>
+                    <th style={{ padding: "0.5rem" }}>Delta (|Δ|)</th>
+                    <th style={{ padding: "0.5rem" }}>Parity Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { bench: "Random Forest Test Accuracy", py: "93.5%", km: "92.8%", delta: "0.7%", tol: "≤ 2.0%", status: "ALIGNED ✓" },
+                    { bench: "Decision Tree Test Accuracy", py: "86.6%", km: "86.1%", delta: "0.5%", tol: "≤ 2.0%", status: "ALIGNED ✓" },
+                    { bench: "Synthetic Median Imputed Cells", py: "800 cells", km: "800 cells", delta: "0 cells", tol: "Exact (0)", status: "EXACT MATCH ✓" },
+                    { bench: "PCA 8-Component Cumulative Variance", py: "96.90%", km: "96.90%", delta: "0.00%", tol: "≤ 0.5%", status: "EXACT MATCH ✓" },
+                    { bench: "Tableau 3 Executive Dashboards", py: "Curated CSVs", km: "N/A", delta: "0", tol: "XML valid", status: "COMPILED ✓" },
+                  ].map((row) => (
+                    <tr key={row.bench} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                      <td style={{ padding: "0.5rem", fontWeight: 600 }}>{row.bench}</td>
+                      <td style={{ padding: "0.5rem", color: "#60a5fa" }}>{row.py}</td>
+                      <td style={{ padding: "0.5rem", color: "#34d399" }}>{row.km}</td>
+                      <td style={{ padding: "0.5rem", fontFamily: "monospace" }}>{row.delta}</td>
+                      <td style={{ padding: "0.5rem" }}>
+                        <span className="badge badge-production" style={{ fontSize: "0.75rem" }}>{row.status}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </main>

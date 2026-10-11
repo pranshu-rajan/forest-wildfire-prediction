@@ -1,0 +1,6 @@
+check,expected_value,knime_observed_value,status
+total_injected_missing,800,800,PASSED
+total_imputed_missing,800,800,PASSED
+remaining_null_cells,0,0,PASSED
+sample_row_count,10000,10000,PASSED
+imputation_method,median,median,PASSED

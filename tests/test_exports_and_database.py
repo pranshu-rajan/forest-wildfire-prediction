@@ -53,3 +53,34 @@ def test_database_health_check_without_db():
     status = health_check()
     assert isinstance(status, dict)
     assert "status" in status
+
+
+def test_roundtrip_knime_and_tableau_integration():
+    """Verify bidirectional round-trip data flow between Python, KNIME, and Tableau."""
+    from python_src.knime_integration import (
+        compare_python_and_knime_metrics,
+        ingest_and_verify_knime_outputs,
+        verify_python_to_knime_inputs,
+        verify_tableau_integration,
+    )
+
+    # 1. Check Python -> KNIME inputs
+    inputs_res = verify_python_to_knime_inputs()
+    assert inputs_res["all_passed"] is True
+    assert inputs_res["files_checked"] >= 7
+
+    # 2. Check KNIME -> Python outputs
+    outputs_res = ingest_and_verify_knime_outputs()
+    assert outputs_res["all_passed"] is True
+    assert outputs_res["files_checked"] >= 5
+
+    # 3. Check statistical parity
+    parity_res = compare_python_and_knime_metrics()
+    assert parity_res["status"] == "VERIFIED"
+    for comp in parity_res["comparisons"]:
+        assert comp["absolute_delta"] <= comp["tolerance_threshold"]
+
+    # 4. Check Tableau integration
+    tableau_res = verify_tableau_integration()
+    assert tableau_res["status"] == "VERIFIED"
+    assert len(tableau_res["workbooks"]) == 3

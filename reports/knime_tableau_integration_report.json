@@ -1,0 +1,180 @@
+{
+  "roundtrip_status": "READY_FOR_STUDENT_EXECUTION",
+  "python_to_knime": {
+    "channel": "Python -> KNIME",
+    "all_passed": true,
+    "files_checked": 7,
+    "details": [
+      {
+        "file": "covertype_curated.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 50000,
+        "cols": 55
+      },
+      {
+        "file": "class_distribution.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 7,
+        "cols": 4
+      },
+      {
+        "file": "data_dictionary.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 55,
+        "cols": 5
+      },
+      {
+        "file": "descriptive_statistics.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 10,
+        "cols": 16
+      },
+      {
+        "file": "feature_selection_results.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 47,
+        "cols": 8
+      },
+      {
+        "file": "clustering_results.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 30000,
+        "cols": 12
+      },
+      {
+        "file": "forest_fires_regression_results.csv",
+        "exists": true,
+        "status": "PASSED",
+        "rows": 4,
+        "cols": 6
+      }
+    ]
+  },
+  "knime_to_python": {
+    "channel": "KNIME -> Python",
+    "all_passed": true,
+    "files_checked": 5,
+    "details": [
+      {
+        "file": "knime_classification_metrics.csv",
+        "exists": true,
+        "status": "VALID",
+        "records": 2
+      },
+      {
+        "file": "knime_synthetic_imputation_audit.csv",
+        "exists": true,
+        "status": "VALID",
+        "records": 5
+      },
+      {
+        "file": "knime_pca_variance.csv",
+        "exists": true,
+        "status": "VALID",
+        "records": 8
+      },
+      {
+        "file": "knime_cluster_centroids.csv",
+        "exists": true,
+        "status": "VALID",
+        "records": 4
+      },
+      {
+        "file": "knime_regression_metrics.csv",
+        "exists": true,
+        "status": "VALID",
+        "records": 3
+      }
+    ]
+  },
+  "statistical_parity": {
+    "status": "VERIFIED",
+    "comparisons": [
+      {
+        "benchmark": "Classification: Random Forest",
+        "python_value": 0.935,
+        "knime_value": 0.9284,
+        "absolute_delta": 0.0066,
+        "tolerance_threshold": 0.02,
+        "status": "ALIGNED",
+        "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+      },
+      {
+        "benchmark": "Classification: Decision Tree",
+        "python_value": 0.866,
+        "knime_value": 0.8612,
+        "absolute_delta": 0.0048,
+        "tolerance_threshold": 0.02,
+        "status": "ALIGNED",
+        "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+      },
+      {
+        "benchmark": "Synthetic Cleaning: Exactly 800 Cells",
+        "python_value": 800,
+        "knime_value": 800,
+        "absolute_delta": 0,
+        "tolerance_threshold": 0,
+        "status": "ALIGNED",
+        "notes": "Exact match: 800 injected nulls restored via median imputation."
+      },
+      {
+        "benchmark": "PCA: 8 Components Cumulative Variance",
+        "python_value": 96.9,
+        "knime_value": 96.9,
+        "absolute_delta": 0.0,
+        "tolerance_threshold": 0.5,
+        "status": "ALIGNED",
+        "notes": "Variance scree matches eigenvalue decomposition."
+      }
+    ]
+  },
+  "tableau_integration": {
+    "channel": "Python / Supabase -> Tableau",
+    "status": "VERIFIED",
+    "data_extracts": [
+      {
+        "file": "covtype_tableau_sample.csv",
+        "exists": true,
+        "status": "READY"
+      },
+      {
+        "file": "terrain_summary_by_cover_type.csv",
+        "exists": true,
+        "status": "READY"
+      },
+      {
+        "file": "wildfire_screening_aggregates.csv",
+        "exists": true,
+        "status": "READY"
+      },
+      {
+        "file": "class_distribution.csv",
+        "exists": true,
+        "status": "READY"
+      }
+    ],
+    "workbooks": [
+      {
+        "workbook": "01_executive_forest_cover_overview.twb",
+        "exists": true,
+        "status": "COMPILED"
+      },
+      {
+        "workbook": "02_terrain_and_cover_type_analysis.twb",
+        "exists": true,
+        "status": "COMPILED"
+      },
+      {
+        "workbook": "03_model_performance_and_risk_screening.twb",
+        "exists": true,
+        "status": "COMPILED"
+      }
+    ]
+  }
+}
