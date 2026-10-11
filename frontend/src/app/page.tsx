@@ -1,6 +1,36 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import {
+  Trees,
+  Compass,
+  Database,
+  Sparkles,
+  BarChart3,
+  Layers,
+  Crosshair,
+  Network,
+  TrendingUp,
+  GitBranch,
+  Flame,
+  ShieldCheck,
+  Menu,
+  X,
+  ArrowRight,
+  CheckCircle2,
+  AlertTriangle,
+  Play,
+  Search,
+  SlidersHorizontal,
+  ExternalLink,
+  ChevronRight,
+  Info,
+  MapPin,
+  Mountain,
+  Activity,
+  Check,
+  Zap,
+} from "lucide-react";
 
 // Preset configurations for interactive predictions
 const PRESETS: Record<string, { name: string; elevation: number; slope: number; aspect: number; dist_road: number; dist_fire: number; wa: number; soil: number }> = {
@@ -64,6 +94,60 @@ const COVER_TYPE_META: Record<number, { name: string; color: string; desc: strin
   5: { name: "Aspen", color: "#8b5cf6", desc: "Moist slopes, open sunny meadows, deciduous disturbance pioneer." },
   6: { name: "Douglas-fir", color: "#ec4899", desc: "Cool, north-facing slopes and rocky canyon terrain." },
   7: { name: "Krummholz", color: "#ef4444", desc: "Stunted subalpine/alpine ecotone trees (>3,300m) in harsh winds." },
+};
+
+const OVERVIEW_SIMULATION_DATA: Record<string, {
+  title: string;
+  elevation: string;
+  terrain: string;
+  predictedSpecies: string;
+  coverTypeId: number;
+  confidence: number;
+  fireRiskScore: number;
+  fireRiskLabel: string;
+  fireRiskColor: string;
+  ecologicalReason: string;
+  keySoil: string;
+}> = {
+  spruce: {
+    title: "Subalpine Conifer Basin (High Elevation)",
+    elevation: "3,200 m (10,499 ft)",
+    terrain: "North-facing slope, cold moist soil, high snowpack",
+    predictedSpecies: "Spruce / Fir",
+    coverTypeId: 1,
+    confidence: 94.2,
+    fireRiskScore: 0.28,
+    fireRiskLabel: "Low Risk",
+    fireRiskColor: "#10b981",
+    ecologicalReason: "Extreme subalpine elevations with persistent snow cover and heavy precipitation favor shade-tolerant Engelmann spruce and subalpine fir.",
+    keySoil: "Cryaquolls (Cold glacial wetland/tills)",
+  },
+  lodgepole: {
+    title: "Montane Central Ridge (Mid Elevation)",
+    elevation: "2,850 m (9,350 ft)",
+    terrain: "Gentle mountain spine, seral post-fire landscape",
+    predictedSpecies: "Lodgepole Pine",
+    coverTypeId: 2,
+    confidence: 91.5,
+    fireRiskScore: 0.54,
+    fireRiskLabel: "Moderate Risk",
+    fireRiskColor: "#0284c7",
+    ecologicalReason: "Lodgepole pine forms dense uniform stands across mid-elevation Colorado plateaus. Serotinous cones open upon fire exposure to rapidly regenerate.",
+    keySoil: "Leighcan family, very stony loam",
+  },
+  ponderosa: {
+    title: "Dry Foothill Canyon (Low Elevation)",
+    elevation: "2,300 m (7,545 ft)",
+    terrain: "Steep south-facing slope, high solar exposure",
+    predictedSpecies: "Ponderosa Pine",
+    coverTypeId: 3,
+    confidence: 93.8,
+    fireRiskScore: 0.81,
+    fireRiskLabel: "High Wildfire Risk",
+    fireRiskColor: "#ef4444",
+    ecologicalReason: "Arid, sun-drenched lower elevations restrict shade trees. Ponderosa pine thrives in dry open parklands with thick fire-resistant bark.",
+    keySoil: "Ratake gravelly loam, dry rocky phase",
+  },
 };
 
 const PIPELINE_STAGES_DEF = [
@@ -205,6 +289,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("overview");
   const [apiOnline, setApiOnline] = useState<boolean | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [overviewPresetKey, setOverviewPresetKey] = useState<string>("spruce");
 
   // Pipeline Management State
   const [pipelineData, setPipelineData] = useState<any>(null);
@@ -343,33 +428,33 @@ export default function Home() {
     {
       title: "Core Platform",
       items: [
-        { id: "overview", label: "Overview", icon: "🌲" },
-        { id: "pipeline", label: "Pipeline & DAG", icon: "⚡" },
-        { id: "dataset", label: "Dataset Explorer", icon: "🗄️" },
+        { id: "overview", label: "Overview", icon: Trees },
+        { id: "pipeline", label: "Pipeline & DAG", icon: GitBranch },
+        { id: "dataset", label: "Dataset Explorer", icon: Database },
       ],
     },
     {
       title: "Data Engineering",
       items: [
-        { id: "cleaning", label: "Cleaning Demo", icon: "🧹" },
-        { id: "statistics", label: "Descriptive Stats", icon: "📊" },
+        { id: "cleaning", label: "Cleaning Demo", icon: Sparkles },
+        { id: "statistics", label: "Descriptive Stats", icon: BarChart3 },
       ],
     },
     {
       title: "ML & Topographic EDA",
       items: [
-        { id: "features_pca", label: "PCA & Features", icon: "🔬" },
-        { id: "classification", label: "Classification", icon: "🎯" },
-        { id: "clustering", label: "Clustering", icon: "🧬" },
-        { id: "regression", label: "Fires Regression", icon: "📈" },
+        { id: "features_pca", label: "PCA & Features", icon: Layers },
+        { id: "classification", label: "Classification", icon: Crosshair },
+        { id: "clustering", label: "Clustering", icon: Network },
+        { id: "regression", label: "Fires Regression", icon: TrendingUp },
       ],
     },
     {
       title: "Inference & Governance",
       items: [
-        { id: "prediction", label: "Prediction Playground", icon: "🧭" },
-        { id: "wildfire", label: "Wildfire Screening", icon: "🔥" },
-        { id: "governance", label: "Governance & Tools", icon: "⚖️" },
+        { id: "prediction", label: "Prediction Playground", icon: Compass },
+        { id: "wildfire", label: "Wildfire Screening", icon: Flame },
+        { id: "governance", label: "Governance & Tools", icon: ShieldCheck },
       ],
     },
   ];
@@ -389,10 +474,25 @@ export default function Home() {
           {/* Sidebar Header & Brand */}
           <div className="sidebar-header">
             <div className="sidebar-brand">
-              <span className="sidebar-brand-icon">🌲</span>
+              <div
+                style={{
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "10px",
+                  background: "linear-gradient(135deg, #059669, #10b981)",
+                  color: "#ffffff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 4px 12px rgba(16, 185, 129, 0.3)",
+                  flexShrink: 0,
+                }}
+              >
+                <Trees size={22} strokeWidth={2.2} />
+              </div>
               <div>
-                <div className="sidebar-brand-title">Roosevelt Analytics</div>
-                <div className="sidebar-brand-subtitle">Forest Cover & Wildfire ML</div>
+                <div className="sidebar-brand-title">Roosevelt Forest AI</div>
+                <div className="sidebar-brand-subtitle">Colorado Cover & Wildfire ML</div>
               </div>
             </div>
             <button
@@ -400,7 +500,7 @@ export default function Home() {
               onClick={() => setSidebarOpen(false)}
               aria-label="Close navigation"
             >
-              ✕
+              <X size={18} />
             </button>
           </div>
 
@@ -412,6 +512,7 @@ export default function Home() {
                 <div className="sidebar-section-items">
                   {sec.items.map((tab) => {
                     const isActive = activeTab === tab.id;
+                    const TabIcon = tab.icon;
                     return (
                       <button
                         key={tab.id}
@@ -422,7 +523,9 @@ export default function Home() {
                         }}
                         className={`sidebar-link ${isActive ? "active" : ""}`}
                       >
-                        <span className="sidebar-icon">{tab.icon}</span>
+                        <span className="sidebar-icon">
+                          <TabIcon size={17} strokeWidth={isActive ? 2.3 : 1.9} />
+                        </span>
                         <span>{tab.label}</span>
                       </button>
                     );
@@ -475,10 +578,24 @@ export default function Home() {
         {/* Mobile Sticky Topbar */}
         <header className="mobile-topbar">
           <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1.4rem" }}>🌲</span>
+            <div
+              style={{
+                width: "34px",
+                height: "34px",
+                borderRadius: "8px",
+                background: "linear-gradient(135deg, #059669, #10b981)",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <Trees size={18} strokeWidth={2.2} />
+            </div>
             <div>
               <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--text-heading)" }}>
-                Roosevelt Forest Analytics
+                Roosevelt Forest AI
               </div>
               <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", fontWeight: 600 }}>
                 {navSections.flatMap((s) => s.items).find((i) => i.id === activeTab)?.label}
@@ -490,92 +607,439 @@ export default function Home() {
             onClick={() => setSidebarOpen(true)}
             aria-label="Open navigation menu"
           >
-            ☰
+            <Menu size={20} />
           </button>
         </header>
 
         {/* Main Content View */}
         <main className="main-content fade-in">
         {/* ========================================================================= */}
-        {/* PAGE 1: PROJECT OVERVIEW */}
+        {/* PAGE 1: PROJECT OVERVIEW (EXECUTIVE ONBOARDING & MISSION CONTROL) */}
         {/* ========================================================================= */}
         {activeTab === "overview" && (
           <div>
-            <div className="glass-panel" style={{ padding: "2.5rem", marginBottom: "2rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem" }}>
-                <div>
-                  <h1 style={{ fontSize: "2.2rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                    Roosevelt National Forest Analytics System
+            {/* Executive Welcome Hero Banner */}
+            <div
+              className="glass-panel"
+              style={{
+                padding: "2.5rem 2.8rem",
+                marginBottom: "2rem",
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 244, 0.85) 100%)",
+                border: "1px solid rgba(16, 185, 129, 0.2)",
+                boxShadow: "0 10px 30px rgba(5, 150, 105, 0.05)",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-40px",
+                  right: "-40px",
+                  width: "220px",
+                  height: "220px",
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1.5rem" }}>
+                <div style={{ maxWidth: "860px" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(16, 185, 129, 0.12)", border: "1px solid rgba(16, 185, 129, 0.28)", borderRadius: "999px", padding: "0.3rem 0.85rem", fontSize: "0.78rem", fontWeight: 700, color: "#047857", marginBottom: "1rem" }}>
+                    <Sparkles size={14} style={{ color: "#059669" }} />
+                    <span>Colorado Front Range Geospatial Intelligence</span>
+                  </div>
+                  <h1 style={{ fontSize: "2.35rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.2, color: "var(--text-heading)", marginBottom: "0.85rem" }}>
+                    Roosevelt National Forest AI & Wildfire Analytics
                   </h1>
-                  <p style={{ color: "var(--text-muted)", maxWidth: "800px", fontSize: "1.05rem" }}>
-                    An integrated multi-platform system connecting <strong>Python</strong>, <strong>Supabase</strong>, 
-                    <strong>KNIME</strong>, <strong>Tableau</strong>, and a full-stack web application to predict forest tree species 
-                    distribution across 581,012 cartographic grid cells and evaluate topographic wildfire risk.
+                  <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.6, marginBottom: "1.25rem" }}>
+                    A geospatial machine learning platform analyzing <strong>581,012 cartographic survey cells</strong> (30m × 30m) 
+                    across Northern Colorado. It predicts <strong>7 native tree species</strong> with <strong>93.5% accuracy</strong>, 
+                    evaluates <strong>topographic wildfire hazards</strong>, and provides synchronized pipelines across 
+                    <strong> Python (FastAPI)</strong>, <strong>Supabase</strong>, <strong>KNIME</strong>, and <strong>Tableau</strong>.
+                  </p>
+                  <div style={{ display: "flex", gap: "0.85rem", flexWrap: "wrap" }}>
+                    <button
+                      id="btn-goto-predict"
+                      onClick={() => setActiveTab("prediction")}
+                      className="btn-primary"
+                      style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.4rem" }}
+                    >
+                      <Compass size={17} />
+                      <span>Launch Prediction Playground</span>
+                      <ArrowRight size={16} />
+                    </button>
+                    <button
+                      onClick={() => setActiveTab("pipeline")}
+                      className="btn-secondary"
+                      style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.3rem" }}
+                    >
+                      <GitBranch size={17} />
+                      <span>Explore 4-Stage Pipeline</span>
+                    </button>
+                    <button
+                      onClick={() => setActiveTab("wildfire")}
+                      className="btn-secondary"
+                      style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.3rem" }}
+                    >
+                      <Flame size={17} style={{ color: "#f59e0b" }} />
+                      <span>Wildfire Risk Screening</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    background: "rgba(255, 255, 255, 0.85)",
+                    border: "1px solid var(--border-medium)",
+                    borderRadius: "14px",
+                    padding: "1.25rem 1.5rem",
+                    minWidth: "260px",
+                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.04)",
+                  }}
+                >
+                  <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-dim)", marginBottom: "0.6rem" }}>
+                    Geographic Region
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.4rem" }}>
+                    <MapPin size={18} style={{ color: "#059669" }} />
+                    <span style={{ fontWeight: 800, fontSize: "1.05rem", color: "var(--text-heading)" }}>Northern Colorado, USA</span>
+                  </div>
+                  <div style={{ fontSize: "0.82rem", color: "var(--text-muted)", lineHeight: 1.45, marginBottom: "0.85rem" }}>
+                    Front Range Rocky Mountains, Elevation 1,859m to 3,858m across 4 Wilderness Areas.
+                  </div>
+                  <div style={{ borderTop: "1px solid var(--border-subtle)", paddingTop: "0.75rem", display: "flex", justifyContent: "space-between", fontSize: "0.78rem" }}>
+                    <span style={{ color: "var(--text-dim)" }}>Resolution:</span>
+                    <strong style={{ color: "var(--text-heading)" }}>30m × 30m Cells</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Key Metrics Grid */}
+            <div className="stats-grid">
+              <div className="glass-panel stat-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.3rem" }}>
+                  <span className="stat-label">Total Survey Cells</span>
+                  <Mountain size={18} style={{ color: "#059669" }} />
+                </div>
+                <span className="stat-value">581,012</span>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>USGS cartographic 30m plots</span>
+              </div>
+              <div className="glass-panel stat-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.3rem" }}>
+                  <span className="stat-label">Terrain & Soil Inputs</span>
+                  <Layers size={18} style={{ color: "#0284c7" }} />
+                </div>
+                <span className="stat-value">54</span>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>10 geomorphic, 4 WA, 40 soil orders</span>
+              </div>
+              <div className="glass-panel stat-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.3rem" }}>
+                  <span className="stat-label">Dominant Cover Type</span>
+                  <Trees size={18} style={{ color: "#10b981" }} />
+                </div>
+                <span className="stat-value" style={{ color: "#059669" }}>Lodgepole</span>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>48.76% of forest canopy</span>
+              </div>
+              <div className="glass-panel stat-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.3rem" }}>
+                  <span className="stat-label">Model Accuracy</span>
+                  <Crosshair size={18} style={{ color: "#6366f1" }} />
+                </div>
+                <span className="stat-value" style={{ color: "#4f46e5" }}>93.5%</span>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Random Forest (0.906 Macro F1)</span>
+              </div>
+            </div>
+
+            {/* Interactive "Try It Right Now" 1-Click Simulator Widget */}
+            <div
+              className="glass-panel"
+              style={{
+                padding: "2rem 2.2rem",
+                marginBottom: "2rem",
+                border: "1px solid rgba(16, 185, 129, 0.25)",
+                background: "#ffffff",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem", marginBottom: "1.25rem" }}>
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.35rem" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "var(--accent-mint-light)", color: "#059669", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Play size={16} />
+                    </div>
+                    <h2 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--text-heading)", margin: 0 }}>
+                      Instant Forest Cell Simulator (Colorado Field Presets)
+                    </h2>
+                  </div>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", margin: 0 }}>
+                    Test how the AI predicts tree cover and wildfire danger across distinct Colorado ecological zones with 1 click:
                   </p>
                 </div>
                 <button
-                  id="btn-goto-predict"
-                  onClick={() => setActiveTab("prediction")}
-                  className="btn-primary"
-                  style={{ alignSelf: "center" }}
+                  onClick={() => {
+                    handleApplyPreset(overviewPresetKey);
+                    setActiveTab("prediction");
+                  }}
+                  className="btn-secondary"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", fontSize: "0.85rem", padding: "0.55rem 1rem" }}
                 >
-                  Launch Predictor →
+                  <SlidersHorizontal size={15} />
+                  <span>Customize in Full Playground</span>
+                  <ChevronRight size={14} />
                 </button>
               </div>
+
+              {/* Preset Selector Tabs */}
+              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+                {[
+                  { key: "spruce", label: "Subalpine Basin (3,200m)", species: "Spruce / Fir", color: "#10b981" },
+                  { key: "lodgepole", label: "Montane Ridge (2,850m)", species: "Lodgepole Pine", color: "#3b82f6" },
+                  { key: "ponderosa", label: "Foothill Canyon (2,300m)", species: "Ponderosa Pine", color: "#f59e0b" },
+                ].map((item) => {
+                  const isSelected = overviewPresetKey === item.key;
+                  return (
+                    <button
+                      key={item.key}
+                      onClick={() => setOverviewPresetKey(item.key)}
+                      style={{
+                        padding: "0.6rem 1.1rem",
+                        borderRadius: "10px",
+                        border: isSelected ? `2px solid ${item.color}` : "1px solid var(--border-medium)",
+                        background: isSelected ? "var(--accent-mint-light)" : "#ffffff",
+                        color: isSelected ? "var(--text-heading)" : "var(--text-muted)",
+                        fontWeight: isSelected ? 700 : 500,
+                        fontSize: "0.88rem",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        transition: "all 0.2s ease",
+                        boxShadow: isSelected ? "0 2px 8px rgba(0,0,0,0.06)" : "none",
+                      }}
+                    >
+                      <span style={{ width: "9px", height: "9px", borderRadius: "50%", background: item.color, display: "inline-block" }} />
+                      <span>{item.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active Simulation Preview Display */}
+              {OVERVIEW_SIMULATION_DATA[overviewPresetKey] && (() => {
+                const sim = OVERVIEW_SIMULATION_DATA[overviewPresetKey];
+                return (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                      gap: "1.5rem",
+                      background: "rgba(244, 248, 246, 0.6)",
+                      border: "1px solid var(--border-subtle)",
+                      borderRadius: "14px",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-dim)", marginBottom: "0.4rem" }}>
+                        Simulated Survey Environment
+                      </div>
+                      <div style={{ fontSize: "1.1rem", fontWeight: 800, color: "var(--text-heading)", marginBottom: "0.5rem" }}>
+                        {sim.title}
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontSize: "0.88rem", color: "var(--text-muted)", marginBottom: "0.85rem" }}>
+                        <div><strong>Elevation:</strong> {sim.elevation}</div>
+                        <div><strong>Terrain:</strong> {sim.terrain}</div>
+                        <div><strong>Soil Profile:</strong> {sim.keySoil}</div>
+                      </div>
+                    </div>
+
+                    <div style={{ borderLeft: "1px solid var(--border-subtle)", paddingLeft: "1.5rem" }}>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-dim)", marginBottom: "0.4rem" }}>
+                        Model Classification Output
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                        <div style={{ width: "38px", height: "38px", borderRadius: "10px", background: COVER_TYPE_META[sim.coverTypeId]?.color || "#10b981", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <Trees size={20} />
+                        </div>
+                        <div>
+                          <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--text-heading)" }}>
+                            {sim.predictedSpecies}
+                          </div>
+                          <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>
+                            Cover Type #{sim.coverTypeId} • Model Confidence: <strong>{sim.confidence}%</strong>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Confidence & Wildfire Mini Bars */}
+                      <div style={{ marginBottom: "0.85rem" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", marginBottom: "0.25rem" }}>
+                          <span style={{ color: "var(--text-dim)" }}>Species Probability</span>
+                          <strong style={{ color: "#059669" }}>{sim.confidence}%</strong>
+                        </div>
+                        <div style={{ height: "6px", background: "#e2e8f0", borderRadius: "4px", overflow: "hidden" }}>
+                          <div style={{ height: "100%", width: `${sim.confidence}%`, background: "var(--gradient-emerald)" }} />
+                        </div>
+                      </div>
+
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.6rem", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                        <span style={{ fontSize: "0.82rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                          <Flame size={15} style={{ color: sim.fireRiskColor }} />
+                          Topographic Fire Danger:
+                        </span>
+                        <span
+                          className="badge"
+                          style={{
+                            background: `${sim.fireRiskColor}18`,
+                            color: sim.fireRiskColor,
+                            border: `1px solid ${sim.fireRiskColor}40`,
+                            fontWeight: 700,
+                          }}
+                        >
+                          {sim.fireRiskLabel} ({sim.fireRiskScore})
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
 
-            <div className="stats-grid">
-              <div className="glass-panel stat-card">
-                <span className="stat-label">Total Observations</span>
-                <span className="stat-value">581,012</span>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>30m × 30m spatial cells</span>
+            {/* "What Is This Platform?" 3 Core Value Pillars */}
+            <div style={{ marginBottom: "2rem" }}>
+              <div style={{ marginBottom: "1rem" }}>
+                <h2 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--text-heading)", margin: "0 0 0.35rem 0" }}>
+                  Core System Capabilities & Architecture
+                </h2>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", margin: 0 }}>
+                  Designed to solve critical natural resource challenges through verified machine learning pipelines:
+                </p>
               </div>
-              <div className="glass-panel stat-card">
-                <span className="stat-label">Input Predictors</span>
-                <span className="stat-value">54</span>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>10 terrain, 4 WA, 40 soil</span>
-              </div>
-              <div className="glass-panel stat-card">
-                <span className="stat-label">Dominant Species</span>
-                <span className="stat-value" style={{ color: "#0284c7" }}>Lodgepole</span>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>48.76% of forest cover</span>
-              </div>
-              <div className="glass-panel stat-card">
-                <span className="stat-label">Random Forest Acc</span>
-                <span className="stat-value" style={{ color: "#059669" }}>93.5%</span>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Macro F1: 0.906</span>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
+                {/* Pillar 1 */}
+                <div className="glass-panel" style={{ padding: "1.8rem" }}>
+                  <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(16, 185, 129, 0.12)", color: "#059669", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }}>
+                    <Trees size={22} />
+                  </div>
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--text-heading)", marginBottom: "0.6rem" }}>
+                    1. Native Tree Species Classification
+                  </h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", lineHeight: 1.55, marginBottom: "1rem" }}>
+                    Classifies 7 indigenous tree species across 581,012 cartographic survey cells using elevation, aspect, 
+                    slope, hydrologic drainage, and 40 geological soil families. Random Forest achieves 93.5% out-of-fold accuracy.
+                  </p>
+                  <button
+                    onClick={() => setActiveTab("classification")}
+                    style={{ background: "transparent", border: "none", color: "#059669", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.35rem", padding: 0 }}
+                  >
+                    <span>View Classification Metrics</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+
+                {/* Pillar 2 */}
+                <div className="glass-panel" style={{ padding: "1.8rem" }}>
+                  <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(245, 158, 11, 0.12)", color: "#f59e0b", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }}>
+                    <Flame size={22} />
+                  </div>
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--text-heading)", marginBottom: "0.6rem" }}>
+                    2. Topographic Wildfire Screening
+                  </h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", lineHeight: 1.55, marginBottom: "1rem" }}>
+                    Fuses slope gradient physics, solar insolation aspect angles, hydrologic distances, and historic ignition 
+                    proximity into an exploratory Wildfire Vulnerability Index to screen dangerous fire spread corridors.
+                  </p>
+                  <button
+                    onClick={() => setActiveTab("wildfire")}
+                    style={{ background: "transparent", border: "none", color: "#f59e0b", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.35rem", padding: 0 }}
+                  >
+                    <span>Open Wildfire Screening</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+
+                {/* Pillar 3 */}
+                <div className="glass-panel" style={{ padding: "1.8rem" }}>
+                  <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(2, 132, 199, 0.12)", color: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }}>
+                    <Network size={22} />
+                  </div>
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--text-heading)", marginBottom: "0.6rem" }}>
+                    3. Multi-Tool Enterprise Integration
+                  </h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", lineHeight: 1.55, marginBottom: "1rem" }}>
+                    Connects Python (FastAPI/Scikit-Learn), Supabase (PostgreSQL schema & partitions), KNIME (6 visual DAG workflows), 
+                    and Tableau (3 executive BI dashboards) with automated bidirectional round-trip parity checks.
+                  </p>
+                  <button
+                    onClick={() => setActiveTab("governance")}
+                    style={{ background: "transparent", border: "none", color: "#0284c7", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.35rem", padding: 0 }}
+                  >
+                    <span>Inspect Governance & Parity</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "1.5rem" }}>
-              <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#0284c7" }}>
-                  Integrity Guarantee
-                </h3>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
-                  The source raw dataset (<code>data/raw/covtype.csv</code>) is locked and verified with a 
-                  cryptographic SHA-256 hash. Missing-value cleaning protocols are demonstrated on an explicit 
-                  10,000-row synthetic copy without corrupting the pristine source benchmark.
-                </p>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <span className="badge badge-production">SHA-256 Verified</span>
-                  <span className="badge badge-production">Zero Leakage Split</span>
+            {/* 4-Stage Guided Pipeline Walkthrough */}
+            <div className="glass-panel" style={{ padding: "2rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1.25rem" }}>
+                <div>
+                  <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-heading)", margin: "0 0 0.25rem 0" }}>
+                    Guided 4-Stage End-to-End Analytics Workflow
+                  </h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", margin: 0 }}>
+                    How data flows through the pipeline from raw cartographic survey to executive deployment:
+                  </p>
                 </div>
+                <button
+                  onClick={() => setActiveTab("pipeline")}
+                  className="btn-secondary"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontSize: "0.82rem", padding: "0.45rem 0.9rem" }}
+                >
+                  <GitBranch size={15} />
+                  <span>View All 12 Checkpoints</span>
+                </button>
               </div>
 
-              <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#059669" }}>
-                  Multi-Tool Architecture
-                </h3>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
-                  Python handles pipelines and ML inference; Supabase manages relational schemas; 
-                  KNIME operates visual DAG experiments; Tableau powers executive visual analytics.
-                </p>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <span className="badge badge-production">Supabase Ready</span>
-                  <span className="badge badge-production">6 KNIME DAGs</span>
-                  <span className="badge badge-production">3 Tableau BI</span>
-                </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem" }}>
+                {[
+                  { step: "01", title: "Source Audit", desc: "SHA-256 fingerprint verification of 581,012 raw rows", tab: "pipeline", icon: ShieldCheck, color: "#0284c7" },
+                  { step: "02", title: "Data Cleaning", desc: "Synthetic missing-value benchmark & Parquet curation", tab: "cleaning", icon: Sparkles, color: "#10b981" },
+                  { step: "03", title: "ML & Clustering", desc: "Aspect encoding, PCA, Random Forest & K-Means", tab: "features_pca", icon: Layers, color: "#8b5cf6" },
+                  { step: "04", title: "BI & Governance", desc: "Supabase cloud, KNIME parity & Tableau dashboards", tab: "governance", icon: Network, color: "#059669" },
+                ].map((s) => {
+                  const SIcon = s.icon;
+                  return (
+                    <div
+                      key={s.step}
+                      onClick={() => setActiveTab(s.tab)}
+                      style={{
+                        padding: "1.1rem 1.25rem",
+                        borderRadius: "12px",
+                        background: "#ffffff",
+                        border: "1px solid var(--border-subtle)",
+                        cursor: "pointer",
+                        transition: "all 0.2s ease",
+                      }}
+                      className="glass-panel"
+                    >
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.6rem" }}>
+                        <span style={{ fontSize: "0.75rem", fontWeight: 800, color: s.color, letterSpacing: "0.05em" }}>STAGE {s.step}</span>
+                        <SIcon size={16} style={{ color: s.color }} />
+                      </div>
+                      <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "var(--text-heading)", marginBottom: "0.3rem" }}>
+                        {s.title}
+                      </div>
+                      <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", lineHeight: 1.4 }}>
+                        {s.desc}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -593,7 +1057,10 @@ export default function Home() {
                     <h2 style={{ fontSize: "1.8rem", fontWeight: 800 }}>
                       Managed Analytics Pipeline & DAG Orchestrator
                     </h2>
-                    <span className="badge badge-production">12 / 12 Stages Pass ✓</span>
+                    <span className="badge badge-production" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                      <CheckCircle2 size={13} />
+                      <span>12 / 12 Stages Pass</span>
+                    </span>
                   </div>
                   <p style={{ color: "var(--text-muted)", maxWidth: "850px", fontSize: "0.95rem" }}>
                     A production-managed Directed Acyclic Graph (DAG) executing Units I–V and Practicals 1–10. 
@@ -607,9 +1074,10 @@ export default function Home() {
                     onClick={handleValidatePipeline}
                     disabled={pipelineLoading}
                     className="btn-primary"
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: "0.45rem" }}
                   >
-                    {pipelineLoading ? "Auditing Checkpoints..." : "Audit All Checkpoints ⚙"}
+                    <span>{pipelineLoading ? "Auditing Checkpoints..." : "Audit All Checkpoints"}</span>
+                    <Activity size={15} />
                   </button>
                 </div>
               </div>
@@ -629,7 +1097,10 @@ export default function Home() {
                     alignItems: "center",
                   }}
                 >
-                  <span>✓ {pipelineAuditMessage}</span>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}>
+                    <CheckCircle2 size={15} />
+                    <span>{pipelineAuditMessage}</span>
+                  </span>
                   <span style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>
                     CLI: <code>python scripts/run_all_pipelines.py --validate</code>
                   </span>
@@ -829,8 +1300,9 @@ export default function Home() {
                         ))}
                       </td>
                       <td style={{ padding: "0.6rem" }}>
-                        <span className="badge badge-production" style={{ fontSize: "0.75rem" }}>
-                          PASS ✓
+                        <span className="badge badge-production" style={{ fontSize: "0.75rem", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                          <CheckCircle2 size={12} />
+                          <span>PASS</span>
                         </span>
                       </td>
                     </tr>
@@ -931,8 +1403,9 @@ export default function Home() {
                     restored via median imputation without altering the raw dataset.
                   </p>
                 </div>
-                <span className="badge badge-production" style={{ fontSize: "0.9rem", padding: "0.5rem 1rem" }}>
-                  All 4 Validation Checks Passed ✓
+                <span className="badge badge-production" style={{ fontSize: "0.85rem", padding: "0.45rem 0.95rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+                  <CheckCircle2 size={15} />
+                  <span>All 4 Validation Checks Passed</span>
                 </span>
               </div>
             </div>
@@ -1361,7 +1834,10 @@ export default function Home() {
                       boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
                     }}
                   >
-                    🌿 {p.name.split(" ")[1]}
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                      <Trees size={13} />
+                      <span>{p.name.split(" ")[1]}</span>
+                    </span>
                   </button>
                 ))}
               </div>
@@ -1518,9 +1994,16 @@ export default function Home() {
                     )}
                   </div>
                 ) : (
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "300px", color: "var(--text-dim)" }}>
-                    <span style={{ fontSize: "3rem", marginBottom: "1rem" }}>🧭</span>
-                    <p>Adjust parameters and click &quot;Run Prediction&quot; to test the model.</p>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "300px", color: "var(--text-dim)", textAlign: "center" }}>
+                    <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "var(--accent-mint-light)", color: "#059669", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }}>
+                      <Compass size={28} />
+                    </div>
+                    <div style={{ fontWeight: 700, fontSize: "1rem", color: "var(--text-heading)", marginBottom: "0.3rem" }}>
+                      Simulation Model Ready
+                    </div>
+                    <p style={{ fontSize: "0.88rem", maxWidth: "340px", margin: 0 }}>
+                      Adjust topographic controls and click &quot;Run Prediction&quot; to test the multi-class classifier.
+                    </p>
                   </div>
                 )}
               </div>
@@ -1676,7 +2159,10 @@ export default function Home() {
                       <td style={{ padding: "0.6rem", fontWeight: 600 }}>{row.topic}</td>
                       <td style={{ padding: "0.6rem" }}>{row.tool}</td>
                       <td style={{ padding: "0.6rem" }}>
-                        <span className="badge badge-production" style={{ fontSize: "0.75rem" }}>{row.status} ✓</span>
+                        <span className="badge badge-production" style={{ fontSize: "0.75rem", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                          <CheckCircle2 size={12} />
+                          <span>{row.status}</span>
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -1690,7 +2176,10 @@ export default function Home() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#059669" }}>
                   Bidirectional Round-Trip Integration Verification (Python ↔ KNIME ↔ Tableau)
                 </h3>
-                <span className="badge badge-production">Round-Trip Verified ✓</span>
+                <span className="badge badge-production" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                  <CheckCircle2 size={13} />
+                  <span>Round-Trip Verified</span>
+                </span>
               </div>
               <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.5rem" }}>
                 Confirms that Python feeds input datasets to KNIME and Tableau, and KNIME visual workflow outputs 
@@ -1702,12 +2191,12 @@ export default function Home() {
                   <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#0284c7", marginBottom: "0.5rem" }}>
                     1. Python → KNIME Payload Channel
                   </div>
-                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                    <div>• <code>covertype_curated.csv</code>: 50,000 rows × 55 cols (0 nulls) ✓</div>
-                    <div>• <code>class_distribution.csv</code>: 7 classes verified ✓</div>
-                    <div>• <code>feature_selection_results.csv</code>: 47 features ranked ✓</div>
-                    <div>• <code>clustering_results.csv</code>: 30,000 terrain records ✓</div>
-                    <div>• <code>forest_fires_regression_results.csv</code>: 517 fire observations ✓</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#0284c7" }} /> <code>covertype_curated.csv</code>: 50,000 rows × 55 cols</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#0284c7" }} /> <code>class_distribution.csv</code>: 7 classes verified</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#0284c7" }} /> <code>feature_selection_results.csv</code>: 47 features ranked</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#0284c7" }} /> <code>clustering_results.csv</code>: 30,000 terrain records</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#0284c7" }} /> <code>forest_fires_regression_results.csv</code>: 517 fire observations</div>
                   </div>
                 </div>
 
@@ -1715,12 +2204,12 @@ export default function Home() {
                   <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#059669", marginBottom: "0.5rem" }}>
                     2. KNIME → Python Ingestion Channel
                   </div>
-                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                    <div>• <code>knime_classification_metrics.csv</code>: Evaluated & ingested ✓</div>
-                    <div>• <code>knime_synthetic_imputation_audit.csv</code>: 800 cells verified ✓</div>
-                    <div>• <code>knime_pca_variance.csv</code>: 8 PCs (96.9% variance) ingested ✓</div>
-                    <div>• <code>knime_cluster_centroids.csv</code>: 4 terrain centroids mapped ✓</div>
-                    <div>• <code>knime_regression_metrics.csv</code>: Log1p burned area metrics ✓</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#059669" }} /> <code>knime_classification_metrics.csv</code>: Evaluated & ingested</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#059669" }} /> <code>knime_synthetic_imputation_audit.csv</code>: 800 cells verified</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#059669" }} /> <code>knime_pca_variance.csv</code>: 8 PCs (96.9% variance)</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#059669" }} /> <code>knime_cluster_centroids.csv</code>: 4 terrain centroids mapped</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}><CheckCircle2 size={13} style={{ color: "#059669" }} /> <code>knime_regression_metrics.csv</code>: Log1p burned area metrics</div>
                   </div>
                 </div>
               </div>
@@ -1740,11 +2229,11 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {[
-                    { bench: "Random Forest Test Accuracy", py: "93.5%", km: "92.8%", delta: "0.7%", tol: "≤ 2.0%", status: "ALIGNED ✓" },
-                    { bench: "Decision Tree Test Accuracy", py: "86.6%", km: "86.1%", delta: "0.5%", tol: "≤ 2.0%", status: "ALIGNED ✓" },
-                    { bench: "Synthetic Median Imputed Cells", py: "800 cells", km: "800 cells", delta: "0 cells", tol: "Exact (0)", status: "EXACT MATCH ✓" },
-                    { bench: "PCA 8-Component Cumulative Variance", py: "96.90%", km: "96.90%", delta: "0.00%", tol: "≤ 0.5%", status: "EXACT MATCH ✓" },
-                    { bench: "Tableau 3 Executive Dashboards", py: "Curated CSVs", km: "N/A", delta: "0", tol: "XML valid", status: "COMPILED ✓" },
+                    { bench: "Random Forest Test Accuracy", py: "93.5%", km: "92.8%", delta: "0.7%", tol: "≤ 2.0%", status: "ALIGNED" },
+                    { bench: "Decision Tree Test Accuracy", py: "86.6%", km: "86.1%", delta: "0.5%", tol: "≤ 2.0%", status: "ALIGNED" },
+                    { bench: "Synthetic Median Imputed Cells", py: "800 cells", km: "800 cells", delta: "0 cells", tol: "Exact (0)", status: "EXACT MATCH" },
+                    { bench: "PCA 8-Component Cumulative Variance", py: "96.90%", km: "96.90%", delta: "0.00%", tol: "≤ 0.5%", status: "EXACT MATCH" },
+                    { bench: "Tableau 3 Executive Dashboards", py: "Curated CSVs", km: "N/A", delta: "0", tol: "XML valid", status: "COMPILED" },
                   ].map((row) => (
                     <tr key={row.bench} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
                       <td style={{ padding: "0.5rem", fontWeight: 600 }}>{row.bench}</td>
@@ -1752,7 +2241,10 @@ export default function Home() {
                       <td style={{ padding: "0.5rem", color: "#059669", fontWeight: 600 }}>{row.km}</td>
                       <td style={{ padding: "0.5rem", fontFamily: "monospace" }}>{row.delta}</td>
                       <td style={{ padding: "0.5rem" }}>
-                        <span className="badge badge-production" style={{ fontSize: "0.75rem" }}>{row.status}</span>
+                        <span className="badge badge-production" style={{ fontSize: "0.75rem", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                          <CheckCircle2 size={12} />
+                          <span>{row.status}</span>
+                        </span>
                       </td>
                     </tr>
                   ))}
