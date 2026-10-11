@@ -122,6 +122,18 @@ class PredictionResponse(BaseModel):
 # API Routes
 # ---------------------------------------------------------------------------
 
+@app.get("/", tags=["System"])
+def root():
+    """Root endpoint welcoming users and pointing to docs."""
+    return {
+        "service": "Forest Cover Type & Wildfire Analytics API",
+        "status": "ONLINE",
+        "documentation": "/docs",
+        "health": "/health",
+        "version": "1.0.0",
+    }
+
+
 @app.get("/health", tags=["System"])
 def health():
     """Health check endpoint checking service and Supabase / database status."""
