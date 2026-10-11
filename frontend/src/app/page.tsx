@@ -385,12 +385,26 @@ export default function Home() {
           <span
             className="badge"
             style={{
-              background: apiOnline ? "rgba(16, 185, 129, 0.15)" : "rgba(245, 158, 11, 0.15)",
-              color: apiOnline ? "#34d399" : "#fbbf24",
-              border: `1px solid ${apiOnline ? "rgba(16, 185, 129, 0.3)" : "rgba(245, 158, 11, 0.3)"}`,
+              background: apiOnline ? "var(--accent-mint-light)" : "#fef3c7",
+              color: apiOnline ? "#059669" : "#b45309",
+              border: `1px solid ${apiOnline ? "var(--accent-mint-border)" : "#fde68a"}`,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.45rem",
+              fontWeight: 600,
             }}
           >
-            ● {apiOnline ? "FastAPI Online" : "Standalone Local"}
+            <span
+              className="pulse-dot"
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                background: apiOnline ? "#10b981" : "#f59e0b",
+                display: "inline-block",
+              }}
+            />
+            {apiOnline ? "FastAPI Online" : "Standalone Local"}
           </span>
         </div>
       </nav>
@@ -438,19 +452,19 @@ export default function Home() {
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Dominant Species</span>
-                <span className="stat-value" style={{ color: "#3b82f6" }}>Lodgepole</span>
+                <span className="stat-value" style={{ color: "#0284c7" }}>Lodgepole</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>48.76% of forest cover</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Random Forest Acc</span>
-                <span className="stat-value" style={{ color: "#10b981" }}>93.5%</span>
+                <span className="stat-value" style={{ color: "#059669" }}>93.5%</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Macro F1: 0.906</span>
               </div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "1.5rem" }}>
               <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#60a5fa" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#0284c7" }}>
                   Integrity Guarantee
                 </h3>
                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
@@ -465,7 +479,7 @@ export default function Home() {
               </div>
 
               <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#34d399" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem", color: "#059669" }}>
                   Multi-Tool Architecture
                 </h3>
                 <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
@@ -508,7 +522,7 @@ export default function Home() {
                     onClick={handleValidatePipeline}
                     disabled={pipelineLoading}
                     className="btn-primary"
-                    style={{ background: "#2563eb", whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap" }}
                   >
                     {pipelineLoading ? "Auditing Checkpoints..." : "Audit All Checkpoints ⚙"}
                   </button>
@@ -520,10 +534,10 @@ export default function Home() {
                   style={{
                     marginTop: "1.2rem",
                     padding: "0.75rem 1rem",
-                    background: "rgba(16, 185, 129, 0.15)",
-                    border: "1px solid rgba(16, 185, 129, 0.3)",
+                    background: "var(--accent-mint-light)",
+                    border: "1px solid var(--accent-mint-border)",
                     borderRadius: "8px",
-                    color: "#34d399",
+                    color: "#059669",
                     fontSize: "0.9rem",
                     display: "flex",
                     justifyContent: "space-between",
@@ -543,28 +557,28 @@ export default function Home() {
               <div className="glass-panel stat-card">
                 <span className="stat-label">DAG Stages</span>
                 <span className="stat-value">12 / 12</span>
-                <span style={{ fontSize: "0.8rem", color: "#34d399" }}>100% Artifacts Validated</span>
+                <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 600 }}>100% Artifacts Validated</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Syllabus Coverage</span>
                 <span className="stat-value">Units I – V</span>
-                <span style={{ fontSize: "0.8rem", color: "#60a5fa" }}>Full academic curriculum</span>
+                <span style={{ fontSize: "0.8rem", color: "#0284c7", fontWeight: 600 }}>Full academic curriculum</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Practical Coverage</span>
                 <span className="stat-value">Practicals 1 – 10</span>
-                <span style={{ fontSize: "0.8rem", color: "#a78bfa" }}>End-to-end staged mapping</span>
+                <span style={{ fontSize: "0.8rem", color: "#7c3aed", fontWeight: 600 }}>End-to-end staged mapping</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Round-Trip Delta</span>
                 <span className="stat-value">≤ 0.70%</span>
-                <span style={{ fontSize: "0.8rem", color: "#34d399" }}>Strict parity (tol: ≤ 2.0%)</span>
+                <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 600 }}>Strict parity (tol: ≤ 2.0%)</span>
               </div>
             </div>
 
             {/* Interactive Visual DAG Hierarchy */}
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
-              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#60a5fa" }}>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--text-evergreen)" }}>
                 DAG Execution Lineage & Dependency Flow
               </h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.5rem" }}>
@@ -578,16 +592,16 @@ export default function Home() {
                   <div
                     style={{
                       padding: "1rem 1.5rem",
-                      background: "rgba(30, 41, 59, 0.8)",
-                      border: "1px solid #3b82f6",
-                      borderRadius: "10px",
+                      background: "#ffffff",
+                      border: "1px solid rgba(2, 132, 199, 0.35)",
+                      borderRadius: "12px",
                       minWidth: "320px",
                       textAlign: "center",
-                      boxShadow: "0 4px 15px rgba(59, 130, 246, 0.15)",
+                      boxShadow: "0 4px 16px rgba(2, 132, 199, 0.08)",
                     }}
                   >
-                    <div style={{ fontSize: "0.75rem", color: "#60a5fa", fontWeight: 700 }}>ROOT STAGE [01]</div>
-                    <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0" }}>Source Dataset Audit & SHA-256</div>
+                    <div style={{ fontSize: "0.75rem", color: "#0284c7", fontWeight: 700 }}>ROOT STAGE [01]</div>
+                    <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Source Dataset Audit & SHA-256</div>
                     <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practical 1 (Unit I) • <code>01_audit_source.py</code></div>
                     <div style={{ marginTop: "0.5rem" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>[PASS] covtype.csv Validated</span>
@@ -595,23 +609,23 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div style={{ textAlign: "center", color: "var(--text-dim)", fontSize: "1.2rem" }}>↓</div>
+                <div style={{ textAlign: "center", color: "var(--accent-emerald)", fontSize: "1.3rem", fontWeight: 700 }}>↓</div>
 
                 {/* Level 2: Curated Cleaning */}
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div
                     style={{
                       padding: "1rem 1.5rem",
-                      background: "rgba(30, 41, 59, 0.8)",
-                      border: "1px solid #10b981",
-                      borderRadius: "10px",
+                      background: "#ffffff",
+                      border: "1px solid rgba(16, 185, 129, 0.38)",
+                      borderRadius: "12px",
                       minWidth: "360px",
                       textAlign: "center",
-                      boxShadow: "0 4px 15px rgba(16, 185, 129, 0.15)",
+                      boxShadow: "0 4px 16px rgba(16, 185, 129, 0.10)",
                     }}
                   >
-                    <div style={{ fontSize: "0.75rem", color: "#34d399", fontWeight: 700 }}>TRANSFORMATION CORE [02]</div>
-                    <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0" }}>Curated Cleaning & Parquet Transformation</div>
+                    <div style={{ fontSize: "0.75rem", color: "#059669", fontWeight: 700 }}>TRANSFORMATION CORE [02]</div>
+                    <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Curated Cleaning & Parquet Transformation</div>
                     <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practicals 2 & 4 (Units I & II) • <code>02_run_cleaning.py</code></div>
                     <div style={{ marginTop: "0.5rem" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>[PASS] covtype_clean.parquet (0 nulls)</span>
@@ -619,57 +633,63 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div style={{ textAlign: "center", color: "var(--text-dim)", fontSize: "1.2rem" }}>↓ (Branches to 9 Parallel Analytics Streams)</div>
+                <div style={{ textAlign: "center", color: "var(--text-dim)", fontSize: "0.95rem", fontWeight: 600 }}>
+                  ↓ (Branches to 9 Parallel Analytics Streams)
+                </div>
 
                 {/* Level 3: Parallel Analytical Branches */}
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
                   {[
-                    { id: "03", name: "Synthetic 800-Cell Missing Demo", prac: "Practical 2", unit: "Unit I", out: "synthetic_demo_audit.json", color: "#f59e0b" },
-                    { id: "04", name: "Five-Number Summary & Stats", prac: "Practical 3", unit: "Unit II", out: "five_number_summary.csv", color: "#3b82f6" },
-                    { id: "05", name: "Preprocessing, Smooth & Discretize", prac: "Practical 10", unit: "Unit IV", out: "preprocessing_comparison.csv", color: "#8b5cf6" },
-                    { id: "06", name: "PCA Dimensionality Reduction", prac: "Practical 6", unit: "Unit IV", out: "pca_report.json (96.9% var)", color: "#06b6d4" },
-                    { id: "07", name: "Supervised Model Training", prac: "Practical 7", unit: "Unit IV", out: "random_forest.joblib (93.5% acc)", color: "#10b981" },
-                    { id: "08", name: "K-Means Terrain Clustering", prac: "Practical 8", unit: "Unit IV", out: "cluster_profiles.csv (k=4)", color: "#ec4899" },
-                    { id: "09", name: "UCI Forest Fires Regression", prac: "Practical 9", unit: "Unit IV", out: "forest_fires_regression.json", color: "#f97316" },
-                    { id: "10", name: "18 Publication Figures", prac: "Practical 5", unit: "Units III & V", out: "treemap, radial, heatmaps", color: "#a855f7" },
-                    { id: "11", name: "Multi-Tool Export Generator", prac: "Practical 4, 6, 10", unit: "Unit V", out: "10 KNIME + 8 Tableau CSVs", color: "#3b82f6" },
+                    { id: "03", name: "Synthetic 800-Cell Missing Demo", prac: "Practical 2", unit: "Unit I", out: "synthetic_demo_audit.json", color: "#d97706" },
+                    { id: "04", name: "Five-Number Summary & Stats", prac: "Practical 3", unit: "Unit II", out: "five_number_summary.csv", color: "#0284c7" },
+                    { id: "05", name: "Preprocessing, Smooth & Discretize", prac: "Practical 10", unit: "Unit IV", out: "preprocessing_comparison.csv", color: "#7c3aed" },
+                    { id: "06", name: "PCA Dimensionality Reduction", prac: "Practical 6", unit: "Unit IV", out: "pca_report.json (96.9% var)", color: "#0891b2" },
+                    { id: "07", name: "Supervised Model Training", prac: "Practical 7", unit: "Unit IV", out: "random_forest.joblib (93.5% acc)", color: "#059669" },
+                    { id: "08", name: "K-Means Terrain Clustering", prac: "Practical 8", unit: "Unit IV", out: "cluster_profiles.csv (k=4)", color: "#db2777" },
+                    { id: "09", name: "UCI Forest Fires Regression", prac: "Practical 9", unit: "Unit IV", out: "forest_fires_regression.json", color: "#ea580c" },
+                    { id: "10", name: "18 Publication Figures", prac: "Practical 5", unit: "Units III & V", out: "treemap, radial, heatmaps", color: "#9333ea" },
+                    { id: "11", name: "Multi-Tool Export Generator", prac: "Practical 4, 6, 10", unit: "Unit V", out: "10 KNIME + 8 Tableau CSVs", color: "#0284c7" },
                   ].map((b) => (
                     <div
                       key={b.id}
                       style={{
-                        padding: "0.85rem 1rem",
-                        background: "rgba(15, 23, 42, 0.6)",
-                        border: `1px solid ${b.color}40`,
-                        borderRadius: "8px",
+                        padding: "0.95rem 1.1rem",
+                        background: "#ffffff",
+                        border: `1px solid ${b.color}35`,
+                        borderRadius: "10px",
+                        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.03)",
+                        transition: "all 0.2s ease",
                       }}
                     >
                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", color: b.color, fontWeight: 700 }}>
                         <span>STAGE [{b.id}]</span>
                         <span>{b.prac}</span>
                       </div>
-                      <div style={{ fontWeight: 600, fontSize: "0.9rem", margin: "0.3rem 0" }}>{b.name}</div>
-                      <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{b.unit} • Output: <code>{b.out}</code></div>
+                      <div style={{ fontWeight: 700, fontSize: "0.92rem", margin: "0.35rem 0", color: "var(--text-main)" }}>{b.name}</div>
+                      <div style={{ fontSize: "0.76rem", color: "var(--text-muted)" }}>{b.unit} • Output: <code>{b.out}</code></div>
                     </div>
                   ))}
                 </div>
 
-                <div style={{ textAlign: "center", color: "var(--text-dim)", fontSize: "1.2rem" }}>↓ (Convergence from Stages 07 & 11)</div>
+                <div style={{ textAlign: "center", color: "var(--text-dim)", fontSize: "0.95rem", fontWeight: 600 }}>
+                  ↓ (Convergence from Stages 07 & 11)
+                </div>
 
                 {/* Level 4: Convergence */}
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div
                     style={{
                       padding: "1rem 1.5rem",
-                      background: "rgba(30, 41, 59, 0.9)",
-                      border: "1px solid #a855f7",
-                      borderRadius: "10px",
+                      background: "#ffffff",
+                      border: "1px solid rgba(147, 51, 234, 0.35)",
+                      borderRadius: "12px",
                       minWidth: "400px",
                       textAlign: "center",
-                      boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
+                      boxShadow: "0 4px 16px rgba(147, 51, 234, 0.08)",
                     }}
                   >
-                    <div style={{ fontSize: "0.75rem", color: "#c084fc", fontWeight: 700 }}>CONVERGENCE & AUDIT [12]</div>
-                    <div style={{ fontWeight: 700, fontSize: "1.05rem", margin: "0.3rem 0" }}>Bidirectional Round-Trip Integration Parity Audit</div>
+                    <div style={{ fontSize: "0.75rem", color: "#9333ea", fontWeight: 700 }}>CONVERGENCE & AUDIT [12]</div>
+                    <div style={{ fontWeight: 700, fontSize: "1.05rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Bidirectional Round-Trip Integration Parity Audit</div>
                     <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practicals 1–10 (Units I–V) • <code>13_sync_knime_tableau_results.py</code></div>
                     <div style={{ marginTop: "0.5rem", display: "flex", gap: "0.5rem", justifyContent: "center" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>KNIME Parity Ingested</span>
@@ -706,8 +726,8 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {PIPELINE_STAGES_DEF.map((stage) => (
-                    <tr key={stage.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <td style={{ padding: "0.6rem", fontFamily: "monospace", color: "#60a5fa", fontWeight: 600 }}>
+                    <tr key={stage.id} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                      <td style={{ padding: "0.6rem", fontFamily: "monospace", color: "#0284c7", fontWeight: 700 }}>
                         {stage.id}
                       </td>
                       <td style={{ padding: "0.6rem", fontWeight: 600 }}>{stage.name}</td>
@@ -757,10 +777,11 @@ export default function Home() {
                   width: "100%",
                   maxWidth: "500px",
                   padding: "0.75rem 1rem",
-                  background: "rgba(15, 23, 42, 0.8)",
+                  background: "#ffffff",
                   border: "1px solid var(--border-subtle)",
-                  borderRadius: "8px",
-                  color: "#fff",
+                  borderRadius: "10px",
+                  color: "var(--text-main)",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.03)",
                 }}
               />
             </div>
@@ -794,8 +815,8 @@ export default function Home() {
                   ]
                     .filter((f) => f.col.toLowerCase().includes(featureSearch.toLowerCase()) || f.desc.toLowerCase().includes(featureSearch.toLowerCase()))
                     .map((row) => (
-                      <tr key={row.col} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                        <td style={{ padding: "0.75rem", fontWeight: 600, color: "#60a5fa" }}>{row.col}</td>
+                      <tr key={row.col} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                        <td style={{ padding: "0.75rem", fontWeight: 700, color: "#0284c7" }}>{row.col}</td>
                         <td style={{ padding: "0.75rem" }}>{row.type}</td>
                         <td style={{ padding: "0.75rem", fontFamily: "monospace" }}>{row.domain}</td>
                         <td style={{ padding: "0.75rem" }}>{row.unit}</td>
@@ -834,12 +855,12 @@ export default function Home() {
             <div className="stats-grid">
               <div className="glass-panel stat-card">
                 <span className="stat-label">Injected Null Cells</span>
-                <span className="stat-value" style={{ color: "#ef4444" }}>800</span>
+                <span className="stat-value" style={{ color: "#dc2626" }}>800</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Exactly 800 continuous cells</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Imputed Null Cells</span>
-                <span className="stat-value" style={{ color: "#10b981" }}>800</span>
+                <span className="stat-value" style={{ color: "#059669" }}>800</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Column median imputation</span>
               </div>
               <div className="glass-panel stat-card">
@@ -871,11 +892,11 @@ export default function Home() {
                   { feature: "Hillshade 3pm", nulls: 85, median: "142" },
                   { feature: "Horiz. Dist. Fire Points", nulls: 107, median: "1,708 m" },
                 ].map((item) => (
-                  <div key={item.feature} style={{ padding: "1rem", background: "rgba(15, 23, 42, 0.6)", borderRadius: "8px", border: "1px solid var(--border-subtle)" }}>
-                    <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "#93c5fd" }}>{item.feature}</div>
+                  <div key={item.feature} style={{ padding: "1rem", background: "#ffffff", borderRadius: "10px", border: "1px solid var(--border-subtle)", boxShadow: "0 2px 6px rgba(0, 0, 0, 0.03)" }}>
+                    <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--text-evergreen)" }}>{item.feature}</div>
                     <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.5rem", fontSize: "0.85rem" }}>
-                      <span style={{ color: "var(--text-muted)" }}>Injected: <strong style={{ color: "#f87171" }}>{item.nulls}</strong></span>
-                      <span style={{ color: "var(--text-muted)" }}>Median: <strong style={{ color: "#34d399" }}>{item.median}</strong></span>
+                      <span style={{ color: "var(--text-muted)" }}>Injected: <strong style={{ color: "#dc2626" }}>{item.nulls}</strong></span>
+                      <span style={{ color: "var(--text-muted)" }}>Median: <strong style={{ color: "#059669" }}>{item.median}</strong></span>
                     </div>
                   </div>
                 ))}
@@ -926,16 +947,16 @@ export default function Home() {
                     { feat: "Hillshade 3pm", mean: "142.53", std: "38.27", min: "0", q1: "119", med: "143", q3: "168", max: "254", skew: "-0.052" },
                     { feat: "Horiz. Dist. Fire Points", mean: "1980.29", std: "1324.19", min: "0", q1: "1024", med: "1710", q3: "2550", max: "7173", skew: "1.289" },
                   ].map((r) => (
-                    <tr key={r.feat} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <td style={{ padding: "0.75rem", fontWeight: 600, color: "#60a5fa" }}>{r.feat}</td>
+                    <tr key={r.feat} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                      <td style={{ padding: "0.75rem", fontWeight: 700, color: "#0284c7" }}>{r.feat}</td>
                       <td style={{ padding: "0.75rem" }}>{r.mean}</td>
                       <td style={{ padding: "0.75rem" }}>{r.std}</td>
                       <td style={{ padding: "0.75rem" }}>{r.min}</td>
                       <td style={{ padding: "0.75rem" }}>{r.q1}</td>
-                      <td style={{ padding: "0.75rem", fontWeight: 700, color: "#34d399" }}>{r.med}</td>
+                      <td style={{ padding: "0.75rem", fontWeight: 700, color: "#059669" }}>{r.med}</td>
                       <td style={{ padding: "0.75rem" }}>{r.q3}</td>
                       <td style={{ padding: "0.75rem" }}>{r.max}</td>
-                      <td style={{ padding: "0.75rem", color: parseFloat(r.skew) > 1 ? "#fbbf24" : "inherit" }}>{r.skew}</td>
+                      <td style={{ padding: "0.75rem", color: parseFloat(r.skew) > 1 ? "#d97706" : "inherit" }}>{r.skew}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -978,10 +999,10 @@ export default function Home() {
                     <div key={item.pc}>
                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", marginBottom: "0.25rem" }}>
                         <span style={{ fontWeight: 600 }}>{item.pc} (adds {item.ratio}%)</span>
-                        <span style={{ color: "#34d399" }}>{item.cum}% Cumulative</span>
+                        <span style={{ color: "#059669", fontWeight: 700 }}>{item.cum}% Cumulative</span>
                       </div>
-                      <div style={{ height: "8px", background: "rgba(255,255,255,0.1)", borderRadius: "4px", overflow: "hidden" }}>
-                        <div style={{ height: "100%", width: `${item.cum}%`, background: "linear-gradient(90deg, #3b82f6, #10b981)" }} />
+                      <div style={{ height: "8px", background: "rgba(16, 185, 129, 0.12)", borderRadius: "4px", overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: `${item.cum}%`, background: "var(--gradient-emerald)" }} />
                       </div>
                     </div>
                   ))}
@@ -1010,11 +1031,11 @@ export default function Home() {
                       { rank: 5, name: "Wilderness_Area1", type: "Binary", sig: "Rawah Wilderness" },
                       { rank: 6, name: "Horizontal_Distance_To_Fire_Points", type: "Continuous", sig: "Historic fire proximity" },
                     ].map((row) => (
-                      <tr key={row.rank} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                        <td style={{ padding: "0.5rem", fontWeight: 700, color: "#f59e0b" }}>#{row.rank}</td>
+                      <tr key={row.rank} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                        <td style={{ padding: "0.5rem", fontWeight: 700, color: "#d97706" }}>#{row.rank}</td>
                         <td style={{ padding: "0.5rem", fontWeight: 600 }}>{row.name}</td>
                         <td style={{ padding: "0.5rem", color: "var(--text-muted)" }}>{row.type}</td>
-                        <td style={{ padding: "0.5rem", color: "#34d399" }}>{row.sig}</td>
+                        <td style={{ padding: "0.5rem", color: "#059669", fontWeight: 600 }}>{row.sig}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1042,17 +1063,17 @@ export default function Home() {
             <div className="stats-grid">
               <div className="glass-panel stat-card">
                 <span className="stat-label">Random Forest Accuracy</span>
-                <span className="stat-value" style={{ color: "#10b981" }}>93.5%</span>
+                <span className="stat-value" style={{ color: "#059669" }}>93.5%</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Macro F1: 0.906</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">K-Nearest Neighbors</span>
-                <span className="stat-value" style={{ color: "#3b82f6" }}>93.1%</span>
+                <span className="stat-value" style={{ color: "#0284c7" }}>93.1%</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Macro F1: 0.898</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Decision Tree</span>
-                <span className="stat-value" style={{ color: "#f59e0b" }}>86.6%</span>
+                <span className="stat-value" style={{ color: "#d97706" }}>86.6%</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Macro F1: 0.803</span>
               </div>
               <div className="glass-panel stat-card">
@@ -1078,24 +1099,24 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(16, 185, 129, 0.05)" }}>
-                    <td style={{ padding: "0.75rem", fontWeight: 700, color: "#10b981" }}>Random Forest (100 Trees)</td>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)", background: "var(--accent-mint-light)" }}>
+                    <td style={{ padding: "0.75rem", fontWeight: 700, color: "#059669" }}>Random Forest (100 Trees)</td>
                     <td style={{ padding: "0.75rem", fontWeight: 700 }}>93.5%</td>
                     <td style={{ padding: "0.75rem" }}>0.906</td>
                     <td style={{ padding: "0.75rem" }}>0.935</td>
                     <td style={{ padding: "0.75rem" }}>93.2% ± 0.04%</td>
                     <td style={{ padding: "0.75rem", fontFamily: "monospace" }}>models/random_forest.joblib</td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                    <td style={{ padding: "0.75rem", fontWeight: 600, color: "#3b82f6" }}>K-Nearest Neighbors (k=5, Distance)</td>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                    <td style={{ padding: "0.75rem", fontWeight: 600, color: "#0284c7" }}>K-Nearest Neighbors (k=5, Distance)</td>
                     <td style={{ padding: "0.75rem", fontWeight: 700 }}>93.1%</td>
                     <td style={{ padding: "0.75rem" }}>0.898</td>
                     <td style={{ padding: "0.75rem" }}>0.930</td>
                     <td style={{ padding: "0.75rem" }}>92.8% ± 0.06%</td>
                     <td style={{ padding: "0.75rem", fontFamily: "monospace" }}>models/knn.joblib</td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                    <td style={{ padding: "0.75rem", fontWeight: 600, color: "#f59e0b" }}>Decision Tree (Gini, Pruned)</td>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                    <td style={{ padding: "0.75rem", fontWeight: 600, color: "#d97706" }}>Decision Tree (Gini, Pruned)</td>
                     <td style={{ padding: "0.75rem", fontWeight: 700 }}>86.6%</td>
                     <td style={{ padding: "0.75rem" }}>0.803</td>
                     <td style={{ padding: "0.75rem" }}>0.865</td>
@@ -1129,9 +1150,9 @@ export default function Home() {
                 { id: "Cluster 2", label: "Lower Montane", elev: "2,460m", slope: "16°", water: "190m", cover: "Ponderosa Pine" },
                 { id: "Cluster 3", label: "Riparian Valleys", elev: "2,120m", slope: "8°", water: "85m", cover: "Cottonwood / Willow" },
               ].map((c) => (
-                <div key={c.id} className="glass-panel" style={{ padding: "1.5rem", borderTop: "4px solid #3b82f6" }}>
-                  <div style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.25rem" }}>{c.id}: {c.label}</div>
-                  <div style={{ color: "#34d399", fontSize: "0.9rem", fontWeight: 600, marginBottom: "0.75rem" }}>Dominant: {c.cover}</div>
+                <div key={c.id} className="glass-panel" style={{ padding: "1.5rem", borderTop: "4px solid var(--accent-emerald)" }}>
+                  <div style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.25rem", color: "var(--text-main)" }}>{c.id}: {c.label}</div>
+                  <div style={{ color: "#059669", fontSize: "0.9rem", fontWeight: 700, marginBottom: "0.75rem" }}>Dominant: {c.cover}</div>
                   <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
                     <div>Mean Elevation: <strong>{c.elev}</strong></div>
                     <div>Mean Slope: <strong>{c.slope}</strong></div>
@@ -1161,7 +1182,7 @@ export default function Home() {
             <div className="stats-grid">
               <div className="glass-panel stat-card">
                 <span className="stat-label">Best Model</span>
-                <span className="stat-value" style={{ color: "#10b981" }}>Ridge Reg.</span>
+                <span className="stat-value" style={{ color: "#059669" }}>Ridge Reg.</span>
                 <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>Regularized linear model</span>
               </div>
               <div className="glass-panel stat-card">
@@ -1196,21 +1217,21 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(16, 185, 129, 0.05)" }}>
-                    <td style={{ padding: "0.75rem", fontWeight: 700, color: "#10b981" }}>Ridge Regression</td>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)", background: "var(--accent-mint-light)" }}>
+                    <td style={{ padding: "0.75rem", fontWeight: 700, color: "#059669" }}>Ridge Regression</td>
                     <td style={{ padding: "0.75rem" }}>1.199</td>
                     <td style={{ padding: "0.75rem" }}>1.485</td>
                     <td style={{ padding: "0.75rem" }}>19.82 ha</td>
                     <td style={{ padding: "0.75rem" }}>109.90 ha</td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
                     <td style={{ padding: "0.75rem", fontWeight: 600 }}>Linear Regression</td>
                     <td style={{ padding: "0.75rem" }}>1.199</td>
                     <td style={{ padding: "0.75rem" }}>1.485</td>
                     <td style={{ padding: "0.75rem" }}>19.83 ha</td>
                     <td style={{ padding: "0.75rem" }}>109.90 ha</td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <tr style={{ borderBottom: "1px solid var(--border-subtle)" }}>
                     <td style={{ padding: "0.75rem", fontWeight: 600 }}>Random Forest Regressor</td>
                     <td style={{ padding: "0.75rem" }}>1.220</td>
                     <td style={{ padding: "0.75rem" }}>1.517</td>
@@ -1237,22 +1258,25 @@ export default function Home() {
               </p>
 
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1rem" }}>
-                <span style={{ alignSelf: "center", fontSize: "0.85rem", color: "var(--text-muted)" }}>Presets:</span>
+                <span style={{ alignSelf: "center", fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: 600 }}>Presets:</span>
                 {Object.entries(PRESETS).map(([key, p]) => (
                   <button
                     key={key}
                     onClick={() => handleApplyPreset(key)}
                     style={{
-                      background: "rgba(59, 130, 246, 0.15)",
-                      border: "1px solid rgba(59, 130, 246, 0.3)",
-                      color: "#93c5fd",
-                      padding: "0.35rem 0.75rem",
-                      borderRadius: "6px",
-                      fontSize: "0.8rem",
+                      background: "var(--accent-mint-light)",
+                      border: "1px solid var(--accent-mint-border)",
+                      color: "var(--text-evergreen)",
+                      padding: "0.4rem 0.85rem",
+                      borderRadius: "20px",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
                       cursor: "pointer",
+                      transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
                     }}
                   >
-                    {p.name.split(" ")[1]}
+                    🌿 {p.name.split(" ")[1]}
                   </button>
                 ))}
               </div>
@@ -1337,11 +1361,11 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <label style={{ fontSize: "0.85rem", display: "block", marginBottom: "0.4rem" }}>Wilderness Area:</label>
+                    <label style={{ fontSize: "0.85rem", display: "block", marginBottom: "0.4rem", fontWeight: 600 }}>Wilderness Area:</label>
                     <select
                       value={selectedWA}
                       onChange={(e) => setSelectedWA(Number(e.target.value))}
-                      style={{ width: "100%", padding: "0.6rem", background: "rgba(15,23,42,0.8)", border: "1px solid var(--border-subtle)", borderRadius: "6px", color: "#fff" }}
+                      style={{ width: "100%", padding: "0.65rem 0.8rem", background: "#ffffff", border: "1px solid var(--border-subtle)", borderRadius: "8px", color: "var(--text-main)", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}
                     >
                       <option value={1}>Rawah Wilderness (Area 1)</option>
                       <option value={2}>Neota Wilderness (Area 2)</option>
@@ -1351,11 +1375,11 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <label style={{ fontSize: "0.85rem", display: "block", marginBottom: "0.4rem" }}>Model Architecture:</label>
+                    <label style={{ fontSize: "0.85rem", display: "block", marginBottom: "0.4rem", fontWeight: 600 }}>Model Architecture:</label>
                     <select
                       value={modelType}
                       onChange={(e) => setModelType(e.target.value)}
-                      style={{ width: "100%", padding: "0.6rem", background: "rgba(15,23,42,0.8)", border: "1px solid var(--border-subtle)", borderRadius: "6px", color: "#fff" }}
+                      style={{ width: "100%", padding: "0.65rem 0.8rem", background: "#ffffff", border: "1px solid var(--border-subtle)", borderRadius: "8px", color: "var(--text-main)", boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}
                     >
                       <option value="random_forest">Random Forest (Accuracy: 93.5%)</option>
                       <option value="knn">K-Nearest Neighbors (Accuracy: 93.1%)</option>
@@ -1379,28 +1403,28 @@ export default function Home() {
 
                 {predictionResult ? (
                   <div>
-                    <div style={{ padding: "1.5rem", borderRadius: "10px", background: "rgba(15,23,42,0.8)", border: "1px solid var(--border-subtle)", marginBottom: "1.5rem" }}>
-                      <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>Predicted Forest Cover:</div>
-                      <div style={{ fontSize: "1.8rem", fontWeight: 800, color: COVER_TYPE_META[predictionResult.predicted_cover_type]?.color || "#3b82f6", margin: "0.3rem 0" }}>
+                    <div style={{ padding: "1.5rem", borderRadius: "12px", background: "#ffffff", border: "1px solid rgba(16, 185, 129, 0.25)", boxShadow: "0 4px 16px rgba(16, 185, 129, 0.06)", marginBottom: "1.5rem" }}>
+                      <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: 600 }}>Predicted Forest Cover:</div>
+                      <div style={{ fontSize: "1.8rem", fontWeight: 800, color: COVER_TYPE_META[predictionResult.predicted_cover_type]?.color || "#059669", margin: "0.3rem 0" }}>
                         {predictionResult.cover_name}
                       </div>
-                      <div style={{ fontSize: "0.9rem", color: "var(--text-dim)" }}>
+                      <div style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
                         {COVER_TYPE_META[predictionResult.predicted_cover_type]?.desc}
                       </div>
                     </div>
 
                     {predictionResult.probabilities && (
                       <div>
-                        <div style={{ fontSize: "0.9rem", fontWeight: 600, marginBottom: "0.75rem" }}>Class Probabilities:</div>
+                        <div style={{ fontSize: "0.9rem", fontWeight: 700, marginBottom: "0.75rem", color: "var(--text-evergreen)" }}>Class Probabilities:</div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                           {Object.entries(predictionResult.probabilities).map(([cname, prob]: any) => (
                             <div key={cname}>
                               <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", marginBottom: "0.2rem" }}>
                                 <span>{cname}</span>
-                                <strong>{(prob * 100).toFixed(1)}%</strong>
+                                <strong style={{ color: "var(--text-evergreen)" }}>{(prob * 100).toFixed(1)}%</strong>
                               </div>
-                              <div style={{ height: "6px", background: "rgba(255,255,255,0.1)", borderRadius: "3px", overflow: "hidden" }}>
-                                <div style={{ height: "100%", width: `${prob * 100}%`, background: "#3b82f6" }} />
+                              <div style={{ height: "7px", background: "rgba(16, 185, 129, 0.12)", borderRadius: "4px", overflow: "hidden" }}>
+                                <div style={{ height: "100%", width: `${prob * 100}%`, background: "var(--gradient-emerald)" }} />
                               </div>
                             </div>
                           ))}
@@ -1434,14 +1458,14 @@ export default function Home() {
                     Exploratory screening score combining slope steepness, solar exposure, and proximity to historic ignition points.
                   </p>
                 </div>
-                <span className="badge badge-production" style={{ background: "rgba(239, 68, 68, 0.15)", color: "#f87171", border: "1px solid rgba(239, 68, 68, 0.3)" }}>
+                <span className="badge badge-production" style={{ background: "#fee2e2", color: "#b91c1c", border: "1px solid #fca5a5" }}>
                   Exploratory Screening Only
                 </span>
               </div>
             </div>
 
-            <div className="glass-panel" style={{ padding: "1.5rem", marginBottom: "2rem", borderLeft: "4px solid #f59e0b" }}>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fbbf24", marginBottom: "0.5rem" }}>
+            <div className="glass-panel" style={{ padding: "1.5rem", marginBottom: "2rem", borderLeft: "4px solid #d97706" }}>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#b45309", marginBottom: "0.5rem" }}>
                 Mandatory Methodology & Limitation Disclaimer
               </h3>
               <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
@@ -1471,12 +1495,12 @@ export default function Home() {
                     { wa: "Rawah Wilderness", elev: "Mid-High (2800-3200m)", score: "46.8 / 100", level: "Moderate-Low", rat: "Higher moisture content in subalpine Spruce/Fir" },
                     { wa: "Neota Wilderness", elev: "High (>3200m)", score: "32.1 / 100", level: "Low Hazard", rat: "Alpine tundra and Krummholz with short growing season and low continuous fuel" },
                   ].map((row) => (
-                    <tr key={row.wa + row.elev} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <td style={{ padding: "0.75rem", fontWeight: 600, color: "#60a5fa" }}>{row.wa}</td>
+                    <tr key={row.wa + row.elev} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                      <td style={{ padding: "0.75rem", fontWeight: 700, color: "#0284c7" }}>{row.wa}</td>
                       <td style={{ padding: "0.75rem" }}>{row.elev}</td>
                       <td style={{ padding: "0.75rem", fontWeight: 700 }}>{row.score}</td>
                       <td style={{ padding: "0.75rem" }}>
-                        <span className={`badge ${row.level.includes("High") ? "badge-production" : "badge"}`} style={{ color: row.level.includes("High") ? "#f87171" : "#34d399" }}>
+                        <span className={`badge ${row.level.includes("High") ? "badge-production" : "badge"}`} style={{ color: row.level.includes("High") ? "#b91c1c" : "#059669" }}>
                           {row.level}
                         </span>
                       </td>
@@ -1505,7 +1529,7 @@ export default function Home() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "1.5rem", marginBottom: "2rem" }}>
               <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.75rem", color: "#34d399" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.75rem", color: "#059669" }}>
                   Supabase Database Status
                 </h3>
                 <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
@@ -1519,7 +1543,7 @@ export default function Home() {
               </div>
 
               <div className="glass-panel" style={{ padding: "1.8rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.75rem", color: "#60a5fa" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.75rem", color: "#0284c7" }}>
                   Tableau & KNIME Artifacts
                 </h3>
                 <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
@@ -1561,8 +1585,8 @@ export default function Home() {
                     { p: "P9", unit: "Unit IV", topic: "Forest Fires Regression", tool: "Python + Supabase", status: "VERIFIED" },
                     { p: "P10", unit: "Unit V", topic: "Full-Stack Multi-Tool Integration", tool: "Next.js + FastAPI + Supabase", status: "VERIFIED" },
                   ].map((row) => (
-                    <tr key={row.p} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <td style={{ padding: "0.6rem", fontWeight: 700, color: "#60a5fa" }}>{row.p}</td>
+                    <tr key={row.p} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                      <td style={{ padding: "0.6rem", fontWeight: 700, color: "#0284c7" }}>{row.p}</td>
                       <td style={{ padding: "0.6rem" }}>{row.unit}</td>
                       <td style={{ padding: "0.6rem", fontWeight: 600 }}>{row.topic}</td>
                       <td style={{ padding: "0.6rem" }}>{row.tool}</td>
@@ -1578,7 +1602,7 @@ export default function Home() {
             {/* Live Bidirectional Integration Verification */}
             <div className="glass-panel" style={{ padding: "1.8rem", marginTop: "2rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#34d399" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#059669" }}>
                   Bidirectional Round-Trip Integration Verification (Python ↔ KNIME ↔ Tableau)
                 </h3>
                 <span className="badge badge-production">Round-Trip Verified ✓</span>
@@ -1589,8 +1613,8 @@ export default function Home() {
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem", marginBottom: "1.5rem" }}>
-                <div style={{ padding: "1.2rem", background: "rgba(15, 23, 42, 0.6)", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#60a5fa", marginBottom: "0.5rem" }}>
+                <div style={{ padding: "1.2rem", background: "#ffffff", borderRadius: "12px", border: "1px solid rgba(2, 132, 199, 0.25)", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.03)" }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#0284c7", marginBottom: "0.5rem" }}>
                     1. Python → KNIME Payload Channel
                   </div>
                   <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
@@ -1602,8 +1626,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div style={{ padding: "1.2rem", background: "rgba(15, 23, 42, 0.6)", borderRadius: "10px", border: "1px solid var(--border-subtle)" }}>
-                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#34d399", marginBottom: "0.5rem" }}>
+                <div style={{ padding: "1.2rem", background: "#ffffff", borderRadius: "12px", border: "1px solid rgba(16, 185, 129, 0.25)", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.03)" }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#059669", marginBottom: "0.5rem" }}>
                     2. KNIME → Python Ingestion Channel
                   </div>
                   <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
@@ -1616,7 +1640,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem" }}>
+              <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem", color: "var(--text-evergreen)" }}>
                 Statistical Parity & Delta Tolerance Matrix (Threshold: ≤ 2.0%)
               </h4>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem" }}>
@@ -1637,10 +1661,10 @@ export default function Home() {
                     { bench: "PCA 8-Component Cumulative Variance", py: "96.90%", km: "96.90%", delta: "0.00%", tol: "≤ 0.5%", status: "EXACT MATCH ✓" },
                     { bench: "Tableau 3 Executive Dashboards", py: "Curated CSVs", km: "N/A", delta: "0", tol: "XML valid", status: "COMPILED ✓" },
                   ].map((row) => (
-                    <tr key={row.bench} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    <tr key={row.bench} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
                       <td style={{ padding: "0.5rem", fontWeight: 600 }}>{row.bench}</td>
-                      <td style={{ padding: "0.5rem", color: "#60a5fa" }}>{row.py}</td>
-                      <td style={{ padding: "0.5rem", color: "#34d399" }}>{row.km}</td>
+                      <td style={{ padding: "0.5rem", color: "#0284c7", fontWeight: 600 }}>{row.py}</td>
+                      <td style={{ padding: "0.5rem", color: "#059669", fontWeight: 600 }}>{row.km}</td>
                       <td style={{ padding: "0.5rem", fontFamily: "monospace" }}>{row.delta}</td>
                       <td style={{ padding: "0.5rem" }}>
                         <span className="badge badge-production" style={{ fontSize: "0.75rem" }}>{row.status}</span>
