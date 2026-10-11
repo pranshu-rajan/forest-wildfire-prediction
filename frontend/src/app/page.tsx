@@ -204,6 +204,7 @@ const PIPELINE_STAGES_DEF = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("overview");
   const [apiOnline, setApiOnline] = useState<boolean | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   // Pipeline Management State
   const [pipelineData, setPipelineData] = useState<any>(null);
@@ -338,79 +339,163 @@ export default function Home() {
     }
   };
 
-  const navItems = [
-    { id: "overview", label: "Overview" },
-    { id: "pipeline", label: "Pipeline & DAG" },
-    { id: "dataset", label: "Dataset Explorer" },
-    { id: "cleaning", label: "Cleaning Demo" },
-    { id: "statistics", label: "Descriptive Stats" },
-    { id: "features_pca", label: "PCA & Features" },
-    { id: "classification", label: "Classification" },
-    { id: "clustering", label: "Clustering" },
-    { id: "regression", label: "Fires Regression" },
-    { id: "prediction", label: "Prediction Playground" },
-    { id: "wildfire", label: "Wildfire Screening" },
-    { id: "governance", label: "Governance & Tools" },
+  const navSections = [
+    {
+      title: "Core Platform",
+      items: [
+        { id: "overview", label: "Overview", icon: "🌲" },
+        { id: "pipeline", label: "Pipeline & DAG", icon: "⚡" },
+        { id: "dataset", label: "Dataset Explorer", icon: "🗄️" },
+      ],
+    },
+    {
+      title: "Data Engineering",
+      items: [
+        { id: "cleaning", label: "Cleaning Demo", icon: "🧹" },
+        { id: "statistics", label: "Descriptive Stats", icon: "📊" },
+      ],
+    },
+    {
+      title: "ML & Topographic EDA",
+      items: [
+        { id: "features_pca", label: "PCA & Features", icon: "🔬" },
+        { id: "classification", label: "Classification", icon: "🎯" },
+        { id: "clustering", label: "Clustering", icon: "🧬" },
+        { id: "regression", label: "Fires Regression", icon: "📈" },
+      ],
+    },
+    {
+      title: "Inference & Governance",
+      items: [
+        { id: "prediction", label: "Prediction Playground", icon: "🧭" },
+        { id: "wildfire", label: "Wildfire Screening", icon: "🔥" },
+        { id: "governance", label: "Governance & Tools", icon: "⚖️" },
+      ],
+    },
   ];
 
   return (
-    <div>
-      {/* Navigation Header */}
-      <nav className="navbar">
-        <div className="nav-brand">
-          <span className="brand-icon">🌲</span>
-          <div>
-            <div className="brand-title">Forest Cover & Wildfire Analytics Platform</div>
-            <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
-              Python ↔ Supabase ↔ KNIME ↔ Tableau ↔ FastAPI ↔ Next.js
+    <div className="app-shell">
+      {/* Mobile Drawer Backdrop */}
+      <div
+        className={`sidebar-overlay ${sidebarOpen ? "active" : ""}`}
+        onClick={() => setSidebarOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Fixed Modern Left Sidebar */}
+      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`} aria-label="Main Navigation">
+        <div>
+          {/* Sidebar Header & Brand */}
+          <div className="sidebar-header">
+            <div className="sidebar-brand">
+              <span className="sidebar-brand-icon">🌲</span>
+              <div>
+                <div className="sidebar-brand-title">Roosevelt Analytics</div>
+                <div className="sidebar-brand-subtitle">Forest Cover & Wildfire ML</div>
+              </div>
             </div>
+            <button
+              className="sidebar-close-btn"
+              onClick={() => setSidebarOpen(false)}
+              aria-label="Close navigation"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Grouped Nav Sections */}
+          <nav className="sidebar-nav">
+            {navSections.map((sec) => (
+              <div key={sec.title}>
+                <div className="sidebar-section-title">{sec.title}</div>
+                <div className="sidebar-section-items">
+                  {sec.items.map((tab) => {
+                    const isActive = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        id={`tab-${tab.id}`}
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          setSidebarOpen(false);
+                        }}
+                        className={`sidebar-link ${isActive ? "active" : ""}`}
+                      >
+                        <span className="sidebar-icon">{tab.icon}</span>
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        {/* Sidebar Footer with Live Connection Status */}
+        <div className="sidebar-footer">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span
+              className="badge"
+              style={{
+                background: apiOnline ? "var(--accent-mint-light)" : "#fef3c7",
+                color: apiOnline ? "#059669" : "#b45309",
+                border: `1px solid ${apiOnline ? "var(--accent-mint-border)" : "#fde68a"}`,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.45rem",
+                fontWeight: 600,
+                width: "100%",
+                justifyContent: "center",
+                padding: "0.45rem 0.6rem",
+              }}
+            >
+              <span
+                className="pulse-dot"
+                style={{
+                  width: "7px",
+                  height: "7px",
+                  borderRadius: "50%",
+                  background: apiOnline ? "#10b981" : "#f59e0b",
+                  display: "inline-block",
+                }}
+              />
+              {apiOnline ? "FastAPI Online" : "Standalone Local"}
+            </span>
+          </div>
+          <div style={{ fontSize: "0.72rem", color: "var(--text-dim)", textAlign: "center", lineHeight: 1.4 }}>
+            Python ↔ KNIME ↔ Tableau ↔ Supabase
           </div>
         </div>
+      </aside>
 
-        <div className="nav-tabs" style={{ flexWrap: "wrap", justifyContent: "center" }}>
-          {navItems.map((tab) => (
-            <button
-              key={tab.id}
-              id={`tab-${tab.id}`}
-              onClick={() => setActiveTab(tab.id)}
-              className={`nav-tab-btn ${activeTab === tab.id ? "active" : ""}`}
-              style={{ fontSize: "0.82rem", padding: "0.4rem 0.8rem" }}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        <div>
-          <span
-            className="badge"
-            style={{
-              background: apiOnline ? "var(--accent-mint-light)" : "#fef3c7",
-              color: apiOnline ? "#059669" : "#b45309",
-              border: `1px solid ${apiOnline ? "var(--accent-mint-border)" : "#fde68a"}`,
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.45rem",
-              fontWeight: 600,
-            }}
+      {/* Main App Content Area */}
+      <div className="main-wrapper">
+        {/* Mobile Sticky Topbar */}
+        <header className="mobile-topbar">
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.4rem" }}>🌲</span>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--text-heading)" }}>
+                Roosevelt Forest Analytics
+              </div>
+              <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", fontWeight: 600 }}>
+                {navSections.flatMap((s) => s.items).find((i) => i.id === activeTab)?.label}
+              </div>
+            </div>
+          </div>
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Open navigation menu"
           >
-            <span
-              className="pulse-dot"
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                background: apiOnline ? "#10b981" : "#f59e0b",
-                display: "inline-block",
-              }}
-            />
-            {apiOnline ? "FastAPI Online" : "Standalone Local"}
-          </span>
-        </div>
-      </nav>
+            ☰
+          </button>
+        </header>
 
-      {/* Main Container */}
-      <main className="main-container fade-in">
+        {/* Main Content View */}
+        <main className="main-content fade-in">
         {/* ========================================================================= */}
         {/* PAGE 1: PROJECT OVERVIEW */}
         {/* ========================================================================= */}
@@ -1676,7 +1761,8 @@ export default function Home() {
             </div>
           </div>
         )}
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
