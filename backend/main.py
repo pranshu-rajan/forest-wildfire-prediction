@@ -364,72 +364,35 @@ def predict_cover_type(req: PredictionRequest):
     """Predicts forest cover type given all 54 environmental features.
 
     Validates schema, ensures strict column ordering matching training data,
-    and returns prediction + class probabilities.
+    and returns prediction + class probabilities via the end-to-end ML pipeline.
     """
-    model_name = req.model.lower().replace(" ", "_") if req.model else "random_forest"
-    model = get_model(model_name)
-    if model is None:
-        for candidate in ["random_forest", "decision_tree", "knn"]:
-            model = get_model(candidate)
-            if model is not None:
-                model_name = candidate
-                break
+    from python_src.predict import predict_single, validate_and_align_features
 
-    # Build feature vector in exact schema order
-    input_values = []
-    missing_cols = []
-    for col in ALL_FEATURES:
-        if col in req.features:
-            input_values.append(float(req.features[col]))
-        else:
-            missing_cols.append(col)
-
+    # Validate all 54 features are present
+    _, missing_cols = validate_and_align_features(req.features)
     if missing_cols:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail=f"Missing required features ({len(missing_cols)}): {missing_cols[:5]}...",
         )
 
-    X_in = np.array([input_values])
+    model_name = req.model.lower().replace(" ", "_") if req.model else "random_forest"
 
-    if model is not None:
-        pred_class = int(model.predict(X_in)[0])
-        probabilities = None
-        if hasattr(model, "predict_proba"):
-            try:
-                probs = model.predict_proba(X_in)[0]
-                classes = model.classes_
-                probabilities = {
-                    COVER_TYPE_NAMES.get(int(c), str(c)): round(float(p), 4)
-                    for c, p in zip(classes, probs)
-                }
-            except Exception:
-                pass
-    else:
-        # Ecological heuristic fallback if model weights not yet trained
-        elev = req.features.get("Elevation", 2500)
-        if elev > 3100:
-            pred_class = 7 if elev > 3300 else 1
-        elif elev > 2800:
-            pred_class = 2
-        elif elev < 2200:
-            pred_class = 4
-        elif elev < 2500:
-            pred_class = 3
-        else:
-            pred_class = 2
-        probabilities = {
-            COVER_TYPE_NAMES[c]: 0.85 if c == pred_class else round(0.15 / 6, 3)
-            for c in TARGET_CLASSES
-        }
-        model_name = "ecological_heuristic_fallback"
+    try:
+        res = predict_single(req.features, model_name=model_name)
+    except Exception as exc:
+        logger.error("Prediction pipeline error: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Inference failure: {str(exc)}",
+        )
 
     return PredictionResponse(
-        predicted_cover_type=pred_class,
-        cover_name=COVER_TYPE_NAMES.get(pred_class, f"Class {pred_class}"),
-        probabilities=probabilities,
-        model_used=model_name,
-        timestamp=datetime.now(timezone.utc).isoformat(),
+        predicted_cover_type=res["predicted_cover_type"],
+        cover_name=res["cover_name"],
+        probabilities=res.get("probabilities"),
+        model_used=res["model_used"],
+        timestamp=res["timestamp"],
     )
 
 
