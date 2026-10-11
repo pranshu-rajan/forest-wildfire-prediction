@@ -42,6 +42,7 @@ from pydantic import BaseModel, Field
 from python_src.config import settings
 from python_src.database import health_check as db_health_check, is_db_available, is_supabase_configured
 from python_src.logging_config import get_logger, setup_logging
+from python_src.pipeline import pipeline_dag
 from python_src.schemas import (
     ALL_FEATURES,
     BINARY_FEATURES,
@@ -385,7 +386,7 @@ def predict_cover_type(req: PredictionRequest):
 
     if missing_cols:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail=f"Missing required features ({len(missing_cols)}): {missing_cols[:5]}...",
         )
 
@@ -457,6 +458,49 @@ def get_wildfire_screening_summary():
             ],
         },
         "aggregates": data,
+    }
+
+
+@app.get("/api/pipeline/status", tags=["Pipeline Orchestrator"])
+def get_pipeline_status():
+    """Returns current pipeline artifact verification status and latest execution manifest."""
+    validation = pipeline_dag.validate_existing_artifacts()
+
+    manifest_file = settings.reports_dir / "pipeline_run_manifest.json"
+    manifest = None
+    if manifest_file.exists():
+        try:
+            with open(manifest_file, "r", encoding="utf-8") as f:
+                manifest = json.load(f)
+        except Exception as exc:
+            logger.warning("Could not read pipeline manifest: %s", exc)
+
+    return {
+        "status": "VALIDATED" if validation["all_stages_validated"] else "DEGRADED",
+        "validated_count": validation["validated_count"],
+        "total_stages": validation["total_stages"],
+        "checked_at": validation["checked_at"],
+        "stages": validation["stages"],
+        "latest_run_manifest": manifest,
+    }
+
+
+@app.get("/api/pipeline/stages", tags=["Pipeline Orchestrator"])
+def get_pipeline_stages():
+    """Returns full directed acyclic graph (DAG) topology, stage metadata, inputs, and outputs."""
+    return pipeline_dag.get_dag_topology()
+
+
+@app.post("/api/pipeline/validate", tags=["Pipeline Orchestrator"])
+def trigger_pipeline_validation():
+    """Re-audits all 12 pipeline stage artifacts and returns updated checkpoint results."""
+    res = pipeline_dag.validate_existing_artifacts()
+    return {
+        "status": "VALIDATED" if res["all_stages_validated"] else "DEGRADED",
+        "validated_count": res["validated_count"],
+        "total_stages": res["total_stages"],
+        "checked_at": res["checked_at"],
+        "stages": res["stages"],
     }
 
 

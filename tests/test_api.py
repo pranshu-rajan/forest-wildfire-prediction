@@ -91,3 +91,21 @@ def test_supabase_and_new_endpoints():
 
     res_demo = client.get("/api/cleaning/synthetic-demo")
     assert res_demo.status_code == 200
+
+
+def test_pipeline_status_and_stages_endpoints():
+    """Verify Pipeline orchestrator endpoints return DAG status and topology."""
+    res_status = client.get("/api/pipeline/status")
+    assert res_status.status_code == 200
+    data_status = res_status.json()
+    assert "status" in data_status
+    assert data_status["total_stages"] == 12
+    assert "stages" in data_status
+
+    res_stages = client.get("/api/pipeline/stages")
+    assert res_stages.status_code == 200
+    data_stages = res_stages.json()
+    assert data_stages["total_nodes"] == 12
+    assert len(data_stages["edges"]) > 0
+    assert "nodes" in data_stages
+
