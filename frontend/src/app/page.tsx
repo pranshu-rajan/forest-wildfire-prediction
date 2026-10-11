@@ -154,8 +154,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "01_SOURCE_AUDIT",
     name: "Source Dataset Cryptographic Fingerprint & Audit",
-    practical: "Practical 1",
-    unit: "Unit I",
+    topic: "Data Ingestion & Integrity",
+    concept: "SHA-256 Hashing, 55-Column Schema Audit",
     script: "scripts/01_audit_source.py",
     dependsOn: [],
     inputs: ["data/raw/covtype.csv (>=1MB)"],
@@ -165,8 +165,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "02_DATA_CLEANING",
     name: "Curated Cleaning & Outlier Detection",
-    practical: "Practical 2 & 4",
-    unit: "Units I & II",
+    topic: "Data Cleaning & Anomaly Detection",
+    concept: "IQR & Z-Score Outlier Flagging, Snappy Parquet",
     script: "scripts/02_run_cleaning.py",
     dependsOn: ["01_SOURCE_AUDIT"],
     inputs: ["data/raw/covtype.csv"],
@@ -176,8 +176,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "03_SYNTHETIC_CLEANING_DEMO",
     name: "Controlled 800-Cell Missing Value Experiment",
-    practical: "Practical 2",
-    unit: "Unit I",
+    topic: "Missing-Value Imputation",
+    concept: "Controlled Missingness Injection & Column Median Imputation",
     script: "scripts/03_synthetic_cleaning_demo.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -187,8 +187,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "04_DESCRIPTIVE_STATISTICS",
     name: "Five-Number Summary, Moments & Dispersion",
-    practical: "Practical 3",
-    unit: "Unit II",
+    topic: "Descriptive Statistics & Moments",
+    concept: "Five-Number Summary, Skewness, Kurtosis & Dispersion",
     script: "scripts/05_descriptive_statistics.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -198,8 +198,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "05_PREPROCESSING_EXPERIMENTS",
     name: "Smoothing, Normalization, Discretization & Correlation",
-    practical: "Practical 10",
-    unit: "Unit IV",
+    topic: "Feature Transformation & Smoothing",
+    concept: "Gaussian Smoothing, Min-Max Scaling & Equal-Width Binning",
     script: "scripts/06_preprocessing_experiments.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -209,8 +209,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "06_FEATURE_SELECTION_PCA",
     name: "PCA Dimensionality Reduction & Feature Selection",
-    practical: "Practical 6",
-    unit: "Unit IV",
+    topic: "Dimensionality Reduction",
+    concept: "Principal Component Analysis (PCA) & Variance Scree (96.9%)",
     script: "scripts/07_feature_selection_pca.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -220,8 +220,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "07_CLASSIFICATION_TRAINING",
     name: "Leakage-Safe Supervised Model Development",
-    practical: "Practical 7",
-    unit: "Unit IV",
+    topic: "Supervised Classification",
+    concept: "Random Forest & Decision Tree Multi-Class Pipelines",
     script: "scripts/08_train_classifiers.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -231,8 +231,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "08_CLUSTERING_ANALYSIS",
     name: "Topographic K-Means Clustering & Terrain Profiling",
-    practical: "Practical 8",
-    unit: "Unit IV",
+    topic: "Unsupervised Clustering",
+    concept: "Topographic K-Means (k=5) & Centroid Profiling",
     script: "scripts/09_run_clustering.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -242,8 +242,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "09_FIRES_REGRESSION",
     name: "UCI Forest Fires Burned Area Regression",
-    practical: "Practical 9",
-    unit: "Unit IV",
+    topic: "Wildfire Area Regression",
+    concept: "Meteorological Burned Area log1p Regression",
     script: "scripts/10_train_fires_regression.py",
     dependsOn: [],
     inputs: ["data/external/forestfires.csv"],
@@ -253,8 +253,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "10_EDA_VISUALIZATIONS",
     name: "Publication Visualizations & Figures",
-    practical: "Practical 5",
-    unit: "Units III & V",
+    topic: "Multidimensional Visualizations",
+    concept: "Squarified Treemaps, Radial Polar Plots & Heatmaps",
     script: "scripts/04_generate_eda.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -264,8 +264,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "11_INTEGRATION_EXPORTS",
     name: "KNIME & Tableau Multi-Tool Integration Payloads",
-    practical: "Practicals 4, 6 & 10",
-    unit: "Unit V",
+    topic: "Cross-Platform BI Integration",
+    concept: "Tableau Data Sources & KNIME Node Ingestion Exports",
     script: "scripts/11_export_integrations.py",
     dependsOn: ["02_DATA_CLEANING"],
     inputs: ["data/processed/covtype_clean.parquet"],
@@ -275,8 +275,8 @@ const PIPELINE_STAGES_DEF = [
   {
     id: "12_ROUNDTRIP_AUDIT",
     name: "Bidirectional KNIME, Tableau & Supabase Parity Audit",
-    practical: "Practicals 1-10",
-    unit: "Units I-V",
+    topic: "End-to-End System Audit",
+    concept: "Cross-Tool Statistical Parity (Delta <= 2%) & Supabase DDL",
     script: "scripts/13_sync_knime_tableau_results.py",
     dependsOn: ["07_CLASSIFICATION_TRAINING", "11_INTEGRATION_EXPORTS"],
     inputs: ["exports/knime/covertype_curated.csv", "exports/knime_outputs/knime_classification_metrics.csv"],
@@ -1063,7 +1063,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p style={{ color: "var(--text-muted)", maxWidth: "850px", fontSize: "0.95rem" }}>
-                    A production-managed Directed Acyclic Graph (DAG) executing Units I–V and Practicals 1–10. 
+                    A production-managed Directed Acyclic Graph (DAG) executing end-to-end data ingestion, validation, statistical analysis, feature engineering, and model inference. 
                     Every stage enforces cryptographic input checks, size bounds, post-execution artifact verification, 
                     and automated round-trip synchronization with KNIME, Tableau, and Supabase.
                   </p>
@@ -1116,14 +1116,14 @@ export default function Home() {
                 <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 600 }}>100% Artifacts Validated</span>
               </div>
               <div className="glass-panel stat-card">
-                <span className="stat-label">Syllabus Coverage</span>
-                <span className="stat-value">Units I – V</span>
-                <span style={{ fontSize: "0.8rem", color: "#0284c7", fontWeight: 600 }}>Full academic curriculum</span>
+                <span className="stat-label">Implemented Topics</span>
+                <span className="stat-value">12 Pipeline Stages</span>
+                <span style={{ fontSize: "0.8rem", color: "#0284c7", fontWeight: 600 }}>End-to-end domain pipeline</span>
               </div>
               <div className="glass-panel stat-card">
-                <span className="stat-label">Practical Coverage</span>
-                <span className="stat-value">Practicals 1 – 10</span>
-                <span style={{ fontSize: "0.8rem", color: "#7c3aed", fontWeight: 600 }}>End-to-end staged mapping</span>
+                <span className="stat-label">Core Concepts</span>
+                <span className="stat-value">8 Method Families</span>
+                <span style={{ fontSize: "0.8rem", color: "#7c3aed", fontWeight: 600 }}>Statistical, ML & spatial techniques</span>
               </div>
               <div className="glass-panel stat-card">
                 <span className="stat-label">Round-Trip Delta</span>
@@ -1158,7 +1158,7 @@ export default function Home() {
                   >
                     <div style={{ fontSize: "0.75rem", color: "#0284c7", fontWeight: 700 }}>ROOT STAGE [01]</div>
                     <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Source Dataset Audit & SHA-256</div>
-                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practical 1 (Unit I) • <code>01_audit_source.py</code></div>
+                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Data Ingestion & Integrity • <code>01_audit_source.py</code></div>
                     <div style={{ marginTop: "0.5rem" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>[PASS] covtype.csv Validated</span>
                     </div>
@@ -1182,7 +1182,7 @@ export default function Home() {
                   >
                     <div style={{ fontSize: "0.75rem", color: "#059669", fontWeight: 700 }}>TRANSFORMATION CORE [02]</div>
                     <div style={{ fontWeight: 700, fontSize: "1rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Curated Cleaning & Parquet Transformation</div>
-                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practicals 2 & 4 (Units I & II) • <code>02_run_cleaning.py</code></div>
+                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Data Cleaning & Anomaly Detection • <code>02_run_cleaning.py</code></div>
                     <div style={{ marginTop: "0.5rem" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>[PASS] covtype_clean.parquet (0 nulls)</span>
                     </div>
@@ -1196,15 +1196,15 @@ export default function Home() {
                 {/* Level 3: Parallel Analytical Branches */}
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
                   {[
-                    { id: "03", name: "Synthetic 800-Cell Missing Demo", prac: "Practical 2", unit: "Unit I", out: "synthetic_demo_audit.json", color: "#d97706" },
-                    { id: "04", name: "Five-Number Summary & Stats", prac: "Practical 3", unit: "Unit II", out: "five_number_summary.csv", color: "#0284c7" },
-                    { id: "05", name: "Preprocessing, Smooth & Discretize", prac: "Practical 10", unit: "Unit IV", out: "preprocessing_comparison.csv", color: "#7c3aed" },
-                    { id: "06", name: "PCA Dimensionality Reduction", prac: "Practical 6", unit: "Unit IV", out: "pca_report.json (96.9% var)", color: "#0891b2" },
-                    { id: "07", name: "Supervised Model Training", prac: "Practical 7", unit: "Unit IV", out: "random_forest.joblib (93.5% acc)", color: "#059669" },
-                    { id: "08", name: "K-Means Terrain Clustering", prac: "Practical 8", unit: "Unit IV", out: "cluster_profiles.csv (k=4)", color: "#db2777" },
-                    { id: "09", name: "UCI Forest Fires Regression", prac: "Practical 9", unit: "Unit IV", out: "forest_fires_regression.json", color: "#ea580c" },
-                    { id: "10", name: "18 Publication Figures", prac: "Practical 5", unit: "Units III & V", out: "treemap, radial, heatmaps", color: "#9333ea" },
-                    { id: "11", name: "Multi-Tool Export Generator", prac: "Practical 4, 6, 10", unit: "Unit V", out: "10 KNIME + 8 Tableau CSVs", color: "#0284c7" },
+                    { id: "03", name: "Synthetic 800-Cell Missing Demo", topic: "Missing-Value Imputation", concept: "Column Median Imputation", out: "synthetic_demo_audit.json", color: "#d97706" },
+                    { id: "04", name: "Five-Number Summary & Stats", topic: "Descriptive Statistics", concept: "Central Tendency & Moments", out: "five_number_summary.csv", color: "#0284c7" },
+                    { id: "05", name: "Preprocessing, Smooth & Discretize", topic: "Feature Transformation", concept: "Gaussian Smoothing & Binning", out: "preprocessing_comparison.csv", color: "#7c3aed" },
+                    { id: "06", name: "PCA Dimensionality Reduction", topic: "Dimensionality Reduction", concept: "Principal Components (96.9% var)", out: "pca_report.json (96.9% var)", color: "#0891b2" },
+                    { id: "07", name: "Supervised Model Training", topic: "Supervised Classification", concept: "Random Forest & Decision Trees", out: "random_forest.joblib (93.5% acc)", color: "#059669" },
+                    { id: "08", name: "K-Means Terrain Clustering", topic: "Unsupervised Clustering", concept: "Topographic K-Means (k=5)", out: "cluster_profiles.csv (k=4)", color: "#db2777" },
+                    { id: "09", name: "UCI Forest Fires Regression", topic: "Wildfire Area Regression", concept: "Meteorological Burned Area log1p", out: "forest_fires_regression.json", color: "#ea580c" },
+                    { id: "10", name: "18 Publication Figures", topic: "Multidimensional Visualizations", concept: "Treemaps, Radial & Heatmaps", out: "treemap, radial, heatmaps", color: "#9333ea" },
+                    { id: "11", name: "Multi-Tool Export Generator", topic: "Cross-Platform BI Integration", concept: "KNIME & Tableau Data Payloads", out: "10 KNIME + 8 Tableau CSVs", color: "#0284c7" },
                   ].map((b) => (
                     <div
                       key={b.id}
@@ -1219,10 +1219,10 @@ export default function Home() {
                     >
                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", color: b.color, fontWeight: 700 }}>
                         <span>STAGE [{b.id}]</span>
-                        <span>{b.prac}</span>
+                        <span>{b.topic}</span>
                       </div>
                       <div style={{ fontWeight: 700, fontSize: "0.92rem", margin: "0.35rem 0", color: "var(--text-main)" }}>{b.name}</div>
-                      <div style={{ fontSize: "0.76rem", color: "var(--text-muted)" }}>{b.unit} • Output: <code>{b.out}</code></div>
+                      <div style={{ fontSize: "0.76rem", color: "var(--text-muted)" }}>{b.concept} • Output: <code>{b.out}</code></div>
                     </div>
                   ))}
                 </div>
@@ -1246,7 +1246,7 @@ export default function Home() {
                   >
                     <div style={{ fontSize: "0.75rem", color: "#9333ea", fontWeight: 700 }}>CONVERGENCE & AUDIT [12]</div>
                     <div style={{ fontWeight: 700, fontSize: "1.05rem", margin: "0.3rem 0", color: "var(--text-main)" }}>Bidirectional Round-Trip Integration Parity Audit</div>
-                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Practicals 1–10 (Units I–V) • <code>13_sync_knime_tableau_results.py</code></div>
+                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Cross-Platform Parity Audit & Supabase Sync • <code>13_sync_knime_tableau_results.py</code></div>
                     <div style={{ marginTop: "0.5rem", display: "flex", gap: "0.5rem", justifyContent: "center" }}>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>KNIME Parity Ingested</span>
                       <span className="badge badge-production" style={{ fontSize: "0.7rem" }}>Supabase Synced</span>
@@ -1273,8 +1273,8 @@ export default function Home() {
                   <tr style={{ borderBottom: "1px solid var(--border-subtle)", textAlign: "left" }}>
                     <th style={{ padding: "0.6rem" }}>Stage ID</th>
                     <th style={{ padding: "0.6rem" }}>Stage Name</th>
-                    <th style={{ padding: "0.6rem" }}>Academic Practical</th>
-                    <th style={{ padding: "0.6rem" }}>Syllabus Unit</th>
+                    <th style={{ padding: "0.6rem" }}>Topic</th>
+                    <th style={{ padding: "0.6rem" }}>Concept Implemented</th>
                     <th style={{ padding: "0.6rem" }}>Input Assertions</th>
                     <th style={{ padding: "0.6rem" }}>Output Artifacts</th>
                     <th style={{ padding: "0.6rem" }}>Status</th>
@@ -1287,8 +1287,8 @@ export default function Home() {
                         {stage.id}
                       </td>
                       <td style={{ padding: "0.6rem", fontWeight: 600 }}>{stage.name}</td>
-                      <td style={{ padding: "0.6rem", color: "var(--text-muted)" }}>{stage.practical}</td>
-                      <td style={{ padding: "0.6rem", color: "var(--text-muted)" }}>{stage.unit}</td>
+                      <td style={{ padding: "0.6rem", color: "var(--text-muted)" }}>{stage.topic}</td>
+                      <td style={{ padding: "0.6rem", color: "var(--text-muted)" }}>{stage.concept}</td>
                       <td style={{ padding: "0.6rem", fontSize: "0.8rem", fontFamily: "monospace" }}>
                         {stage.inputs.map((inp, idx) => (
                           <div key={idx}>• {inp}</div>
@@ -1350,25 +1350,25 @@ export default function Home() {
                     <th style={{ padding: "0.75rem" }}>Feature</th>
                     <th style={{ padding: "0.75rem" }}>Type</th>
                     <th style={{ padding: "0.75rem" }}>Valid Domain / Range</th>
-                    <th style={{ padding: "0.75rem" }}>Units</th>
+                    <th style={{ padding: "0.75rem" }}>Physical Scale</th>
                     <th style={{ padding: "0.75rem" }}>Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { col: "Elevation", type: "Continuous", domain: "[1859, 3858]", unit: "Meters", desc: "Elevation above sea level in Roosevelt National Forest" },
-                    { col: "Aspect", type: "Continuous", domain: "[0, 360]", unit: "Degrees", desc: "Aspect in degrees azimuth" },
-                    { col: "Slope", type: "Continuous", domain: "[0, 66]", unit: "Degrees", desc: "Slope angle in degrees" },
-                    { col: "Horizontal_Distance_To_Hydrology", type: "Continuous", domain: "[0, 1397]", unit: "Meters", desc: "Horizontal distance to nearest surface water" },
-                    { col: "Vertical_Distance_To_Hydrology", type: "Continuous", domain: "[-173, 601]", unit: "Meters", desc: "Vertical distance to nearest surface water" },
-                    { col: "Horizontal_Distance_To_Roadways", type: "Continuous", domain: "[0, 7117]", unit: "Meters", desc: "Horizontal distance to nearest roadway" },
-                    { col: "Hillshade_9am", type: "Continuous", domain: "[0, 254]", unit: "Index (0-255)", desc: "Hillshade index at 9am, summer solstice" },
-                    { col: "Hillshade_Noon", type: "Continuous", domain: "[0, 254]", unit: "Index (0-255)", desc: "Hillshade index at noon, summer solstice" },
-                    { col: "Hillshade_3pm", type: "Continuous", domain: "[0, 254]", unit: "Index (0-255)", desc: "Hillshade index at 3pm, summer solstice" },
-                    { col: "Horizontal_Distance_To_Fire_Points", type: "Continuous", domain: "[0, 7173]", unit: "Meters", desc: "Horizontal distance to nearest historic wildfire ignition" },
-                    { col: "Wilderness_Area1..4", type: "Binary (4)", domain: "{0, 1}", unit: "Indicator", desc: "Wilderness areas: Rawah, Neota, Comanche Peak, Cache la Poudre" },
-                    { col: "Soil_Type1..40", type: "Binary (40)", domain: "{0, 1}", unit: "Indicator", desc: "USFS soil classification types (geological families)" },
-                    { col: "Cover_Type", type: "Target Integer", domain: "[1, 7]", unit: "Class", desc: "Target cover class: Spruce/Fir, Lodgepole, Ponderosa, etc." },
+                    { col: "Elevation", type: "Continuous", domain: "[1859, 3858]", scaleUnit: "Meters", desc: "Elevation above sea level in Roosevelt National Forest" },
+                    { col: "Aspect", type: "Continuous", domain: "[0, 360]", scaleUnit: "Degrees", desc: "Aspect in degrees azimuth" },
+                    { col: "Slope", type: "Continuous", domain: "[0, 66]", scaleUnit: "Degrees", desc: "Slope angle in degrees" },
+                    { col: "Horizontal_Distance_To_Hydrology", type: "Continuous", domain: "[0, 1397]", scaleUnit: "Meters", desc: "Horizontal distance to nearest surface water" },
+                    { col: "Vertical_Distance_To_Hydrology", type: "Continuous", domain: "[-173, 601]", scaleUnit: "Meters", desc: "Vertical distance to nearest surface water" },
+                    { col: "Horizontal_Distance_To_Roadways", type: "Continuous", domain: "[0, 7117]", scaleUnit: "Meters", desc: "Horizontal distance to nearest roadway" },
+                    { col: "Hillshade_9am", type: "Continuous", domain: "[0, 254]", scaleUnit: "Index (0-255)", desc: "Hillshade index at 9am, summer solstice" },
+                    { col: "Hillshade_Noon", type: "Continuous", domain: "[0, 254]", scaleUnit: "Index (0-255)", desc: "Hillshade index at noon, summer solstice" },
+                    { col: "Hillshade_3pm", type: "Continuous", domain: "[0, 254]", scaleUnit: "Index (0-255)", desc: "Hillshade index at 3pm, summer solstice" },
+                    { col: "Horizontal_Distance_To_Fire_Points", type: "Continuous", domain: "[0, 7173]", scaleUnit: "Meters", desc: "Horizontal distance to nearest historic wildfire ignition" },
+                    { col: "Wilderness_Area1..4", type: "Binary (4)", domain: "{0, 1}", scaleUnit: "Indicator", desc: "Wilderness areas: Rawah, Neota, Comanche Peak, Cache la Poudre" },
+                    { col: "Soil_Type1..40", type: "Binary (40)", domain: "{0, 1}", scaleUnit: "Indicator", desc: "USFS soil classification types (geological families)" },
+                    { col: "Cover_Type", type: "Target Integer", domain: "[1, 7]", scaleUnit: "Class", desc: "Target cover class: Spruce/Fir, Lodgepole, Ponderosa, etc." },
                   ]
                     .filter((f) => f.col.toLowerCase().includes(featureSearch.toLowerCase()) || f.desc.toLowerCase().includes(featureSearch.toLowerCase()))
                     .map((row) => (
@@ -1376,7 +1376,7 @@ export default function Home() {
                         <td style={{ padding: "0.75rem", fontWeight: 700, color: "#0284c7" }}>{row.col}</td>
                         <td style={{ padding: "0.75rem" }}>{row.type}</td>
                         <td style={{ padding: "0.75rem", fontFamily: "monospace" }}>{row.domain}</td>
-                        <td style={{ padding: "0.75rem" }}>{row.unit}</td>
+                        <td style={{ padding: "0.75rem" }}>{row.scaleUnit}</td>
                         <td style={{ padding: "0.75rem", color: "var(--text-muted)" }}>{row.desc}</td>
                       </tr>
                     ))}
@@ -1395,10 +1395,10 @@ export default function Home() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem" }}>
                 <div>
                   <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                    Practical 2: Synthetic Missing Value Experiment
+                    Synthetic Missing-Value Imputation & Recovery Experiment
                   </h2>
                   <p style={{ color: "var(--text-muted)", maxWidth: "800px" }}>
-                    The original dataset has 0 missing values. To fulfill Practical 2 requirements with academic rigor,
+                    The original dataset has 0 missing values. To evaluate robust data cleaning and median recovery pipelines,
                     exactly 800 missing cells were injected into 10,000 sampled records across continuous features and
                     restored via median imputation without altering the raw dataset.
                   </p>
@@ -1470,7 +1470,7 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Practical 3: Descriptive Statistics & Five-Number Summaries
+                Descriptive Statistics, Moments & Five-Number Summaries
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
                 Statistical moments, central tendencies, and dispersions calculated across all 581,012 observations.
@@ -1530,7 +1530,7 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Practical 6: Feature Selection & Principal Component Analysis (PCA)
+                Feature Selection & Principal Component Analysis (PCA)
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
                 Dimensionality reduction retains 96.9% total variance with 8 principal components,
@@ -1610,7 +1610,7 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Practical 7: Classification Model Comparison
+                Supervised Multi-Class Classification & Benchmark Evaluation
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
                 Evaluated on a strictly isolated 15% stratified test holdout (87,152 samples). 
@@ -1694,7 +1694,7 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Practical 8: Unsupervised Topographic Clustering (K-Means)
+                Unsupervised Topographic Clustering & Terrain Niche Profiling
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
                 Terrain segmentation into 4 ecological clusters based on elevation, slope, aspect, and distance to water.
@@ -1729,7 +1729,7 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Practical 9: Forest Fires Burned Area Regression
+                Meteorological Wildfire Burned-Area Regression Modeling
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
                 Evaluated on the separate UCI Forest Fires dataset (N=517) to predict logarithmic burned area (ln(area + 1)) 
@@ -2088,10 +2088,10 @@ export default function Home() {
           <div>
             <div className="glass-panel" style={{ padding: "2rem", marginBottom: "2rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                Multi-Tool Architecture, Supabase Integration & Academic Traceability
+                Multi-Tool Architecture, Supabase Integration & Technical Implementation Matrix
               </h2>
               <p style={{ color: "var(--text-muted)" }}>
-                Strict mapping between university syllabus requirements (Units I–V, Practicals 1–10) and technological implementation.
+                Comprehensive inventory of implemented domain topics, analytical concepts, and cross-platform integrations.
               </p>
             </div>
 
@@ -2127,36 +2127,37 @@ export default function Home() {
 
             <div className="glass-panel" style={{ padding: "1.8rem" }}>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem" }}>
-                Academic Practical Traceability (1–10)
+                Implemented Topics & Technical Concepts Registry
               </h3>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem" }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--border-subtle)", textAlign: "left" }}>
-                    <th style={{ padding: "0.6rem" }}>Practical</th>
-                    <th style={{ padding: "0.6rem" }}>Syllabus Unit</th>
-                    <th style={{ padding: "0.6rem" }}>Topic</th>
+                    <th style={{ padding: "0.6rem" }}>Topic Code</th>
+                    <th style={{ padding: "0.6rem" }}>Domain Topic</th>
+                    <th style={{ padding: "0.6rem" }}>Implemented Technical Concept</th>
                     <th style={{ padding: "0.6rem" }}>Primary Tool</th>
                     <th style={{ padding: "0.6rem" }}>Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { p: "P1", unit: "Unit I", topic: "Ingestion & Tabular Audit", tool: "Python + Supabase", status: "VERIFIED" },
-                    { p: "P2", unit: "Unit I", topic: "Synthetic Missing Value Cleaning", tool: "Python + KNIME", status: "VERIFIED" },
-                    { p: "P3", unit: "Unit II", topic: "Descriptive Statistics", tool: "Python + FastAPI", status: "VERIFIED" },
-                    { p: "P4", unit: "Unit II", topic: "Outlier Detection (IQR / Z-Score)", tool: "Python + Tableau", status: "VERIFIED" },
-                    { p: "P5", unit: "Unit III & V", topic: "Data Visualization & EDA", tool: "Tableau + Python", status: "VERIFIED" },
-                    { p: "P6a", unit: "Unit IV", topic: "Feature Selection & Hypotheses", tool: "Python + KNIME", status: "VERIFIED" },
-                    { p: "P6b", unit: "Unit IV", topic: "Principal Component Analysis", tool: "Python + Next.js", status: "VERIFIED" },
-                    { p: "P7", unit: "Unit IV", topic: "Classification Model Comparison", tool: "Python + FastAPI", status: "VERIFIED" },
-                    { p: "P8", unit: "Unit IV", topic: "K-Means Clustering", tool: "Python + KNIME", status: "VERIFIED" },
-                    { p: "P9", unit: "Unit IV", topic: "Forest Fires Regression", tool: "Python + Supabase", status: "VERIFIED" },
-                    { p: "P10", unit: "Unit V", topic: "Full-Stack Multi-Tool Integration", tool: "Next.js + FastAPI + Supabase", status: "VERIFIED" },
+                    { code: "T01", topic: "Data Ingestion & Integrity", concept: "Cryptographic Fingerprint & 55-Column Schema Audit", tool: "Python + Supabase", status: "VERIFIED" },
+                    { code: "T02", topic: "Data Cleaning & Imputation", concept: "Controlled Missingness & Median Value Recovery", tool: "Python + KNIME", status: "VERIFIED" },
+                    { code: "T03", topic: "Descriptive Statistics", concept: "Five-Number Summary, Moments & Dispersion", tool: "Python + FastAPI", status: "VERIFIED" },
+                    { code: "T04", topic: "Anomaly Detection", concept: "IQR & Z-Score Robust Outlier Screening", tool: "Python + Tableau", status: "VERIFIED" },
+                    { code: "T05", topic: "Exploratory Visualizations", concept: "Squarified Treemaps, Polar Radar & Heatmaps", tool: "Tableau + Python", status: "VERIFIED" },
+                    { code: "T06", topic: "Hypothesis Testing & Selection", concept: "Chi-Square Independence & Pearson Correlation", tool: "Python + KNIME", status: "VERIFIED" },
+                    { code: "T07", topic: "Dimensionality Reduction", concept: "Principal Component Analysis (96.9% Variance)", tool: "Python + Next.js", status: "VERIFIED" },
+                    { code: "T08", topic: "Supervised Classification", concept: "Ensemble Random Forest & Decision Tree Benchmarks", tool: "Python + FastAPI", status: "VERIFIED" },
+                    { code: "T09", topic: "Unsupervised Clustering", concept: "Topographic K-Means (k=5) & Eco-Terrain Profiles", tool: "Python + KNIME", status: "VERIFIED" },
+                    { code: "T10", topic: "Burned Area Regression", concept: "Meteorological Wildfire Area log1p Regressors", tool: "Python + Supabase", status: "VERIFIED" },
+                    { code: "T11", topic: "Feature Transformation", concept: "Gaussian Smoothing & Equal-Width Bin Discretization", tool: "Python + KNIME", status: "VERIFIED" },
+                    { code: "T12", topic: "Multi-Tool Integration & Audit", concept: "Round-Trip Parity Audits & Relational Sync", tool: "Next.js + FastAPI + Supabase", status: "VERIFIED" },
                   ].map((row) => (
-                    <tr key={row.p} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                      <td style={{ padding: "0.6rem", fontWeight: 700, color: "#0284c7" }}>{row.p}</td>
-                      <td style={{ padding: "0.6rem" }}>{row.unit}</td>
+                    <tr key={row.code} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
+                      <td style={{ padding: "0.6rem", fontWeight: 700, color: "#0284c7" }}>{row.code}</td>
                       <td style={{ padding: "0.6rem", fontWeight: 600 }}>{row.topic}</td>
+                      <td style={{ padding: "0.6rem" }}>{row.concept}</td>
                       <td style={{ padding: "0.6rem" }}>{row.tool}</td>
                       <td style={{ padding: "0.6rem" }}>
                         <span className="badge badge-production" style={{ fontSize: "0.75rem", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
