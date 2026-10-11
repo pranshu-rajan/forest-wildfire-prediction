@@ -1,85 +1,253 @@
-Cover_Type,wilderness_area,risk_tier,observation_count,mean_elevation,mean_slope,mean_dist_to_fire_points,mean_screening_risk_score,cover_name
-1,Cache la Poudre,Low Screening Risk,0,,,,,Spruce/Fir
-1,Cache la Poudre,Moderate Screening Risk,0,,,,,Spruce/Fir
-1,Cache la Poudre,High Screening Risk,0,,,,,Spruce/Fir
-1,Comanche Peak,Low Screening Risk,0,,,,,Spruce/Fir
-1,Comanche Peak,Moderate Screening Risk,69670,3115.036227931678,12.820582747236974,1886.6166642744365,57.230292808956506,Spruce/Fir
-1,Comanche Peak,High Screening Risk,17858,3104.264419307873,17.961585843879494,724.8630305745324,68.19267555157353,Spruce/Fir
-1,Neota,Low Screening Risk,493,3193.052738336714,10.186612576064908,5508.17444219067,32.79594320486815,Spruce/Fir
-1,Neota,Moderate Screening Risk,15208,3233.4285902156757,12.000854813256181,2253.556417674908,54.950604944765914,Spruce/Fir
-1,Neota,High Screening Risk,2894,3259.754319281272,19.76295784381479,836.913614374568,68.23752591568763,Spruce/Fir
-1,Rawah,Low Screening Risk,5238,2958.5874379534175,9.062428407789232,5916.713249331806,30.167602138220694,Spruce/Fir
-1,Rawah,Moderate Screening Risk,89659,3130.032723987553,11.814207162694208,2258.1668655684316,54.364020343746866,Spruce/Fir
-1,Rawah,High Screening Risk,10820,3142.054898336414,19.910813308687615,775.2963955637708,67.81556377079482,Spruce/Fir
-2,Cache la Poudre,Low Screening Risk,0,,,,,Lodgepole Pine
-2,Cache la Poudre,Moderate Screening Risk,1162,2496.5430292598967,11.139414802065405,897.2934595524957,62.67349397590362,Lodgepole Pine
-2,Cache la Poudre,High Screening Risk,1864,2456.7151287553647,20.251609442060087,716.7129828326181,68.56486051502145,Lodgepole Pine
-2,Comanche Peak,Low Screening Risk,0,,,,,Lodgepole Pine
-2,Comanche Peak,Moderate Screening Risk,87935,2943.532017967817,13.169602547336101,1773.1274805253881,58.30148518792289,Lodgepole Pine
-2,Comanche Peak,High Screening Risk,37158,2888.459766402928,21.969912266537488,935.0353894181603,69.1870525862533,Lodgepole Pine
-2,Neota,Low Screening Risk,23,3119.8260869565215,4.782608695652174,5030.434782608696,34.339130434782604,Lodgepole Pine
-2,Neota,Moderate Screening Risk,8333,3214.353774150966,11.946357854314172,2486.253690147606,53.44683787351494,Lodgepole Pine
-2,Neota,High Screening Risk,629,3213.764705882353,16.457869634340224,728.3449920508745,66.88823529411765,Lodgepole Pine
-2,Rawah,Low Screening Risk,17681,2863.639047565183,8.417340648153385,5846.0463209094505,30.22043436457214,Lodgepole Pine
-2,Rawah,Moderate Screening Risk,116767,2913.672030625091,11.385896700266342,2462.0055580771964,53.02430652495997,Lodgepole Pine
-2,Rawah,High Screening Risk,11749,2904.3972252957697,19.185888160694528,771.2222316792919,68.01811217975998,Lodgepole Pine
-3,Cache la Poudre,Low Screening Risk,0,,,,,Ponderosa Pine
-3,Cache la Poudre,Moderate Screening Risk,4805,2381.1015608740895,13.199167533818938,1143.7055150884496,61.795442247658684,Ponderosa Pine
-3,Cache la Poudre,High Screening Risk,16649,2243.8043125713257,25.60544176827437,627.5958916451439,70.79763349150099,Ponderosa Pine
-3,Comanche Peak,Low Screening Risk,0,,,,,Ponderosa Pine
-3,Comanche Peak,Moderate Screening Risk,7031,2602.3008106954912,12.40236097283459,1470.6317735741716,60.37427108519414,Ponderosa Pine
-3,Comanche Peak,High Screening Risk,7269,2547.563213646994,22.79405695418902,864.7624157380658,70.39581785665153,Ponderosa Pine
-3,Neota,Low Screening Risk,0,,,,,Ponderosa Pine
-3,Neota,Moderate Screening Risk,0,,,,,Ponderosa Pine
-3,Neota,High Screening Risk,0,,,,,Ponderosa Pine
-3,Rawah,Low Screening Risk,0,,,,,Ponderosa Pine
-3,Rawah,Moderate Screening Risk,0,,,,,Ponderosa Pine
-3,Rawah,High Screening Risk,0,,,,,Ponderosa Pine
-4,Cache la Poudre,Low Screening Risk,0,,,,,Cottonwood/Willow
-4,Cache la Poudre,Moderate Screening Risk,1154,2241.313691507799,11.68630849220104,1106.661178509532,61.5286828422877,Cottonwood/Willow
-4,Cache la Poudre,High Screening Risk,1593,2211.3540489642182,23.48587570621469,679.8035153797865,70.26516007532956,Cottonwood/Willow
-4,Comanche Peak,Low Screening Risk,0,,,,,Cottonwood/Willow
-4,Comanche Peak,Moderate Screening Risk,0,,,,,Cottonwood/Willow
-4,Comanche Peak,High Screening Risk,0,,,,,Cottonwood/Willow
-4,Neota,Low Screening Risk,0,,,,,Cottonwood/Willow
-4,Neota,Moderate Screening Risk,0,,,,,Cottonwood/Willow
-4,Neota,High Screening Risk,0,,,,,Cottonwood/Willow
-4,Rawah,Low Screening Risk,0,,,,,Cottonwood/Willow
-4,Rawah,Moderate Screening Risk,0,,,,,Cottonwood/Willow
-4,Rawah,High Screening Risk,0,,,,,Cottonwood/Willow
-5,Cache la Poudre,Low Screening Risk,0,,,,,Aspen
-5,Cache la Poudre,Moderate Screening Risk,0,,,,,Aspen
-5,Cache la Poudre,High Screening Risk,0,,,,,Aspen
-5,Comanche Peak,Low Screening Risk,0,,,,,Aspen
-5,Comanche Peak,Moderate Screening Risk,3993,2787.7833708990734,11.653143000250438,1583.5093914350114,59.39782118707738,Aspen
-5,Comanche Peak,High Screening Risk,1719,2829.656195462478,21.668411867364746,1004.9301919720768,68.126061663758,Aspen
-5,Neota,Low Screening Risk,0,,,,,Aspen
-5,Neota,Moderate Screening Risk,0,,,,,Aspen
-5,Neota,High Screening Risk,0,,,,,Aspen
-5,Rawah,Low Screening Risk,248,2558.6169354838707,7.149193548387097,5785.431451612903,29.70403225806452,Aspen
-5,Rawah,Moderate Screening Risk,2388,2791.7064489112227,19.94681742043551,1991.7248743718592,58.44577051926298,Aspen
-5,Rawah,High Screening Risk,1145,2763.3406113537117,21.651528384279477,642.6550218340611,68.84890829694324,Aspen
-6,Cache la Poudre,Low Screening Risk,0,,,,,Douglas-fir
-6,Cache la Poudre,Moderate Screening Risk,3035,2392.5930807248765,13.464250411861615,1164.2747940691927,61.83947281713344,Douglas-fir
-6,Cache la Poudre,High Screening Risk,6706,2260.548464062034,23.93945720250522,681.2633462570832,69.48382045929019,Douglas-fir
-6,Comanche Peak,Low Screening Risk,0,,,,,Douglas-fir
-6,Comanche Peak,Moderate Screening Risk,5119,2587.1537409650323,13.982809142410627,1637.461418245751,58.819515530377025,Douglas-fir
-6,Comanche Peak,High Screening Risk,2507,2532.721978460311,23.072197846031113,735.5396888711607,69.05029916234544,Douglas-fir
-6,Neota,Low Screening Risk,0,,,,,Douglas-fir
-6,Neota,Moderate Screening Risk,0,,,,,Douglas-fir
-6,Neota,High Screening Risk,0,,,,,Douglas-fir
-6,Rawah,Low Screening Risk,0,,,,,Douglas-fir
-6,Rawah,Moderate Screening Risk,0,,,,,Douglas-fir
-6,Rawah,High Screening Risk,0,,,,,Douglas-fir
-7,Cache la Poudre,Low Screening Risk,0,,,,,Krummholz
-7,Cache la Poudre,Moderate Screening Risk,0,,,,,Krummholz
-7,Cache la Poudre,High Screening Risk,0,,,,,Krummholz
-7,Comanche Peak,Low Screening Risk,0,,,,,Krummholz
-7,Comanche Peak,Moderate Screening Risk,10413,3380.779602420052,12.696053010659753,2312.6801113992124,54.58518198405839,Krummholz
-7,Comanche Peak,High Screening Risk,2692,3316.4023031203565,21.471768202080238,677.0282317979197,69.52280832095096,Krummholz
-7,Neota,Low Screening Risk,0,,,,,Krummholz
-7,Neota,Moderate Screening Risk,1820,3457.540659340659,12.518131868131869,1549.4335164835165,59.051373626373625,Krummholz
-7,Neota,High Screening Risk,484,3393.1735537190084,18.83677685950413,674.5351239669421,67.83223140495869,Krummholz
-7,Rawah,Low Screening Risk,0,,,,,Krummholz
-7,Rawah,Moderate Screening Risk,4943,3311.146469755209,13.441027715961967,2667.172769573134,52.434088610155776,Krummholz
-7,Rawah,High Screening Risk,158,3286.8797468354433,25.59493670886076,1402.3481012658228,67.12911392405063,Krummholz
+Cover_Type,wilderness_area,elevation_stratum,risk_tier,observation_count,mean_elevation,mean_slope,mean_dist_to_fire_points,mean_screening_risk_score,cover_name,risk_classification
+1,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Spruce/Fir,Moderate Screening Risk
+1,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,0,,,,,Spruce/Fir,High Screening Risk
+1,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Spruce/Fir,Moderate Screening Risk
+1,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Spruce/Fir,High Screening Risk
+1,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Spruce/Fir,Moderate Screening Risk
+1,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Spruce/Fir,High Screening Risk
+1,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,294,2572.9319727891157,9.333333333333334,2315.4455782312925,52.72721088435374,Spruce/Fir,Moderate Screening Risk
+1,Comanche Peak,Lower Montane (<2600m),High Screening Risk,19,2547.4736842105262,20.68421052631579,1066.1052631578948,66.77894736842104,Spruce/Fir,High Screening Risk
+1,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,29326,2971.071438314124,13.00787696924231,1837.9239241628588,57.32603150787697,Spruce/Fir,Moderate Screening Risk
+1,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,7403,2937.1846548696476,20.275834121302175,786.5122247737404,68.4084155072268,Spruce/Fir,High Screening Risk
+1,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,40050,3224.4317353308365,12.709038701622971,1919.1232209737827,57.193245942571785,Spruce/Fir,Moderate Screening Risk
+1,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,10436,3223.7997316979686,16.314967420467614,680.5095822154082,68.04220965887313,Spruce/Fir,High Screening Risk
+1,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Spruce/Fir,Moderate Screening Risk
+1,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Spruce/Fir,High Screening Risk
+1,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Spruce/Fir,Low Screening Risk
+1,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,977,3057.436028659161,7.881269191402252,1328.4636642784033,58.925281473899695,Spruce/Fir,Moderate Screening Risk
+1,Neota,Upper Montane (2600-3100m),High Screening Risk,338,3021.1242603550295,12.485207100591715,436.2573964497041,66.80325443786982,Spruce/Fir,High Screening Risk
+1,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,493,3193.052738336714,10.186612576064908,5508.17444219067,32.79594320486815,Spruce/Fir,Low Screening Risk
+1,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,14231,3245.510997118966,12.283676480921931,2317.0667556742324,54.67773171245872,Spruce/Fir,Moderate Screening Risk
+1,Neota,Subalpine/Alpine (>3100m),High Screening Risk,2556,3291.3102503912364,20.725352112676056,889.8955399061033,68.42719092331768,Spruce/Fir,High Screening Risk
+1,Rawah,Lower Montane (<2600m),Low Screening Risk,4,2587.75,21.25,6424.0,30.9,Spruce/Fir,Low Screening Risk
+1,Rawah,Lower Montane (<2600m),Moderate Screening Risk,166,2550.9457831325303,6.662650602409639,844.5542168674699,60.90903614457831,Spruce/Fir,Moderate Screening Risk
+1,Rawah,Lower Montane (<2600m),High Screening Risk,32,2572.09375,15.1875,500.03125,66.278125,Spruce/Fir,High Screening Risk
+1,Rawah,Upper Montane (2600-3100m),Low Screening Risk,4696,2936.6328790459966,9.203790459965928,5997.0191652470185,29.80217206132879,Spruce/Fir,Low Screening Risk
+1,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,34649,2988.189962192271,11.77373084360299,2366.202747554042,53.660368264596386,Spruce/Fir,Moderate Screening Risk
+1,Rawah,Upper Montane (2600-3100m),High Screening Risk,4714,2975.5549427238016,18.782350445481544,669.8345354263895,67.44079338141707,Spruce/Fir,High Screening Risk
+1,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,538,3152.977695167286,7.737918215613383,5211.981412639405,33.35185873605948,Spruce/Fir,Low Screening Risk
+1,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,54844,3221.3980198380864,11.8553715994457,2194.191306250456,54.78875902559989,Spruce/Fir,Moderate Screening Risk
+1,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,6074,3274.2774119196574,20.811491603556142,858.5949950609154,68.11452090879156,Spruce/Fir,High Screening Risk
+2,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,1118,2491.859570661896,11.092128801431127,895.0974955277281,62.674955277280866,Lodgepole Pine,Moderate Screening Risk
+2,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,1838,2454.4461371055495,20.19804134929271,712.2704026115342,68.57421109902067,Lodgepole Pine,High Screening Risk
+2,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,44,2615.5454545454545,12.340909090909092,953.0909090909091,62.63636363636363,Lodgepole Pine,Moderate Screening Risk
+2,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,26,2617.1153846153848,24.03846153846154,1030.7692307692307,67.90384615384616,Lodgepole Pine,High Screening Risk
+2,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Lodgepole Pine,Moderate Screening Risk
+2,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Lodgepole Pine,High Screening Risk
+2,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,3612,2551.9266334440754,14.64202657807309,1583.6608527131782,59.37087486157254,Lodgepole Pine,Moderate Screening Risk
+2,Comanche Peak,Lower Montane (<2600m),High Screening Risk,2001,2528.920539730135,26.355322338830586,979.4667666166916,69.26481759120439,Lodgepole Pine,High Screening Risk
+2,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,67576,2903.69443293477,13.222638214750798,1718.5388155558187,58.552934473777675,Lodgepole Pine,Moderate Screening Risk
+2,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,30303,2866.4525294525292,22.285846285846286,942.7365937365937,69.23477543477543,Lodgepole Pine,High Screening Risk
+2,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,16747,3188.742700185108,12.638024720845525,2034.263032184869,57.056213053084136,Lodgepole Pine,Moderate Screening Risk
+2,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,4854,3174.064070869386,18.189740420271942,868.6413267408323,68.85706633704162,Lodgepole Pine,High Screening Risk
+2,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Lodgepole Pine,Moderate Screening Risk
+2,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Lodgepole Pine,High Screening Risk
+2,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Lodgepole Pine,Low Screening Risk
+2,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,1175,3061.515744680851,7.293617021276596,1133.9378723404254,59.7096170212766,Lodgepole Pine,Moderate Screening Risk
+2,Neota,Upper Montane (2600-3100m),High Screening Risk,119,3011.0,14.260504201680673,688.7731092436975,66.42436974789916,Lodgepole Pine,High Screening Risk
+2,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,23,3119.8260869565215,4.782608695652174,5030.434782608696,34.339130434782604,Lodgepole Pine,Low Screening Risk
+2,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,7158,3239.4424420229116,12.710114557138866,2708.239033249511,52.41879016485052,Lodgepole Pine,Moderate Screening Risk
+2,Neota,Subalpine/Alpine (>3100m),High Screening Risk,510,3261.076470588235,16.970588235294116,737.5784313725491,66.99647058823528,Lodgepole Pine,High Screening Risk
+2,Rawah,Lower Montane (<2600m),Low Screening Risk,757,2564.0568031704097,7.887714663143989,5591.889035667107,31.294848084544256,Lodgepole Pine,Low Screening Risk
+2,Rawah,Lower Montane (<2600m),Moderate Screening Risk,4923,2555.7964655697747,10.811497054641478,2461.503554743043,52.489559211862684,Lodgepole Pine,Moderate Screening Risk
+2,Rawah,Lower Montane (<2600m),High Screening Risk,1063,2563.7384760112886,13.983066792097837,401.63217309501414,67.28118532455315,Lodgepole Pine,High Screening Risk
+2,Rawah,Upper Montane (2600-3100m),Low Screening Risk,16900,2876.7083431952665,8.44396449704142,5858.1891715976335,30.169585798816566,Lodgepole Pine,Low Screening Risk
+2,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,94737,2883.561934618998,11.483760304843937,2542.5936856771905,52.51099570389605,Lodgepole Pine,Moderate Screening Risk
+2,Rawah,Upper Montane (2600-3100m),High Screening Risk,9138,2898.869117968921,19.625082074852266,781.6249726417159,68.10828408842197,Lodgepole Pine,High Screening Risk
+2,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,24,3110.0,6.375,5312.0,32.137499999999996,Lodgepole Pine,Low Screening Risk
+2,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,17107,3183.4073186414917,11.009235985269187,2015.8603495645057,56.02086280469983,Lodgepole Pine,Moderate Screening Risk
+2,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,1548,3170.958010335917,20.166020671834627,963.6085271317829,67.99186046511628,Lodgepole Pine,High Screening Risk
+3,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,4754,2378.583087925957,13.210138830458561,1145.2387463188893,61.792511569204876,Ponderosa Pine,Moderate Screening Risk
+3,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,16647,2243.7604973869165,25.60581486153661,627.5576380128551,70.79801165375143,Ponderosa Pine,High Screening Risk
+3,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,51,2615.8627450980393,12.176470588235293,1000.7843137254902,62.068627450980394,Ponderosa Pine,Moderate Screening Risk
+3,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,2,2608.5,22.5,946.0,67.65,Ponderosa Pine,High Screening Risk
+3,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,3349,2515.5897282770975,11.902060316512392,1284.018214392356,61.26300388175574,Ponderosa Pine,Moderate Screening Risk
+3,Comanche Peak,Lower Montane (<2600m),High Screening Risk,5275,2503.345971563981,23.66995260663507,860.3201895734597,70.66597156398105,Ponderosa Pine,High Screening Risk
+3,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,3682,2681.169744703965,12.857414448669202,1640.3680065181966,59.565915263443785,Ponderosa Pine,Moderate Screening Risk
+3,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,1994,2664.537111334002,20.476930792377132,876.5140421263791,69.68114343029087,Ponderosa Pine,High Screening Risk
+3,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Neota,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Neota,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Rawah,Lower Montane (<2600m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Rawah,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Rawah,Lower Montane (<2600m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Rawah,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Rawah,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+3,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Ponderosa Pine,Low Screening Risk
+3,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Ponderosa Pine,Moderate Screening Risk
+3,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Ponderosa Pine,High Screening Risk
+4,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,1154,2241.313691507799,11.68630849220104,1106.661178509532,61.5286828422877,Cottonwood/Willow,Moderate Screening Risk
+4,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,1593,2211.3540489642182,23.48587570621469,679.8035153797865,70.26516007532956,Cottonwood/Willow,High Screening Risk
+4,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Comanche Peak,Lower Montane (<2600m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Neota,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Neota,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Rawah,Lower Montane (<2600m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Rawah,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Rawah,Lower Montane (<2600m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Rawah,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Rawah,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+4,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Cottonwood/Willow,Low Screening Risk
+4,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Cottonwood/Willow,Moderate Screening Risk
+4,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Cottonwood/Willow,High Screening Risk
+5,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,332,2569.0993975903616,7.656626506024097,1519.1506024096386,57.20240963855422,Aspen,Moderate Screening Risk
+5,Comanche Peak,Lower Montane (<2600m),High Screening Risk,10,2583.6,20.3,1070.6,68.13,Aspen,High Screening Risk
+5,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,3661,2807.6148593280523,12.01556951652554,1589.3458071565146,59.59691341163616,Aspen,Moderate Screening Risk
+5,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,1709,2831.0959625511996,21.676418958455237,1004.5459332943242,68.12603861907547,Aspen,High Screening Risk
+5,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Neota,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Neota,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Rawah,Lower Montane (<2600m),Low Screening Risk,169,2521.828402366864,6.3017751479289945,5605.325443786982,30.359171597633136,Aspen,Low Screening Risk
+5,Rawah,Lower Montane (<2600m),Moderate Screening Risk,29,2501.2413793103447,8.758620689655173,4110.724137931034,41.16896551724138,Aspen,Moderate Screening Risk
+5,Rawah,Lower Montane (<2600m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+5,Rawah,Upper Montane (2600-3100m),Low Screening Risk,79,2637.3164556962024,8.962025316455696,6170.721518987341,28.302531645569623,Aspen,Low Screening Risk
+5,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,2359,2795.2772361169987,20.084357778719795,1965.6752861381942,58.65816023738873,Aspen,Moderate Screening Risk
+5,Rawah,Upper Montane (2600-3100m),High Screening Risk,1145,2763.3406113537117,21.651528384279477,642.6550218340611,68.84890829694324,Aspen,High Screening Risk
+5,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Aspen,Low Screening Risk
+5,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Aspen,Moderate Screening Risk
+5,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Aspen,High Screening Risk
+6,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,3035,2392.5930807248765,13.464250411861615,1164.2747940691927,61.83947281713344,Douglas-fir,Moderate Screening Risk
+6,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,6706,2260.548464062034,23.93945720250522,681.2633462570832,69.48382045929019,Douglas-fir,High Screening Risk
+6,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,2840,2508.0348591549296,13.110211267605633,1310.6091549295775,60.43285211267605,Douglas-fir,Moderate Screening Risk
+6,Comanche Peak,Lower Montane (<2600m),High Screening Risk,1834,2476.1455834242092,22.226826608506,693.6826608505997,68.91095965103598,Douglas-fir,High Screening Risk
+6,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,2279,2685.7485739359367,15.070206230802984,2044.7718297498902,56.80903905221589,Douglas-fir,Moderate Screening Risk
+6,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,673,2686.8989598811295,25.37592867756315,849.6047548291233,69.43001485884102,Douglas-fir,High Screening Risk
+6,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Neota,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Neota,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Rawah,Lower Montane (<2600m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Rawah,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Rawah,Lower Montane (<2600m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Rawah,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Rawah,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+6,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Douglas-fir,Low Screening Risk
+6,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Douglas-fir,Moderate Screening Risk
+6,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Douglas-fir,High Screening Risk
+7,Cache la Poudre,Lower Montane (<2600m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Cache la Poudre,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Cache la Poudre,Lower Montane (<2600m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Cache la Poudre,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Cache la Poudre,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Cache la Poudre,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Cache la Poudre,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Cache la Poudre,Subalpine/Alpine (>3100m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Cache la Poudre,Subalpine/Alpine (>3100m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Comanche Peak,Lower Montane (<2600m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Comanche Peak,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Comanche Peak,Lower Montane (<2600m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Comanche Peak,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Comanche Peak,Upper Montane (2600-3100m),Moderate Screening Risk,16,2943.0,18.875,1735.75,62.8375,Krummholz,Moderate Screening Risk
+7,Comanche Peak,Upper Montane (2600-3100m),High Screening Risk,69,2919.159420289855,27.130434782608695,1840.5072463768115,67.37391304347827,Krummholz,High Screening Risk
+7,Comanche Peak,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Comanche Peak,Subalpine/Alpine (>3100m),Moderate Screening Risk,10397,3381.4533038376453,12.686544195440993,2313.567952293931,54.57248244685967,Krummholz,Moderate Screening Risk
+7,Comanche Peak,Subalpine/Alpine (>3100m),High Screening Risk,2623,3326.8520777735416,21.32291269538696,646.4220358368281,69.57933663743805,Krummholz,High Screening Risk
+7,Neota,Lower Montane (<2600m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Neota,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Neota,Lower Montane (<2600m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Neota,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Neota,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Neota,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Neota,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Neota,Subalpine/Alpine (>3100m),Moderate Screening Risk,1820,3457.540659340659,12.518131868131869,1549.4335164835165,59.051373626373625,Krummholz,Moderate Screening Risk
+7,Neota,Subalpine/Alpine (>3100m),High Screening Risk,484,3393.1735537190084,18.83677685950413,674.5351239669421,67.83223140495869,Krummholz,High Screening Risk
+7,Rawah,Lower Montane (<2600m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Rawah,Lower Montane (<2600m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Rawah,Lower Montane (<2600m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Rawah,Upper Montane (2600-3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Rawah,Upper Montane (2600-3100m),Moderate Screening Risk,0,,,,,Krummholz,Moderate Screening Risk
+7,Rawah,Upper Montane (2600-3100m),High Screening Risk,0,,,,,Krummholz,High Screening Risk
+7,Rawah,Subalpine/Alpine (>3100m),Low Screening Risk,0,,,,,Krummholz,Low Screening Risk
+7,Rawah,Subalpine/Alpine (>3100m),Moderate Screening Risk,4943,3311.146469755209,13.441027715961967,2667.172769573134,52.434088610155776,Krummholz,Moderate Screening Risk
+7,Rawah,Subalpine/Alpine (>3100m),High Screening Risk,158,3286.8797468354433,25.59493670886076,1402.3481012658228,67.12911392405063,Krummholz,High Screening Risk

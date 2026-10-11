@@ -387,6 +387,41 @@ def predict_cover_type(req: PredictionRequest):
             detail=f"Inference failure: {str(exc)}",
         )
 
+    # Persist prediction request to Supabase app schema or local offline log
+    try:
+        if is_db_available():
+            from python_src.database import get_engine
+            from sqlalchemy import text
+            engine = get_engine()
+            with engine.begin() as conn:
+                conn.execute(
+                    text("""
+                        INSERT INTO app.prediction_requests (model_used, predicted_cover_type, cover_name, confidence, features_json)
+                        VALUES (:model, :pred, :name, :conf, :feats)
+                    """),
+                    {
+                        "model": res["model_used"],
+                        "pred": res["predicted_cover_type"],
+                        "name": res["cover_name"],
+                        "conf": max(res["probabilities"].values()) if res.get("probabilities") else 1.0,
+                        "feats": json.dumps(req.features),
+                    }
+                )
+        else:
+            log_dir = root_dir / "logs"
+            log_dir.mkdir(parents=True, exist_ok=True)
+            with open(log_dir / "predictions.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "timestamp": res["timestamp"],
+                    "model_used": res["model_used"],
+                    "predicted_cover_type": res["predicted_cover_type"],
+                    "cover_name": res["cover_name"],
+                    "probabilities": res.get("probabilities"),
+                }) + "\n")
+    except Exception as log_err:
+        logger.warning("Could not persist prediction history: %s", log_err)
+
+
     return PredictionResponse(
         predicted_cover_type=res["predicted_cover_type"],
         cover_name=res["cover_name"],
@@ -396,7 +431,52 @@ def predict_cover_type(req: PredictionRequest):
     )
 
 
+# ---------------------------------------------------------------------------
+# Canonical API v1 Route Aliases
+# ---------------------------------------------------------------------------
+
+@app.get("/api/v1/dataset/summary", tags=["API v1"])
+def get_v1_dataset_summary():
+    return get_dataset_summary()
+
+
+@app.get("/api/v1/dataset/distribution", tags=["API v1"])
+def get_v1_dataset_distribution():
+    return get_dataset_distribution()
+
+
+@app.get("/api/v1/data-quality/report", tags=["API v1"])
+def get_v1_data_quality_report():
+    return get_data_quality_report()
+
+
+@app.get("/api/v1/statistics/summary", tags=["API v1"])
+def get_v1_statistics_summary():
+    return get_descriptive_statistics()
+
+
+@app.get("/api/v1/models/metrics", tags=["API v1"])
+def get_v1_models_metrics():
+    return get_model_metrics()
+
+
+@app.post("/api/v1/predict", response_model=PredictionResponse, tags=["API v1"])
+def predict_v1_cover_type(req: PredictionRequest):
+    return predict_cover_type(req)
+
+
+@app.get("/api/v1/clustering/summary", tags=["API v1"])
+def get_v1_clustering_summary():
+    return get_clusters_summary()
+
+
+@app.get("/api/v1/regression/summary", tags=["API v1"])
+def get_v1_regression_summary():
+    return get_regression_metrics()
+
+
 @app.get("/api/wildfire-screening/summary", tags=["Wildfire Screening"])
+
 def get_wildfire_screening_summary():
     """Returns topographic wildfire risk screening aggregates with explicit limitations.
 

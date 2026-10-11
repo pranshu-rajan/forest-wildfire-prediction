@@ -1,0 +1,4 @@
+model,test_accuracy,macro_f1,cv_mean
+Decision Tree,0.8658,0.7939,0.8971
+Random Forest,0.9351,0.9059,0.9402
+KNN,0.9312,0.8804,0.8675

@@ -56,6 +56,9 @@ from python_src.exports import (
     export_terrain_summary_by_cover,
     export_wilderness_cover_summary,
     export_wildfire_screening_aggregates,
+    export_tableau_cover_type_summary,
+    export_tableau_terrain_profile,
+    export_tableau_model_comparison,
 )
 
 setup_logging()
@@ -99,11 +102,16 @@ def main() -> int:
 
     # Class distribution for Dashboard 1
     export_class_distribution(df, settings.tableau_exports_dir)
+    export_tableau_cover_type_summary(df, settings.tableau_exports_dir)
+    export_tableau_terrain_profile(df, settings.tableau_exports_dir, sample_n=20_000)
 
     # Classification metrics for Dashboard 3
     clf_src = settings.statistics_dir / "classification_metrics_summary.csv"
     if clf_src.exists():
         shutil.copy2(clf_src, settings.tableau_exports_dir / "classification_metrics.csv")
+        clf_df = pd.read_csv(clf_src)
+        export_tableau_model_comparison(clf_df, settings.tableau_exports_dir)
+
 
     # Cluster profiles for Dashboard 3
     cl_src = settings.statistics_dir / "cluster_profiles.csv"

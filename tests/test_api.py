@@ -109,3 +109,31 @@ def test_pipeline_status_and_stages_endpoints():
     assert len(data_stages["edges"]) > 0
     assert "nodes" in data_stages
 
+
+def test_v1_canonical_endpoints(sample_feature_dict):
+    """Verify all master-contract required /api/v1/* endpoints return 200 OK."""
+    v1_get_endpoints = [
+        "/api/v1/dataset/summary",
+        "/api/v1/dataset/distribution",
+        "/api/v1/data-quality/report",
+        "/api/v1/statistics/summary",
+        "/api/v1/models/metrics",
+        "/api/v1/clustering/summary",
+        "/api/v1/regression/summary",
+    ]
+    for ep in v1_get_endpoints:
+        res = client.get(ep)
+        assert res.status_code == 200, f"Endpoint {ep} failed with status {res.status_code}"
+
+    # Test POST /api/v1/predict
+    res_pred = client.post("/api/v1/predict", json={
+        "features": sample_feature_dict,
+        "model": "random_forest"
+    })
+    assert res_pred.status_code == 200
+    data = res_pred.json()
+    assert "predicted_cover_type" in data
+    assert "cover_name" in data
+    assert "model_used" in data
+
+

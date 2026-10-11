@@ -1,0 +1,327 @@
+# ==============================================================================
+# CANONICAL INTEGRATION DATA CONTRACT & SCHEMA REGISTRY
+# Project: Forest Cover Type Prediction & Wildfire-Risk Analysis
+# Specification Version: 2.1.0
+# Last Updated: 2026-10-11
+# ==============================================================================
+
+version: "2.1.0"
+governance:
+  dataset_name: "Forest CoverType (Roosevelt National Forest, Colorado)"
+  originating_agency: "USFS / US Geological Survey / Blackard & Dean (1998)"
+  spatial_resolution_meters: 30
+  crs: "NAD83 / UTM zone 13N"
+  total_observations: 581012
+  total_columns_raw: 55
+  continuous_features_count: 10
+  wilderness_areas_count: 4
+  soil_types_count: 40
+  target_classes_count: 7
+
+schemas:
+  # ----------------------------------------------------------------------------
+  # 1. Source Dataset Metadata
+  # ----------------------------------------------------------------------------
+  source_dataset_metadata:
+    entity: "raw.source_manifests"
+    fields:
+      - name: "dataset_name"
+        type: "string"
+        nullable: false
+        allowed_values: ["covtype"]
+      - name: "dataset_version"
+        type: "string"
+        nullable: false
+        example: "v1.0"
+      - name: "sha256_hash"
+        type: "string"
+        nullable: false
+        length: 64
+        example: "ea35ca6820fcbe0bdc6707e9ed31e11a9de84f07d88da73b511c737383c271a6"
+      - name: "row_count"
+        type: "integer"
+        nullable: false
+        exact_value: 581012
+      - name: "column_count"
+        type: "integer"
+        nullable: false
+        exact_value: 55
+      - name: "loaded_at"
+        type: "timestamp_utc"
+        nullable: false
+
+  # ----------------------------------------------------------------------------
+  # 2. Curated Covertype Records
+  # ----------------------------------------------------------------------------
+  curated_covertype_records:
+    entity: "curated.forest_cover"
+    file_artifact: "data/processed/covtype_clean.parquet"
+    primary_key: "record_id"
+    note: "record_id is a technical identifier only and NEVER used as a predictor."
+    fields:
+      - name: "record_id"
+        type: "integer"
+        nullable: false
+        description: "Zero-based sequential row identifier"
+      - name: "Elevation"
+        type: "integer"
+        unit: "meters"
+        valid_range: [1800, 4000]
+        nullable: false
+      - name: "Aspect"
+        type: "integer"
+        unit: "degrees_azimuth"
+        valid_range: [0, 360]
+        nullable: false
+      - name: "Slope"
+        type: "integer"
+        unit: "degrees"
+        valid_range: [0, 90]
+        nullable: false
+      - name: "Horizontal_Distance_To_Hydrology"
+        type: "integer"
+        unit: "meters"
+        valid_range: [0, 1500]
+        nullable: false
+      - name: "Vertical_Distance_To_Hydrology"
+        type: "integer"
+        unit: "meters"
+        valid_range: [-200, 700]
+        nullable: false
+      - name: "Horizontal_Distance_To_Roadways"
+        type: "integer"
+        unit: "meters"
+        valid_range: [0, 8000]
+        nullable: false
+      - name: "Hillshade_9am"
+        type: "integer"
+        unit: "index_0_255"
+        valid_range: [0, 255]
+        nullable: false
+      - name: "Hillshade_Noon"
+        type: "integer"
+        unit: "index_0_255"
+        valid_range: [0, 255]
+        nullable: false
+      - name: "Hillshade_3pm"
+        type: "integer"
+        unit: "index_0_255"
+        valid_range: [0, 255]
+        nullable: false
+      - name: "Horizontal_Distance_To_Fire_Points"
+        type: "integer"
+        unit: "meters"
+        valid_range: [0, 8000]
+        nullable: false
+      - name: "Wilderness_Area1..4"
+        type: "binary_indicator"
+        valid_values: [0, 1]
+        constraint: "sum_across_wilderness_areas == 1"
+        nullable: false
+      - name: "Soil_Type1..40"
+        type: "binary_indicator"
+        valid_values: [0, 1]
+        constraint: "sum_across_soil_types >= 1"
+        nullable: false
+      - name: "Cover_Type"
+        type: "integer"
+        role: "target"
+        valid_values: [1, 2, 3, 4, 5, 6, 7]
+        nullable: false
+
+  # ----------------------------------------------------------------------------
+  # 3. Synthetic Cleaning Records & Audit Logs
+  # ----------------------------------------------------------------------------
+  synthetic_cleaning_records:
+    entity: "data_quality.synthetic_demo"
+    acceptance_criteria:
+      sample_size: 10000
+      injected_missing_cells_exact: 800
+      allowed_columns: "Continuous features only"
+      imputation_method: "Column median"
+      post_cleaning_missing_cells: 0
+      row_count_change: 0
+      target_labels_modified: 0
+    artifacts:
+      corrupted_sample: "data/processed/covtype_missing_values_demo.csv"
+      cleaned_sample: "data/processed/covtype_missing_values_demo_clean.csv"
+      audit_json: "reports/data_quality/synthetic_demo_audit.json"
+
+  # ----------------------------------------------------------------------------
+  # 4. Data Quality Reports
+  # ----------------------------------------------------------------------------
+  data_quality_report:
+    entity: "reports/data_quality/validation_report.json"
+    fields:
+      - { name: "test_name", type: "string" }
+      - { name: "severity", type: "enum[FATAL, WARNING, INFO]" }
+      - { name: "status", type: "enum[PASS, FAIL, WARN]" }
+      - { name: "message", type: "string" }
+      - { name: "details", type: "object" }
+
+  # ----------------------------------------------------------------------------
+  # 5. Descriptive Statistics
+  # ----------------------------------------------------------------------------
+  descriptive_statistics:
+    entity: "analytics.descriptive_statistics"
+    file_artifact: "reports/statistics/descriptive_statistics.csv"
+    fields:
+      - { name: "feature_name", type: "string" }
+      - { name: "count", type: "integer" }
+      - { name: "mean", type: "float" }
+      - { name: "std", type: "float" }
+      - { name: "min_val", type: "float" }
+      - { name: "q25", type: "float" }
+      - { name: "median", type: "float" }
+      - { name: "q75", type: "float" }
+      - { name: "max_val", type: "float" }
+      - { name: "skewness", type: "float" }
+      - { name: "kurtosis", type: "float" }
+
+  # ----------------------------------------------------------------------------
+  # 6. Feature Selection Results
+  # ----------------------------------------------------------------------------
+  feature_selection_results:
+    entity: "reports/statistics/feature_ranking_combined.csv"
+    fields:
+      - { name: "feature", type: "string" }
+      - { name: "chi2_score", type: "float" }
+      - { name: "pearson_corr", type: "float" }
+      - { name: "combined_rank", type: "integer" }
+
+  # ----------------------------------------------------------------------------
+  # 7. PCA Scores and Component Metadata
+  # ----------------------------------------------------------------------------
+  pca_scores_metadata:
+    entity: "reports/statistics/pca_report.json"
+    components_extracted: 10
+    fields:
+      - { name: "component", type: "string", example: "PC1" }
+      - { name: "explained_variance_ratio", type: "float" }
+      - { name: "cumulative_variance_ratio", type: "float" }
+      - { name: "eigenvalue", type: "float" }
+
+  # ----------------------------------------------------------------------------
+  # 8. Classification Metrics
+  # ----------------------------------------------------------------------------
+  classification_metrics:
+    entity: "models.evaluation_metrics"
+    file_artifact: "reports/statistics/classification_metrics_summary.csv"
+    fields:
+      - { name: "model", type: "string", allowed_values: ["Decision Tree", "Random Forest", "KNN"] }
+      - { name: "accuracy", type: "float" }
+      - { name: "balanced_accuracy", type: "float" }
+      - { name: "macro_f1", type: "float" }
+      - { name: "weighted_f1", type: "float" }
+      - { name: "train_time_s", type: "float" }
+      - { name: "inference_time_s", type: "float" }
+
+  # ----------------------------------------------------------------------------
+  # 9. Classification Predictions
+  # ----------------------------------------------------------------------------
+  classification_predictions:
+    entity: "exports/knime/prediction_results.csv"
+    fields:
+      - { name: "true_cover_type", type: "integer", valid_values: [1, 2, 3, 4, 5, 6, 7] }
+      - { name: "predicted_cover_type", type: "integer", valid_values: [1, 2, 3, 4, 5, 6, 7] }
+      - { name: "true_name", type: "string" }
+      - { name: "predicted_name", type: "string" }
+      - { name: "correct", type: "integer", valid_values: [0, 1] }
+
+  # ----------------------------------------------------------------------------
+  # 10. Confusion Matrix Results
+  # ----------------------------------------------------------------------------
+  confusion_matrix_results:
+    entity: "reports/statistics/classification_metrics.json"
+    dimension: [7, 7]
+    classes: ["Spruce/Fir", "Lodgepole Pine", "Ponderosa Pine", "Cottonwood/Willow", "Aspen", "Douglas-fir", "Krummholz"]
+
+  # ----------------------------------------------------------------------------
+  # 11. Clustering Assignments & Profiles
+  # ----------------------------------------------------------------------------
+  clustering_profiles:
+    entity: "analytics.cluster_profiles"
+    file_artifact: "reports/statistics/cluster_profiles.csv"
+    k_clusters: 5
+    fields:
+      - { name: "cluster_id", type: "integer", valid_values: [0, 1, 2, 3, 4] }
+      - { name: "count", type: "integer" }
+      - { name: "pct", type: "float" }
+      - { name: "mean_elevation", type: "float" }
+      - { name: "mean_slope", type: "float" }
+      - { name: "dominant_cover_type", type: "integer" }
+      - { name: "dominant_cover_name", type: "string" }
+
+  # ----------------------------------------------------------------------------
+  # 12. Forest Fires Regression Metrics
+  # ----------------------------------------------------------------------------
+  forest_fires_regression:
+    entity: "reports/statistics/forest_fires_regression_results.csv"
+    target: "ln(area + 1)"
+    fields:
+      - { name: "model", type: "string" }
+      - { name: "rmse", type: "float" }
+      - { name: "mae", type: "float" }
+      - { name: "r2", type: "float" }
+
+  # ----------------------------------------------------------------------------
+  # 13. KNIME Workflow Run Metadata
+  # ----------------------------------------------------------------------------
+  knime_run_metadata:
+    entity: "reports/knime_tableau_integration_report.json"
+    tolerance_threshold_pct: 2.0
+    tracked_metrics:
+      - { metric: "decision_tree_accuracy", tolerance: 0.02 }
+      - { metric: "random_forest_accuracy", tolerance: 0.02 }
+      - { metric: "pca_pc1_explained_variance", tolerance: 0.02 }
+      - { metric: "synthetic_imputation_count", tolerance: 0.00 }
+
+  # ----------------------------------------------------------------------------
+  # 14. Tableau-Facing Analytical Views
+  # ----------------------------------------------------------------------------
+  tableau_views:
+    dashboard_1:
+      file: "exports/tableau/tableau_cover_type_summary.csv"
+      fields: ["Cover_Type", "cover_name", "count", "pct", "avg_elevation", "avg_dist_fire"]
+    dashboard_2:
+      file: "exports/tableau/tableau_terrain_profile.csv"
+      fields: ["Elevation", "Slope", "Aspect", "Horizontal_Distance_To_Hydrology", "Horizontal_Distance_To_Roadways", "cover_name", "wilderness_area"]
+    dashboard_3:
+      model_comparison_file: "exports/tableau/tableau_model_comparison.csv"
+      model_comparison_fields: ["model", "test_accuracy", "macro_f1", "cv_mean"]
+      wildfire_screening_file: "exports/tableau/wildfire_screening_aggregates.csv"
+      wildfire_screening_fields: ["wilderness_area", "elevation_stratum", "mean_screening_risk_score", "risk_classification"]
+
+  # ----------------------------------------------------------------------------
+  # 15. Web API Request & Response Schemas
+  # ----------------------------------------------------------------------------
+  api_schemas:
+    prediction_request:
+      method: "POST"
+      path: "/api/predict"
+      body:
+        features: "Dict[str, float] with exact 54 keys (10 continuous, 4 wilderness, 40 soil)"
+        model: "Optional[str] enum['random_forest', 'decision_tree', 'knn']"
+    prediction_response:
+      status_code: 200
+      body:
+        predicted_cover_type: "int in {1..7}"
+        cover_name: "string"
+        probabilities: "Optional[Dict[str, float]]"
+        model_used: "string"
+        timestamp: "string (ISO8601)"
+
+  # ----------------------------------------------------------------------------
+  # 16. Prediction History & Model Registry
+  # ----------------------------------------------------------------------------
+  prediction_history:
+    entity: "app.prediction_requests"
+    storage_offline_fallback: "logs/predictions.jsonl"
+    fields:
+      - { name: "id", type: "uuid" }
+      - { name: "model_used", type: "string" }
+      - { name: "predicted_cover_type", type: "integer" }
+      - { name: "cover_name", type: "string" }
+      - { name: "confidence", type: "float" }
+      - { name: "features_json", type: "jsonb" }
+      - { name: "created_at", type: "timestamp_utc" }

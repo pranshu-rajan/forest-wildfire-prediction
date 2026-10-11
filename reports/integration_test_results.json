@@ -1,0 +1,199 @@
+{
+  "timestamp": "2026-10-11T08:28:06.930570+00:00",
+  "audit_pillars": {
+    "python_core": {
+      "raw_dataset": {
+        "status": "PASS",
+        "size_mb": 71.69,
+        "path": "data\\raw\\covtype.csv"
+      },
+      "clean_parquet": {
+        "status": "PASS",
+        "rows": 581012,
+        "columns": 56,
+        "nulls": 0
+      },
+      "models": {
+        "random_forest": "PASS",
+        "decision_tree": "PASS"
+      }
+    },
+    "fastapi_backend": {
+      "/health": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/supabase/status": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/dataset/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/dataset/distribution": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/pipeline/status": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/pipeline/stages": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/features/pca-analysis": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/clusters/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/wildfire-screening/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/dataset/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/dataset/distribution": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/data-quality/report": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/statistics/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/models/metrics": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/clustering/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "/api/v1/regression/summary": {
+        "status": "PASS",
+        "status_code": 200
+      },
+      "POST /api/predict": {
+        "status": "PASS",
+        "predicted_cover_type": 1,
+        "cover_name": "Spruce/Fir"
+      },
+      "POST /api/v1/predict": {
+        "status": "PASS",
+        "predicted_cover_type": 1,
+        "cover_name": "Spruce/Fir"
+      }
+    },
+    "knime_platform": {
+      "inputs_available": {
+        "status": "PASS",
+        "count": 10,
+        "total": 10,
+        "missing": []
+      },
+      "outputs_available": {
+        "status": "PASS",
+        "count": 5,
+        "total": 5,
+        "missing": []
+      },
+      "workflows_available": {
+        "status": "PASS",
+        "count": 7,
+        "total": 7,
+        "missing": []
+      },
+      "statistical_parity": {
+        "status": "PASS",
+        "tolerance": "<= 2.0%",
+        "comparisons_count": 4,
+        "comparisons": [
+          {
+            "benchmark": "Classification: Random Forest",
+            "python_value": 0.935,
+            "knime_value": 0.9284,
+            "absolute_delta": 0.0066,
+            "tolerance_threshold": 0.02,
+            "status": "ALIGNED",
+            "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+          },
+          {
+            "benchmark": "Classification: Decision Tree",
+            "python_value": 0.866,
+            "knime_value": 0.8612,
+            "absolute_delta": 0.0048,
+            "tolerance_threshold": 0.02,
+            "status": "ALIGNED",
+            "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+          },
+          {
+            "benchmark": "Synthetic Cleaning: Exactly 800 Cells",
+            "python_value": 800,
+            "knime_value": 800,
+            "absolute_delta": 0,
+            "tolerance_threshold": 0,
+            "status": "ALIGNED",
+            "notes": "Exact match: 800 injected nulls restored via median imputation."
+          },
+          {
+            "benchmark": "PCA: 8 Components Cumulative Variance",
+            "python_value": 96.9,
+            "knime_value": 96.9,
+            "absolute_delta": 0.0,
+            "tolerance_threshold": 0.5,
+            "status": "ALIGNED",
+            "notes": "Variance scree matches eigenvalue decomposition."
+          }
+        ]
+      }
+    },
+    "tableau_bi": {
+      "extracts": {
+        "status": "PASS",
+        "count": 11,
+        "total": 11,
+        "missing": []
+      },
+      "workbooks": {
+        "01_executive_forest_cover_overview.twb": "PASS (Valid XML root: workbook)",
+        "02_terrain_and_cover_type_analysis.twb": "PASS (Valid XML root: workbook)",
+        "03_model_performance_and_risk_screening.twb": "PASS (Valid XML root: workbook)"
+      }
+    },
+    "supabase_resilience": {
+      "migration_sql": {
+        "status": "PASS",
+        "tables_defined": 6,
+        "tables_required": 6,
+        "row_level_security": true
+      },
+      "offline_resilience": {
+        "status": "PASS",
+        "connection_mode": "STANDALONE_MODE",
+        "graceful_fallback": true
+      }
+    },
+    "nextjs_frontend": {
+      "views": {
+        "status": "PASS",
+        "views_found": 12,
+        "views_expected": 12
+      },
+      "build_bundle": {
+        "status": "PASS",
+        "bundle_dir": "frontend\\.next"
+      }
+    }
+  },
+  "overall_status": "PASS"
+}

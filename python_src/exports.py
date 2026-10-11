@@ -262,7 +262,17 @@ def export_wildfire_screening_aggregates(df: pd.DataFrame, out_dir: Path) -> Pat
     else:
         df_calc["wilderness_area"] = "Unknown"
 
-    agg = df_calc.groupby([TARGET_COLUMN, "wilderness_area", "risk_tier"], observed=False).agg(
+    # Add elevation strata and risk_classification alias
+    if "Elevation" in df_calc.columns:
+        df_calc["elevation_stratum"] = pd.cut(
+            df_calc["Elevation"],
+            bins=[0, 2600, 3100, 5000],
+            labels=["Lower Montane (<2600m)", "Upper Montane (2600-3100m)", "Subalpine/Alpine (>3100m)"],
+        )
+    else:
+        df_calc["elevation_stratum"] = "All Elevations"
+
+    agg = df_calc.groupby([TARGET_COLUMN, "wilderness_area", "elevation_stratum", "risk_tier"], observed=False).agg(
         observation_count=("Elevation", "count"),
         mean_elevation=("Elevation", "mean"),
         mean_slope=("Slope", "mean"),
@@ -271,8 +281,74 @@ def export_wildfire_screening_aggregates(df: pd.DataFrame, out_dir: Path) -> Pat
     ).reset_index()
 
     agg["cover_name"] = agg[TARGET_COLUMN].map(COVER_TYPE_NAMES)
+    agg["risk_classification"] = agg["risk_tier"].astype(str)
     path = out_dir / "wildfire_screening_aggregates.csv"
     agg.to_csv(path, index=False)
     logger.info("Exported wildfire screening aggregates to %s.", path)
     return path
+
+
+def export_tableau_cover_type_summary(df: pd.DataFrame, out_dir: Path) -> Path:
+    """Export summary for Tableau Dashboard 1 (Species Prevalence & Elevation)."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    grouped = df.groupby(TARGET_COLUMN).agg(
+        count=("Elevation", "count"),
+        avg_elevation=("Elevation", "mean"),
+        avg_dist_fire=("Horizontal_Distance_To_Fire_Points", "mean"),
+    ).reset_index()
+    grouped["pct"] = (grouped["count"] / grouped["count"].sum() * 100.0).round(2)
+    grouped["cover_name"] = grouped[TARGET_COLUMN].map(COVER_TYPE_NAMES)
+    grouped["avg_elevation"] = grouped["avg_elevation"].round(1)
+    grouped["avg_dist_fire"] = grouped["avg_dist_fire"].round(1)
+
+    path = out_dir / "tableau_cover_type_summary.csv"
+    grouped.to_csv(path, index=False)
+    logger.info("Exported Tableau cover type summary to %s.", path)
+    return path
+
+
+def export_tableau_terrain_profile(df: pd.DataFrame, out_dir: Path, sample_n: int = 20_000) -> Path:
+    """Export multi-dimensional terrain sample for Tableau Dashboard 2."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    from python_src.schemas import WILDERNESS_FEATURES, WILDERNESS_AREA_NAMES
+
+    sample_df = df.sample(n=min(sample_n, len(df)), random_state=42).copy()
+    wa_cols = [c for c in WILDERNESS_FEATURES if c in sample_df.columns]
+    if wa_cols:
+        sample_df["wilderness_area"] = sample_df[wa_cols].idxmax(axis=1).map(WILDERNESS_AREA_NAMES)
+    else:
+        sample_df["wilderness_area"] = "Unknown"
+
+    sample_df["cover_name"] = sample_df[TARGET_COLUMN].map(COVER_TYPE_NAMES)
+
+    cols = [
+        "Elevation",
+        "Slope",
+        "Aspect",
+        "Horizontal_Distance_To_Hydrology",
+        "Horizontal_Distance_To_Roadways",
+        "cover_name",
+        "wilderness_area",
+    ]
+    export_df = sample_df[[c for c in cols if c in sample_df.columns]]
+    path = out_dir / "tableau_terrain_profile.csv"
+    export_df.to_csv(path, index=False)
+    logger.info("Exported Tableau terrain profile sample (%d rows) to %s.", len(export_df), path)
+    return path
+
+
+def export_tableau_model_comparison(metrics_df: pd.DataFrame, out_dir: Path) -> Path:
+    """Export classifier benchmark metrics for Tableau Dashboard 3."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    df_out = pd.DataFrame()
+    df_out["model"] = metrics_df["model"]
+    df_out["test_accuracy"] = metrics_df["accuracy"]
+    df_out["macro_f1"] = metrics_df["macro_f1"]
+    df_out["cv_mean"] = metrics_df.get("balanced_accuracy", metrics_df["accuracy"])
+
+    path = out_dir / "tableau_model_comparison.csv"
+    df_out.to_csv(path, index=False)
+    logger.info("Exported Tableau model comparison to %s.", path)
+    return path
+
 

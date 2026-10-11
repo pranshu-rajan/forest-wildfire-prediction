@@ -157,6 +157,21 @@
         "file": "class_distribution.csv",
         "exists": true,
         "status": "READY"
+      },
+      {
+        "file": "tableau_cover_type_summary.csv",
+        "exists": true,
+        "status": "READY"
+      },
+      {
+        "file": "tableau_terrain_profile.csv",
+        "exists": true,
+        "status": "READY"
+      },
+      {
+        "file": "tableau_model_comparison.csv",
+        "exists": true,
+        "status": "READY"
       }
     ],
     "workbooks": [

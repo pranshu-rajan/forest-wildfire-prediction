@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="workflow.knime">
     <entry key="created_by" type="xstring" value="5.2.0.v202311291444"/>
-    <entry key="created_by_nightly" type="xboolean" value="false"/>
     <entry key="version" type="xstring" value="5.1.0"/>
     <entry key="name" type="xstring" value="01_data_import_and_quality"/>
     <entry key="author" type="xstring" value="Data Science Academic Team"/>
-    <entry key="comments" type="xstring" value="Practical 1: Import, schema audit, and data quality check on Covertype dataset."/>
     <config key="nodes">
         <config key="node_1">
             <entry key="id" type="xint" value="1"/>
             <entry key="node_settings_file" type="xstring" value="CSV Reader (#1)/settings.xml"/>
             <entry key="node_is_meta" type="xboolean" value="false"/>
             <entry key="node_type" type="xstring" value="Native"/>
-            <entry key="ui_classname" type="xstring" value="org.knime.core.node.workflow.NodeUIInformation"/>
-            <config key="ui_settings">
-                <config key="extrainfo.node.bounds">
-                    <entry key="array-size" type="xint" value="4"/>
-                    <entry key="0" type="xint" value="100"/>
-                    <entry key="1" type="xint" value="120"/>
-                    <entry key="2" type="xint" value="80"/>
-                    <entry key="3" type="xint" value="78"/>
-                </config>
-            </config>
         </config>
         <config key="node_2">
             <entry key="id" type="xint" value="2"/>

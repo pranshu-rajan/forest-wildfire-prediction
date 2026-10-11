@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="workflow.knime">
     <entry key="created_by" type="xstring" value="5.2.0.v202311291444"/>
-    <entry key="created_by_nightly" type="xboolean" value="false"/>
     <entry key="version" type="xstring" value="5.1.0"/>
     <entry key="name" type="xstring" value="02_missing_values_imputation"/>
     <entry key="author" type="xstring" value="Data Science Academic Team"/>
-    <entry key="comments" type="xstring" value="Practical 2: Synthetic 800-cell missing value injection and median imputation in KNIME."/>
     <config key="nodes">
         <config key="node_1">
             <entry key="id" type="xint" value="1"/>

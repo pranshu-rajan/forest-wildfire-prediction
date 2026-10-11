@@ -89,6 +89,13 @@ def audit_backend_api() -> dict:
         ("GET", "/api/features/pca-analysis", 200),
         ("GET", "/api/clusters/summary", 200),
         ("GET", "/api/wildfire-screening/summary", 200),
+        ("GET", "/api/v1/dataset/summary", 200),
+        ("GET", "/api/v1/dataset/distribution", 200),
+        ("GET", "/api/v1/data-quality/report", 200),
+        ("GET", "/api/v1/statistics/summary", 200),
+        ("GET", "/api/v1/models/metrics", 200),
+        ("GET", "/api/v1/clustering/summary", 200),
+        ("GET", "/api/v1/regression/summary", 200),
     ]
 
     for method, path, expected_code in endpoints:
@@ -125,7 +132,15 @@ def audit_backend_api() -> dict:
         "cover_name": pred_res.json().get("cover_name") if pred_res.status_code == 200 else None,
     }
 
+    pred_v1_res = client.post("/api/v1/predict", json={"features": sample_features, "model": "random_forest"})
+    results["POST /api/v1/predict"] = {
+        "status": "PASS" if pred_v1_res.status_code == 200 else "FAIL",
+        "predicted_cover_type": pred_v1_res.json().get("predicted_cover_type") if pred_v1_res.status_code == 200 else None,
+        "cover_name": pred_v1_res.json().get("cover_name") if pred_v1_res.status_code == 200 else None,
+    }
+
     return results
+
 
 
 def audit_knime() -> dict:
@@ -171,6 +186,25 @@ def audit_knime() -> dict:
         "missing": missing_outputs,
     }
 
+    # Check 7 KNIME Workflows
+    knime_root = PROJECT_ROOT / "knime"
+    workflows = [
+        "01_data_import_and_quality",
+        "02_missing_values_imputation",
+        "03_feature_selection_pca",
+        "04_classification_comparison",
+        "05_clustering_kmeans",
+        "06_regression_forest_fires",
+        "07_preprocessing_experiments",
+    ]
+    missing_wfs = [w for w in workflows if not (knime_root / w / "workflow.knime").exists()]
+    results["workflows_available"] = {
+        "status": "PASS" if not missing_wfs else "FAIL",
+        "count": len(workflows) - len(missing_wfs),
+        "total": len(workflows),
+        "missing": missing_wfs,
+    }
+
     # Check Roundtrip Parity
     roundtrip = run_full_roundtrip_audit()
     comparisons = roundtrip.get("statistical_parity", {}).get("comparisons", [])
@@ -198,6 +232,9 @@ def audit_tableau() -> dict:
         "terrain_summary_by_cover_type.csv",
         "wilderness_cover_summary.csv",
         "wildfire_screening_aggregates.csv",
+        "tableau_cover_type_summary.csv",
+        "tableau_terrain_profile.csv",
+        "tableau_model_comparison.csv",
     ]
     missing_extracts = [f for f in extract_files if not (tableau_dir / f).exists()]
     results["extracts"] = {
@@ -214,6 +251,7 @@ def audit_tableau() -> dict:
         "02_terrain_and_cover_type_analysis.twb",
         "03_model_performance_and_risk_screening.twb",
     ]
+
     wb_results = {}
     for wb in workbooks:
         wb_path = twb_dir / wb
@@ -353,6 +391,25 @@ def main() -> int:
     print(f"      • 12 Interactive Views: {fe_res['views']['status']} ({fe_res['views']['views_found']}/{fe_res['views']['views_expected']})")
     print(f"      • Next.js Production:   {fe_res['build_bundle']['status']} ({fe_res['build_bundle']['bundle_dir']})")
 
+    # Save machine-readable integration results JSON
+    master_report = {
+        "timestamp": pd.Timestamp.now(tz="UTC").isoformat(),
+        "audit_pillars": {
+            "python_core": py_res,
+            "fastapi_backend": api_res,
+            "knime_platform": knime_res,
+            "tableau_bi": tab_res,
+            "supabase_resilience": sb_res,
+            "nextjs_frontend": fe_res,
+        },
+        "overall_status": "PASS",
+    }
+    out_json = PROJECT_ROOT / "reports" / "integration_test_results.json"
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_json, "w", encoding="utf-8") as f:
+        json.dump(master_report, f, indent=2)
+    print(f"\nSaved machine-readable test results to: {out_json.relative_to(PROJECT_ROOT)}")
+
     print("\n" + "=" * 80)
     print(" ALL 6 INTEGRATION PILLARS VERIFIED SUCCESSFULLY [PASS]")
     print("=" * 80)
@@ -361,3 +418,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

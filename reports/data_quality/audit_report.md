@@ -1,12 +1,12 @@
 # Data Audit Report
-*Generated: 2026-10-11 08:51:25*
+*Generated: 2026-10-11 13:48:56*
 
 ## Source Manifest
 - **File:** C:\Users\pranshu\Desktop\forest-cover-wildfire\data\raw\covtype.csv
 - **SHA-256:** `ea35ca6820fcbe0bdc6707e9ed31e11a9de84f07d88da73b511c737383c271a6`
 - **Rows:** 581,012
 - **Columns:** 56
-- **Ingested at:** 2026-10-11T03:21:24.218348+00:00
+- **Ingested at:** 2026-10-11T08:18:55.017953+00:00
 
 ## Validation Summary
 - Total checks: 24

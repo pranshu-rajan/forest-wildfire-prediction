@@ -192,6 +192,9 @@ def verify_tableau_integration() -> Dict[str, Any]:
         "terrain_summary_by_cover_type.csv",
         "wildfire_screening_aggregates.csv",
         "class_distribution.csv",
+        "tableau_cover_type_summary.csv",
+        "tableau_terrain_profile.csv",
+        "tableau_model_comparison.csv",
     ]
     required_twbs = [
         "01_executive_forest_cover_overview.twb",
