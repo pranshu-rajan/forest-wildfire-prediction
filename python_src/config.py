@@ -59,6 +59,7 @@ class Settings:
     models_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "models")
     exports_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "exports")
     knime_exports_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "exports/knime")
+    knime_outputs_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "exports/knime_outputs")
     tableau_exports_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "exports/tableau")
     external_data_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "data/external")
     synthetic_data_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "data/synthetic")
