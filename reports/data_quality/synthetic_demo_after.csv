@@ -1,0 +1,11 @@
+column,n_total,n_missing,pct_missing,mean_non_null,median_non_null
+Elevation,10000,0,0.0,2960.3187,2997.5
+Aspect,10000,0,0.0,155.9178,129.0
+Slope,10000,0,0.0,14.1165,13.0
+Horizontal_Distance_To_Hydrology,10000,0,0.0,270.2812,218.0
+Vertical_Distance_To_Hydrology,10000,0,0.0,46.4346,29.0
+Horizontal_Distance_To_Roadways,10000,0,0.0,2345.7536,1996.0
+Hillshade_9am,10000,0,0.0,212.1826,218.0
+Hillshade_Noon,10000,0,0.0,223.2708,226.0
+Hillshade_3pm,10000,0,0.0,142.5206,142.0
+Horizontal_Distance_To_Fire_Points,10000,0,0.0,1975.5337,1708.0

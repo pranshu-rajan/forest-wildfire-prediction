@@ -1,0 +1,5 @@
+model,mae_log,rmse_log,r2_log,mae_original_scale,rmse_original_scale
+Linear Regression,1.1992,1.4852,-0.0036,19.8295,109.9009
+Ridge Regression,1.1991,1.4851,-0.0034,19.8291,109.9012
+Decision Tree,1.3146,1.7013,-0.3169,22.0815,110.4518
+Random Forest,1.22,1.5169,-0.047,19.9604,109.9557

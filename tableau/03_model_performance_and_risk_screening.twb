@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2024.1.0' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <SetMembershipControl />
+  </document-format-change-manifest>
+  <datasources>
+    <datasource caption='Model Comparison' inline='true' name='federated.model_comparison' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau_model_comparison' name='textscan.tableau_model_comparison'>
+            <connection class='textscan' directory='../exports/tableau' filename='tableau_model_comparison.csv'>
+            </connection>
+          </named-connection>
+        </named-connections>
+      </connection>
+      <column datatype='string' name='[model]' role='dimension' type='nominal' />
+      <column datatype='real' name='[test_accuracy]' role='measure' type='quantitative' />
+      <column datatype='real' name='[macro_f1]' role='measure' type='quantitative' />
+      <column datatype='real' name='[cv_mean]' role='measure' type='quantitative' />
+    </datasource>
+    <datasource caption='Wildfire Risk Aggregates' inline='true' name='federated.wildfire_risk' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='wildfire_screening_aggregates' name='textscan.wildfire_screening_aggregates'>
+            <connection class='textscan' directory='../exports/tableau' filename='wildfire_screening_aggregates.csv'>
+            </connection>
+          </named-connection>
+        </named-connections>
+      </connection>
+      <column datatype='string' name='[wilderness_area]' role='dimension' type='nominal' />
+      <column datatype='string' name='[elevation_stratum]' role='dimension' type='nominal' />
+      <column datatype='real' name='[mean_screening_risk_score]' role='measure' type='quantitative' />
+      <column datatype='string' name='[risk_classification]' role='dimension' type='nominal' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Classifier Accuracy Benchmark'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.model_comparison' />
+          </datasources>
+          <datasource-dependencies datasource='federated.model_comparison'>
+            <column datatype='string' name='[model]' role='dimension' type='nominal' />
+            <column datatype='real' name='[test_accuracy]' role='measure' type='quantitative' />
+            <column-instance column='[model]' derivation='None' name='[none:model:nk]' pivot='key' type='nominal' />
+            <column-instance column='[test_accuracy]' derivation='Avg' name='[avg:test_accuracy:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.model_comparison].[none:model:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.model_comparison].[avg:test_accuracy:qk]</rows>
+        <cols>[federated.model_comparison].[none:model:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Wildfire Hazard Strata'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.wildfire_risk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.wildfire_risk'>
+            <column datatype='string' name='[wilderness_area]' role='dimension' type='nominal' />
+            <column datatype='real' name='[mean_screening_risk_score]' role='measure' type='quantitative' />
+            <column-instance column='[wilderness_area]' derivation='None' name='[none:wilderness_area:nk]' pivot='key' type='nominal' />
+            <column-instance column='[mean_screening_risk_score]' derivation='Avg' name='[avg:mean_screening_risk_score:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <rows>[federated.wildfire_risk].[avg:mean_screening_risk_score:qk]</rows>
+        <cols>[federated.wildfire_risk].[none:wilderness_area:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 3 - Model Performance and Risk Screening'>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+      <zones>
+        <zone h='100000' id='1' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='50000' id='2' name='Classifier Accuracy Benchmark' w='100000' x='0' y='0' />
+          <zone h='50000' id='3' name='Wildfire Hazard Strata' w='100000' x='0' y='50000' />
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='dashboard' name='Dashboard 3 - Model Performance and Risk Screening' maximized='true'>
+      <viewpoints />
+    </window>
+  </windows>
+</workbook>

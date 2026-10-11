@@ -1,0 +1,40 @@
+# Python virtual environments & bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment secrets & local configurations (do not commit secrets)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Pytest & testing artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Node.js & Frontend dependencies/builds
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+frontend/.env.local
+
+# Runtime logs (preserve directory structure)
+logs/*.log
+!logs/.gitkeep
+
+# Large binary files exceeding GitHub's 100MB limit
+# (Note: models/random_forest.joblib is compressed to ~19MB and tracked; models/decision_tree.joblib is ~2.6MB)
+models/knn.joblib
+
+# Operating System temporary files
+.DS_Store
+Thumbs.db
+desktop.ini

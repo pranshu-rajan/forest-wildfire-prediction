@@ -1,0 +1,192 @@
+{
+  "metrics": [
+    {
+      "model": "Decision Tree",
+      "accuracy": 0.8658,
+      "balanced_accuracy": 0.8971,
+      "macro_f1": 0.7939,
+      "weighted_f1": 0.8715,
+      "inference_time_s": 0.071,
+      "per_class": {
+        "Spruce/Fir": {
+          "precision": 0.8833,
+          "recall": 0.8832,
+          "f1": 0.8833,
+          "support": 42368
+        },
+        "Lodgepole Pine": {
+          "precision": 0.9297,
+          "recall": 0.8397,
+          "f1": 0.8824,
+          "support": 56661
+        },
+        "Ponderosa Pine": {
+          "precision": 0.8504,
+          "recall": 0.8855,
+          "f1": 0.8676,
+          "support": 7151
+        },
+        "Cottonwood/Willow": {
+          "precision": 0.6777,
+          "recall": 0.8925,
+          "f1": 0.7704,
+          "support": 549
+        },
+        "Aspen": {
+          "precision": 0.3496,
+          "recall": 0.9305,
+          "f1": 0.5082,
+          "support": 1899
+        },
+        "Douglas-fir": {
+          "precision": 0.7107,
+          "recall": 0.8828,
+          "f1": 0.7875,
+          "support": 3473
+        },
+        "Krummholz": {
+          "precision": 0.7723,
+          "recall": 0.9656,
+          "f1": 0.8582,
+          "support": 4102
+        }
+      },
+      "train_time_s": 7.29
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.9351,
+      "balanced_accuracy": 0.9402,
+      "macro_f1": 0.9059,
+      "weighted_f1": 0.9354,
+      "inference_time_s": 2.1683,
+      "per_class": {
+        "Spruce/Fir": {
+          "precision": 0.9442,
+          "recall": 0.9272,
+          "f1": 0.9356,
+          "support": 42368
+        },
+        "Lodgepole Pine": {
+          "precision": 0.95,
+          "recall": 0.9349,
+          "f1": 0.9424,
+          "support": 56661
+        },
+        "Ponderosa Pine": {
+          "precision": 0.9052,
+          "recall": 0.9592,
+          "f1": 0.9314,
+          "support": 7151
+        },
+        "Cottonwood/Willow": {
+          "precision": 0.8367,
+          "recall": 0.9053,
+          "f1": 0.8696,
+          "support": 549
+        },
+        "Aspen": {
+          "precision": 0.7546,
+          "recall": 0.9442,
+          "f1": 0.8388,
+          "support": 1899
+        },
+        "Douglas-fir": {
+          "precision": 0.8288,
+          "recall": 0.9295,
+          "f1": 0.8762,
+          "support": 3473
+        },
+        "Krummholz": {
+          "precision": 0.9154,
+          "recall": 0.9812,
+          "f1": 0.9472,
+          "support": 4102
+        }
+      },
+      "train_time_s": 64.42
+    },
+    {
+      "model": "KNN",
+      "accuracy": 0.9312,
+      "balanced_accuracy": 0.8675,
+      "macro_f1": 0.8804,
+      "weighted_f1": 0.931,
+      "inference_time_s": 119.3525,
+      "per_class": {
+        "Spruce/Fir": {
+          "precision": 0.9379,
+          "recall": 0.9269,
+          "f1": 0.9324,
+          "support": 42368
+        },
+        "Lodgepole Pine": {
+          "precision": 0.938,
+          "recall": 0.9493,
+          "f1": 0.9436,
+          "support": 56661
+        },
+        "Ponderosa Pine": {
+          "precision": 0.9076,
+          "recall": 0.9136,
+          "f1": 0.9106,
+          "support": 7151
+        },
+        "Cottonwood/Willow": {
+          "precision": 0.867,
+          "recall": 0.7359,
+          "f1": 0.7961,
+          "support": 549
+        },
+        "Aspen": {
+          "precision": 0.8534,
+          "recall": 0.7757,
+          "f1": 0.8127,
+          "support": 1899
+        },
+        "Douglas-fir": {
+          "precision": 0.823,
+          "recall": 0.8339,
+          "f1": 0.8284,
+          "support": 3473
+        },
+        "Krummholz": {
+          "precision": 0.9417,
+          "recall": 0.9371,
+          "f1": 0.9394,
+          "support": 4102
+        }
+      },
+      "train_time_s": 1.3
+    }
+  ],
+  "cv_results": [
+    {
+      "model": "Decision Tree",
+      "cv_folds": 5,
+      "cv_accuracy_mean": 0.7679,
+      "cv_accuracy_std": 0.0041,
+      "cv_balanced_accuracy_mean": 0.7774,
+      "cv_macro_f1_mean": 0.6644,
+      "cv_weighted_f1_mean": 0.7758
+    },
+    {
+      "model": "Random Forest",
+      "cv_folds": 5,
+      "cv_accuracy_mean": 0.8394,
+      "cv_accuracy_std": 0.0042,
+      "cv_balanced_accuracy_mean": 0.8339,
+      "cv_macro_f1_mean": 0.7806,
+      "cv_weighted_f1_mean": 0.8409
+    },
+    {
+      "model": "KNN",
+      "cv_folds": 5,
+      "cv_accuracy_mean": 0.8414,
+      "cv_accuracy_std": 0.0029,
+      "cv_balanced_accuracy_mean": 0.701,
+      "cv_macro_f1_mean": 0.7249,
+      "cv_weighted_f1_mean": 0.8399
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "experiment_parameters": {
+    "n_rows": 10000,
+    "n_injected": 800,
+    "seed": 42,
+    "injection_seed": 2024
+  },
+  "injection_record": [
+    {
+      "row_iloc": 4203,
+      "column": "Horizontal_Distance_To_Fire_Points"
+    },
+    {
+      "row_iloc": 2143,
+      "column": "Horizontal_Distance_To_Hydrology"
+    },
+    {
+      "row_iloc": 521,
+      "column": "Elevation"
+    },
+    {
+      "row_iloc": 4898,
+      "column": "Vertical_Distance_To_Hydrology"
+    },
+    {
+      "row_iloc": 9389,
+      "column": "Slope"
+    },
+    {
+      "row_iloc": 4089,
+      "column": "Horizontal_Distance_To_Roadways"
+    },
+    {
+      "row_iloc": 7725,
+      "column": "Slope"
+    },
+    {
+      "row_iloc": 2283,
+      "column": "Aspect"
+    },
+    {
+      "row_iloc": 9392,
+      "column": "Vertical_Distance_To_Hydrology"
+    },
+    {
+      "row_iloc": 6562,
+      "column": "Horizontal_Distance_To_Fire_Points"
+    },
+    {
+      "row_iloc": 597,
+      "column": "Vertical_Distance_To_Hydrology"
+    },
+    {
+      "row_iloc": 346,
+      "column": "Vertical_Distance_To_Hydrology"
+    },
+    {
+      "row_iloc": 103,
+      "column": "Hillshade_3pm"
+    },
+    {
+      "row_iloc": 6303,
+      "column": "Horizontal_Distance_To_Roadways"
+    },
+    {
+      "row_iloc": 8766,
+      "column": "Horizontal_Distance_To_Roadways"
+    },
+    {
+      "row_iloc": 6747,
+      "column": "Elevation"
+    },
+    {
+      "row_iloc": 8138,
+      "column": "Horizontal_Distance_To_Fire_Points"
+    },
+    {
+      "row_iloc": 5969,
+      "column": "Hillshade_Noon"
+    },
+    {
+      "row_iloc": 2116,
+      "column": "Horizontal_Distance_To_Fire_Points"
+    },
+    {
+      "row_iloc": 4859,
+      "column": "Hillshade_3pm"
+    }
+  ],
+  "imputation_audit": {
+    "medians": {
+      "Elevation": 2997.5,
+      "Aspect": 129.0,
+      "Slope": 13.0,
+      "Horizontal_Distance_To_Hydrology": 218.0,
+      "Vertical_Distance_To_Hydrology": 29.0,
+      "Horizontal_Distance_To_Roadways": 1996.0,
+      "Hillshade_9am": 218.0,
+      "Hillshade_Noon": 226.0,
+      "Hillshade_3pm": 142.0,
+      "Horizontal_Distance_To_Fire_Points": 1708.0
+    },
+    "imputed_cell_counts": {
+      "Elevation": 76,
+      "Aspect": 69,
+      "Slope": 74,
+      "Horizontal_Distance_To_Hydrology": 72,
+      "Vertical_Distance_To_Hydrology": 81,
+      "Horizontal_Distance_To_Roadways": 68,
+      "Hillshade_9am": 99,
+      "Hillshade_Noon": 69,
+      "Hillshade_3pm": 85,
+      "Horizontal_Distance_To_Fire_Points": 107
+    },
+    "total_imputed": 800
+  },
+  "validation_checks": {
+    "row_count_preserved": {
+      "passed": true,
+      "baseline": 10000,
+      "cleaned": 10000
+    },
+    "injected_count_exact": {
+      "passed": true,
+      "expected": 800,
+      "actual": 800
+    },
+    "zero_missing_after_cleaning": {
+      "passed": true,
+      "remaining_missing_cells": 0
+    },
+    "target_labels_unchanged": {
+      "passed": true
+    },
+    "original_preserved_note": {
+      "note": "Source CSV immutability is verified in 01_audit_source.py via SHA-256 digest."
+    },
+    "all_checks_passed": true
+  }
+}

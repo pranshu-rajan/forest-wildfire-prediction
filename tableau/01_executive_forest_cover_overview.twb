@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2024.1.0' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <SetMembershipControl />
+  </document-format-change-manifest>
+  <datasources>
+    <datasource caption='Cover Type Summary' inline='true' name='federated.cover_type_summary' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau_cover_type_summary' name='textscan.tableau_cover_type_summary'>
+            <connection class='textscan' directory='../exports/tableau' filename='tableau_cover_type_summary.csv'>
+            </connection>
+          </named-connection>
+        </named-connections>
+      </connection>
+      <column datatype='integer' name='[Cover_Type]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[cover_name]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[count]' role='measure' type='quantitative' />
+      <column datatype='real' name='[pct]' role='measure' type='quantitative' />
+      <column datatype='real' name='[avg_elevation]' role='measure' type='quantitative' />
+      <column datatype='real' name='[avg_dist_fire]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.5' show-structure='true' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Species Prevalence (Donut / Treemap)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.cover_type_summary' />
+          </datasources>
+          <datasource-dependencies datasource='federated.cover_type_summary'>
+            <column datatype='string' name='[cover_name]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[count]' role='measure' type='quantitative' />
+            <column-instance column='[cover_name]' derivation='None' name='[none:cover_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[count]' derivation='Sum' name='[sum:count:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.cover_type_summary].[none:cover_name:nk]' />
+              <size column='[federated.cover_type_summary].[sum:count:qk]' />
+              <text column='[federated.cover_type_summary].[none:cover_name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name='Elevation by Cover Type'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.cover_type_summary' />
+          </datasources>
+          <datasource-dependencies datasource='federated.cover_type_summary'>
+            <column datatype='string' name='[cover_name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[avg_elevation]' role='measure' type='quantitative' />
+            <column-instance column='[cover_name]' derivation='None' name='[none:cover_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[avg_elevation]' derivation='Sum' name='[sum:avg_elevation:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <rows>[federated.cover_type_summary].[sum:avg_elevation:qk]</rows>
+        <cols>[federated.cover_type_summary].[none:cover_name:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1 - Executive Forest Cover Overview'>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+      <zones>
+        <zone h='100000' id='1' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='50000' id='2' name='Species Prevalence (Donut / Treemap)' w='100000' x='0' y='0'>
+          </zone>
+          <zone h='50000' id='3' name='Elevation by Cover Type' w='100000' x='0' y='50000'>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='dashboard' name='Dashboard 1 - Executive Forest Cover Overview' maximized='true'>
+      <viewpoints />
+    </window>
+  </windows>
+</workbook>

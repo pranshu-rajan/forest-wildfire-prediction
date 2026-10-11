@@ -1,0 +1,69 @@
+{
+  "cover_type": {
+    "1": 211840,
+    "2": 283301,
+    "3": 35754,
+    "4": 2747,
+    "5": 9493,
+    "6": 17367,
+    "7": 20510
+  },
+  "Wilderness_Area1": {
+    "0": 320216,
+    "1": 260796
+  },
+  "Wilderness_Area2": {
+    "0": 551128,
+    "1": 29884
+  },
+  "Wilderness_Area3": {
+    "0": 327648,
+    "1": 253364
+  },
+  "Wilderness_Area4": {
+    "0": 544044,
+    "1": 36968
+  },
+  "soil_type_activation_counts": {
+    "Soil_Type1": 3031,
+    "Soil_Type10": 32634,
+    "Soil_Type11": 12410,
+    "Soil_Type12": 29971,
+    "Soil_Type13": 17431,
+    "Soil_Type14": 599,
+    "Soil_Type15": 3,
+    "Soil_Type16": 2845,
+    "Soil_Type17": 3422,
+    "Soil_Type18": 1899,
+    "Soil_Type19": 4021,
+    "Soil_Type2": 7525,
+    "Soil_Type20": 9259,
+    "Soil_Type21": 838,
+    "Soil_Type22": 33373,
+    "Soil_Type23": 57752,
+    "Soil_Type24": 21278,
+    "Soil_Type25": 474,
+    "Soil_Type26": 2589,
+    "Soil_Type27": 1086,
+    "Soil_Type28": 946,
+    "Soil_Type29": 115247,
+    "Soil_Type3": 4823,
+    "Soil_Type30": 30170,
+    "Soil_Type31": 25666,
+    "Soil_Type32": 52519,
+    "Soil_Type33": 45154,
+    "Soil_Type34": 1611,
+    "Soil_Type35": 1891,
+    "Soil_Type36": 119,
+    "Soil_Type37": 298,
+    "Soil_Type38": 15573,
+    "Soil_Type39": 13806,
+    "Soil_Type4": 12396,
+    "Soil_Type40": 8750,
+    "Soil_Type5": 1597,
+    "Soil_Type6": 6575,
+    "Soil_Type7": 105,
+    "Soil_Type8": 179,
+    "Soil_Type9": 1147
+  }
+}

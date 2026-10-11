@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2024.1.0' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <SetMembershipControl />
+  </document-format-change-manifest>
+  <datasources>
+    <datasource caption='Terrain Profile' inline='true' name='federated.terrain_profile' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau_terrain_profile' name='textscan.tableau_terrain_profile'>
+            <connection class='textscan' directory='../exports/tableau' filename='tableau_terrain_profile.csv'>
+            </connection>
+          </named-connection>
+        </named-connections>
+      </connection>
+      <column datatype='integer' name='[Elevation]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Slope]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Aspect]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Horizontal_Distance_To_Hydrology]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Horizontal_Distance_To_Roadways]' role='measure' type='quantitative' />
+      <column datatype='string' name='[cover_name]' role='dimension' type='nominal' />
+      <column datatype='string' name='[wilderness_area]' role='dimension' type='nominal' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Slope vs Elevation by Species'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.terrain_profile' />
+          </datasources>
+          <datasource-dependencies datasource='federated.terrain_profile'>
+            <column datatype='integer' name='[Elevation]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Slope]' role='measure' type='quantitative' />
+            <column datatype='string' name='[cover_name]' role='dimension' type='nominal' />
+            <column-instance column='[Elevation]' derivation='Avg' name='[avg:Elevation:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Slope]' derivation='Avg' name='[avg:Slope:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cover_name]' derivation='None' name='[none:cover_name:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.terrain_profile].[none:cover_name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.terrain_profile].[avg:Slope:qk]</rows>
+        <cols>[federated.terrain_profile].[avg:Elevation:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 2 - Terrain and Cover-Type Analysis'>
+      <style />
+      <size maxheight='800' maxwidth='1200' minheight='800' minwidth='1200' />
+      <zones>
+        <zone h='100000' id='1' name='Slope vs Elevation by Species' w='100000' x='0' y='0' />
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='dashboard' name='Dashboard 2 - Terrain and Cover-Type Analysis' maximized='true'>
+      <viewpoints />
+    </window>
+  </windows>
+</workbook>

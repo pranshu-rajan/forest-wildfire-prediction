@@ -1,0 +1,4 @@
+model,cv_folds,cv_accuracy_mean,cv_accuracy_std,cv_balanced_accuracy_mean,cv_macro_f1_mean,cv_weighted_f1_mean
+Decision Tree,5,0.7679,0.0041,0.7774,0.6644,0.7758
+Random Forest,5,0.8394,0.0042,0.8339,0.7806,0.8409
+KNN,5,0.8414,0.0029,0.701,0.7249,0.8399

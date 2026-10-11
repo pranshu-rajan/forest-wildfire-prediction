@@ -1,0 +1,20 @@
+project:
+  name: forest-cover-wildfire
+  dataset_version: covtype-v1
+  feature_schema_version: covtype-features-v1
+  random_seed: 42
+  test_size: 0.2
+
+paths:
+  raw_covtype: data/raw/covtype.csv
+  processed_covtype: data/processed/covtype_clean.parquet
+  reports_dir: reports
+  demo_raw: data/processed/covtype_missing_values_demo.csv
+  demo_clean: data/processed/covtype_missing_values_demo_clean.csv
+
+cleaning:
+  iqr_multiplier: 1.5
+  zscore_threshold: 3.0
+  # Outliers are flagged, not deleted. Original Covertype file has no nulls per plan audit.
+  synthetic_missing_demo_rows: 10000
+  synthetic_missing_fraction: 0.02

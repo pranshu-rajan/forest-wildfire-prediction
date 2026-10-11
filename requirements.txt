@@ -1,0 +1,15 @@
+pandas>=2.2,<3.0
+numpy>=1.26,<3.0
+scikit-learn>=1.5,<2.0
+pyarrow>=17,<25
+PyYAML>=6.0,<7.0
+matplotlib>=3.8,<4.0
+seaborn>=0.13,<1.0
+jupyterlab>=4.2,<5.0
+pytest>=8.0,<9.0
+fastapi>=0.110.0,<1.0.0
+uvicorn[standard]>=0.28.0,<1.0.0
+pydantic>=2.6.0,<3.0.0
+sqlalchemy>=2.0.0,<3.0.0
+psycopg[binary]>=3.1.0,<4.0.0
+supabase>=2.3.0,<3.0.0

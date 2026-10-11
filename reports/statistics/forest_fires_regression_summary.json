@@ -1,0 +1,42 @@
+{
+  "status": "SUCCESS",
+  "n_rows": 517,
+  "n_zeros_in_target": 247,
+  "target_skewness": 12.8469,
+  "target_transformation": "log1p",
+  "models": [
+    {
+      "model": "Linear Regression",
+      "mae_log": 1.1992,
+      "rmse_log": 1.4852,
+      "r2_log": -0.0036,
+      "mae_original_scale": 19.8295,
+      "rmse_original_scale": 109.9009
+    },
+    {
+      "model": "Ridge Regression",
+      "mae_log": 1.1991,
+      "rmse_log": 1.4851,
+      "r2_log": -0.0034,
+      "mae_original_scale": 19.8291,
+      "rmse_original_scale": 109.9012
+    },
+    {
+      "model": "Decision Tree",
+      "mae_log": 1.3146,
+      "rmse_log": 1.7013,
+      "r2_log": -0.3169,
+      "mae_original_scale": 22.0815,
+      "rmse_original_scale": 110.4518
+    },
+    {
+      "model": "Random Forest",
+      "mae_log": 1.22,
+      "rmse_log": 1.5169,
+      "r2_log": -0.047,
+      "mae_original_scale": 19.9604,
+      "rmse_original_scale": 109.9557
+    }
+  ],
+  "best_model": "Ridge Regression"
+}

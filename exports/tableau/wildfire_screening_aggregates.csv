@@ -1,0 +1,85 @@
+Cover_Type,wilderness_area,risk_tier,observation_count,mean_elevation,mean_slope,mean_dist_to_fire_points,mean_screening_risk_score,cover_name
+1,Cache la Poudre,Low Screening Risk,0,,,,,Spruce/Fir
+1,Cache la Poudre,Moderate Screening Risk,0,,,,,Spruce/Fir
+1,Cache la Poudre,High Screening Risk,0,,,,,Spruce/Fir
+1,Comanche Peak,Low Screening Risk,0,,,,,Spruce/Fir
+1,Comanche Peak,Moderate Screening Risk,69670,3115.036227931678,12.820582747236974,1886.6166642744365,57.230292808956506,Spruce/Fir
+1,Comanche Peak,High Screening Risk,17858,3104.264419307873,17.961585843879494,724.8630305745324,68.19267555157353,Spruce/Fir
+1,Neota,Low Screening Risk,493,3193.052738336714,10.186612576064908,5508.17444219067,32.79594320486815,Spruce/Fir
+1,Neota,Moderate Screening Risk,15208,3233.4285902156757,12.000854813256181,2253.556417674908,54.950604944765914,Spruce/Fir
+1,Neota,High Screening Risk,2894,3259.754319281272,19.76295784381479,836.913614374568,68.23752591568763,Spruce/Fir
+1,Rawah,Low Screening Risk,5238,2958.5874379534175,9.062428407789232,5916.713249331806,30.167602138220694,Spruce/Fir
+1,Rawah,Moderate Screening Risk,89659,3130.032723987553,11.814207162694208,2258.1668655684316,54.364020343746866,Spruce/Fir
+1,Rawah,High Screening Risk,10820,3142.054898336414,19.910813308687615,775.2963955637708,67.81556377079482,Spruce/Fir
+2,Cache la Poudre,Low Screening Risk,0,,,,,Lodgepole Pine
+2,Cache la Poudre,Moderate Screening Risk,1162,2496.5430292598967,11.139414802065405,897.2934595524957,62.67349397590362,Lodgepole Pine
+2,Cache la Poudre,High Screening Risk,1864,2456.7151287553647,20.251609442060087,716.7129828326181,68.56486051502145,Lodgepole Pine
+2,Comanche Peak,Low Screening Risk,0,,,,,Lodgepole Pine
+2,Comanche Peak,Moderate Screening Risk,87935,2943.532017967817,13.169602547336101,1773.1274805253881,58.30148518792289,Lodgepole Pine
+2,Comanche Peak,High Screening Risk,37158,2888.459766402928,21.969912266537488,935.0353894181603,69.1870525862533,Lodgepole Pine
+2,Neota,Low Screening Risk,23,3119.8260869565215,4.782608695652174,5030.434782608696,34.339130434782604,Lodgepole Pine
+2,Neota,Moderate Screening Risk,8333,3214.353774150966,11.946357854314172,2486.253690147606,53.44683787351494,Lodgepole Pine
+2,Neota,High Screening Risk,629,3213.764705882353,16.457869634340224,728.3449920508745,66.88823529411765,Lodgepole Pine
+2,Rawah,Low Screening Risk,17681,2863.639047565183,8.417340648153385,5846.0463209094505,30.22043436457214,Lodgepole Pine
+2,Rawah,Moderate Screening Risk,116767,2913.672030625091,11.385896700266342,2462.0055580771964,53.02430652495997,Lodgepole Pine
+2,Rawah,High Screening Risk,11749,2904.3972252957697,19.185888160694528,771.2222316792919,68.01811217975998,Lodgepole Pine
+3,Cache la Poudre,Low Screening Risk,0,,,,,Ponderosa Pine
+3,Cache la Poudre,Moderate Screening Risk,4805,2381.1015608740895,13.199167533818938,1143.7055150884496,61.795442247658684,Ponderosa Pine
+3,Cache la Poudre,High Screening Risk,16649,2243.8043125713257,25.60544176827437,627.5958916451439,70.79763349150099,Ponderosa Pine
+3,Comanche Peak,Low Screening Risk,0,,,,,Ponderosa Pine
+3,Comanche Peak,Moderate Screening Risk,7031,2602.3008106954912,12.40236097283459,1470.6317735741716,60.37427108519414,Ponderosa Pine
+3,Comanche Peak,High Screening Risk,7269,2547.563213646994,22.79405695418902,864.7624157380658,70.39581785665153,Ponderosa Pine
+3,Neota,Low Screening Risk,0,,,,,Ponderosa Pine
+3,Neota,Moderate Screening Risk,0,,,,,Ponderosa Pine
+3,Neota,High Screening Risk,0,,,,,Ponderosa Pine
+3,Rawah,Low Screening Risk,0,,,,,Ponderosa Pine
+3,Rawah,Moderate Screening Risk,0,,,,,Ponderosa Pine
+3,Rawah,High Screening Risk,0,,,,,Ponderosa Pine
+4,Cache la Poudre,Low Screening Risk,0,,,,,Cottonwood/Willow
+4,Cache la Poudre,Moderate Screening Risk,1154,2241.313691507799,11.68630849220104,1106.661178509532,61.5286828422877,Cottonwood/Willow
+4,Cache la Poudre,High Screening Risk,1593,2211.3540489642182,23.48587570621469,679.8035153797865,70.26516007532956,Cottonwood/Willow
+4,Comanche Peak,Low Screening Risk,0,,,,,Cottonwood/Willow
+4,Comanche Peak,Moderate Screening Risk,0,,,,,Cottonwood/Willow
+4,Comanche Peak,High Screening Risk,0,,,,,Cottonwood/Willow
+4,Neota,Low Screening Risk,0,,,,,Cottonwood/Willow
+4,Neota,Moderate Screening Risk,0,,,,,Cottonwood/Willow
+4,Neota,High Screening Risk,0,,,,,Cottonwood/Willow
+4,Rawah,Low Screening Risk,0,,,,,Cottonwood/Willow
+4,Rawah,Moderate Screening Risk,0,,,,,Cottonwood/Willow
+4,Rawah,High Screening Risk,0,,,,,Cottonwood/Willow
+5,Cache la Poudre,Low Screening Risk,0,,,,,Aspen
+5,Cache la Poudre,Moderate Screening Risk,0,,,,,Aspen
+5,Cache la Poudre,High Screening Risk,0,,,,,Aspen
+5,Comanche Peak,Low Screening Risk,0,,,,,Aspen
+5,Comanche Peak,Moderate Screening Risk,3993,2787.7833708990734,11.653143000250438,1583.5093914350114,59.39782118707738,Aspen
+5,Comanche Peak,High Screening Risk,1719,2829.656195462478,21.668411867364746,1004.9301919720768,68.126061663758,Aspen
+5,Neota,Low Screening Risk,0,,,,,Aspen
+5,Neota,Moderate Screening Risk,0,,,,,Aspen
+5,Neota,High Screening Risk,0,,,,,Aspen
+5,Rawah,Low Screening Risk,248,2558.6169354838707,7.149193548387097,5785.431451612903,29.70403225806452,Aspen
+5,Rawah,Moderate Screening Risk,2388,2791.7064489112227,19.94681742043551,1991.7248743718592,58.44577051926298,Aspen
+5,Rawah,High Screening Risk,1145,2763.3406113537117,21.651528384279477,642.6550218340611,68.84890829694324,Aspen
+6,Cache la Poudre,Low Screening Risk,0,,,,,Douglas-fir
+6,Cache la Poudre,Moderate Screening Risk,3035,2392.5930807248765,13.464250411861615,1164.2747940691927,61.83947281713344,Douglas-fir
+6,Cache la Poudre,High Screening Risk,6706,2260.548464062034,23.93945720250522,681.2633462570832,69.48382045929019,Douglas-fir
+6,Comanche Peak,Low Screening Risk,0,,,,,Douglas-fir
+6,Comanche Peak,Moderate Screening Risk,5119,2587.1537409650323,13.982809142410627,1637.461418245751,58.819515530377025,Douglas-fir
+6,Comanche Peak,High Screening Risk,2507,2532.721978460311,23.072197846031113,735.5396888711607,69.05029916234544,Douglas-fir
+6,Neota,Low Screening Risk,0,,,,,Douglas-fir
+6,Neota,Moderate Screening Risk,0,,,,,Douglas-fir
+6,Neota,High Screening Risk,0,,,,,Douglas-fir
+6,Rawah,Low Screening Risk,0,,,,,Douglas-fir
+6,Rawah,Moderate Screening Risk,0,,,,,Douglas-fir
+6,Rawah,High Screening Risk,0,,,,,Douglas-fir
+7,Cache la Poudre,Low Screening Risk,0,,,,,Krummholz
+7,Cache la Poudre,Moderate Screening Risk,0,,,,,Krummholz
+7,Cache la Poudre,High Screening Risk,0,,,,,Krummholz
+7,Comanche Peak,Low Screening Risk,0,,,,,Krummholz
+7,Comanche Peak,Moderate Screening Risk,10413,3380.779602420052,12.696053010659753,2312.6801113992124,54.58518198405839,Krummholz
+7,Comanche Peak,High Screening Risk,2692,3316.4023031203565,21.471768202080238,677.0282317979197,69.52280832095096,Krummholz
+7,Neota,Low Screening Risk,0,,,,,Krummholz
+7,Neota,Moderate Screening Risk,1820,3457.540659340659,12.518131868131869,1549.4335164835165,59.051373626373625,Krummholz
+7,Neota,High Screening Risk,484,3393.1735537190084,18.83677685950413,674.5351239669421,67.83223140495869,Krummholz
+7,Rawah,Low Screening Risk,0,,,,,Krummholz
+7,Rawah,Moderate Screening Risk,4943,3311.146469755209,13.441027715961967,2667.172769573134,52.434088610155776,Krummholz
+7,Rawah,High Screening Risk,158,3286.8797468354433,25.59493670886076,1402.3481012658228,67.12911392405063,Krummholz

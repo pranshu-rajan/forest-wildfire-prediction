@@ -1,0 +1,154 @@
+{
+  "summary": {
+    "total_checks": 24,
+    "passed": 22,
+    "fatal_failures": 0,
+    "warnings": 2
+  },
+  "checks": [
+    {
+      "check": "file_exists",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "'C:\\Users\\pranshu\\Desktop\\forest-cover-wildfire\\data\\raw\\covtype.csv' exists"
+    },
+    {
+      "check": "expected_columns_present",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "All 55 expected columns present."
+    },
+    {
+      "check": "no_extra_columns",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "No unexpected columns."
+    },
+    {
+      "check": "row_count",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "581,012 rows found."
+    },
+    {
+      "check": "feature_column_count",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "Expected 54 feature columns, found 54."
+    },
+    {
+      "check": "all_columns_numeric",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "All columns are numeric."
+    },
+    {
+      "check": "no_missing_values",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Total missing cells: 0"
+    },
+    {
+      "check": "no_exact_duplicates",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Exact duplicate rows (excluding record_id): 0"
+    },
+    {
+      "check": "target_labels_valid",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "All target labels in {1..7}."
+    },
+    {
+      "check": "range_Elevation",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Elevation: [1859, 3858], 0 below 1800, 0 above 4000."
+    },
+    {
+      "check": "range_Aspect",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Aspect: [0, 360], 0 below 0, 0 above 360."
+    },
+    {
+      "check": "range_Slope",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Slope: [0, 66], 0 below 0, 0 above 90."
+    },
+    {
+      "check": "range_Horizontal_Distance_To_Hydrology",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Horizontal_Distance_To_Hydrology: [0, 1397], 0 below 0, 0 above 1500."
+    },
+    {
+      "check": "range_Vertical_Distance_To_Hydrology",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Vertical_Distance_To_Hydrology: [-173, 601], 0 below -200, 0 above 700."
+    },
+    {
+      "check": "range_Horizontal_Distance_To_Roadways",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Horizontal_Distance_To_Roadways: [0, 7117], 0 below 0, 0 above 8000."
+    },
+    {
+      "check": "range_Hillshade_9am",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Hillshade_9am: [0, 254], 0 below 0, 0 above 255."
+    },
+    {
+      "check": "range_Hillshade_Noon",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Hillshade_Noon: [0, 254], 0 below 0, 0 above 255."
+    },
+    {
+      "check": "range_Hillshade_3pm",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Hillshade_3pm: [0, 254], 0 below 0, 0 above 255."
+    },
+    {
+      "check": "range_Horizontal_Distance_To_Fire_Points",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Horizontal_Distance_To_Fire_Points: [0, 7173], 0 below 0, 0 above 8000."
+    },
+    {
+      "check": "binary_features_valid",
+      "passed": true,
+      "severity": "FATAL",
+      "detail": "All binary indicators contain only 0/1."
+    },
+    {
+      "check": "wilderness_onehot_integrity",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Rows where wilderness area sum \u2260 1: 0"
+    },
+    {
+      "check": "soil_type_nonzero_per_row",
+      "passed": true,
+      "severity": "WARNING",
+      "detail": "Rows with no active soil type: 0"
+    },
+    {
+      "check": "sparse_soil_columns",
+      "passed": false,
+      "severity": "WARNING",
+      "detail": "21 soil columns with <1% activation: ['Soil_Type1', 'Soil_Type3', 'Soil_Type5', 'Soil_Type7', 'Soil_Type8', 'Soil_Type9', 'Soil_Type14', 'Soil_Type15', 'Soil_Type16', 'Soil_Type17', 'Soil_Type18', 'Soil_Type19', 'Soil_Type21', 'Soil_Type25', 'Soil_Type26', 'Soil_Type27', 'Soil_Type28', 'Soil_Type34', 'Soil_Type35', 'Soil_Type36', 'Soil_Type37']"
+    },
+    {
+      "check": "class_imbalance",
+      "passed": false,
+      "severity": "WARNING",
+      "detail": "Imbalance ratio (majority/minority): 103.1x. Dist: {1: 211840, 2: 283301, 3: 35754, 4: 2747, 5: 9493, 6: 17367, 7: 20510}"
+    }
+  ]
+}

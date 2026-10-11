@@ -1,0 +1,25 @@
+{
+  "operations": [
+    {
+      "operation": "start",
+      "rows_in": 581012,
+      "rows_out": 581012,
+      "rows_affected": 0,
+      "details": "Initial row count."
+    },
+    {
+      "operation": "drop_missing_target",
+      "rows_in": 581012,
+      "rows_out": 581012,
+      "rows_affected": 0,
+      "details": "Dropped 0 rows with missing target."
+    },
+    {
+      "operation": "end",
+      "rows_in": 581012,
+      "rows_out": 581012,
+      "rows_affected": 0,
+      "details": "Final row count after cleaning."
+    }
+  ]
+}

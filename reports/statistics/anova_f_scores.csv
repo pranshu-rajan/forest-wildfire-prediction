@@ -1,0 +1,11 @@
+feature,f_score,p_value,is_significant_0.05
+Elevation,13293.9304,0.0,True
+Horizontal_Distance_To_Roadways,875.0044,0.0,True
+Horizontal_Distance_To_Fire_Points,615.373,0.0,True
+Slope,605.3586,0.0,True
+Hillshade_9am,248.675,0.0,True
+Hillshade_Noon,225.6302,0.0,True
+Horizontal_Distance_To_Hydrology,191.8197,0.0,True
+Vertical_Distance_To_Hydrology,91.1088,0.0,True
+Hillshade_3pm,87.3031,0.0,True
+Aspect,37.3329,0.0,True

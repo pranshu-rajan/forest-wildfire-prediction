@@ -1,0 +1,159 @@
+{
+  "n_components": 8,
+  "n_features_in": 10,
+  "n_components_for_90pct_variance": 7,
+  "n_components_for_95pct_variance": 8,
+  "total_explained_variance_pct": 96.9,
+  "explained_variance_ratio": [
+    0.258578,
+    0.214924,
+    0.173885,
+    0.107725,
+    0.077109,
+    0.054699,
+    0.046422,
+    0.035632
+  ],
+  "cumulative_explained_variance": [
+    0.258578,
+    0.473501,
+    0.647387,
+    0.755112,
+    0.832221,
+    0.886921,
+    0.933343,
+    0.968975
+  ],
+  "component_summaries": [
+    {
+      "component": 1,
+      "explained_variance_pct": 25.86,
+      "top_5_loadings": [
+        {
+          "feature": "Hillshade_3pm",
+          "loading": 0.5953
+        },
+        {
+          "feature": "Aspect",
+          "loading": 0.4951
+        },
+        {
+          "feature": "Hillshade_9am",
+          "loading": -0.4566
+        },
+        {
+          "feature": "Hillshade_Noon",
+          "loading": 0.3772
+        },
+        {
+          "feature": "Horizontal_Distance_To_Roadways",
+          "loading": 0.114
+        }
+      ]
+    },
+    {
+      "component": 2,
+      "explained_variance_pct": 21.49,
+      "top_5_loadings": [
+        {
+          "feature": "Slope",
+          "loading": 0.5292
+        },
+        {
+          "feature": "Horizontal_Distance_To_Roadways",
+          "loading": -0.3894
+        },
+        {
+          "feature": "Elevation",
+          "loading": -0.3673
+        },
+        {
+          "feature": "Hillshade_Noon",
+          "loading": -0.364
+        },
+        {
+          "feature": "Hillshade_9am",
+          "loading": -0.3521
+        }
+      ]
+    },
+    {
+      "component": 3,
+      "explained_variance_pct": 17.39,
+      "top_5_loadings": [
+        {
+          "feature": "Horizontal_Distance_To_Hydrology",
+          "loading": 0.6481
+        },
+        {
+          "feature": "Vertical_Distance_To_Hydrology",
+          "loading": 0.6157
+        },
+        {
+          "feature": "Elevation",
+          "loading": 0.3433
+        },
+        {
+          "feature": "Slope",
+          "loading": 0.1447
+        },
+        {
+          "feature": "Horizontal_Distance_To_Roadways",
+          "loading": 0.1431
+        }
+      ]
+    },
+    {
+      "component": 4,
+      "explained_variance_pct": 10.77,
+      "top_5_loadings": [
+        {
+          "feature": "Horizontal_Distance_To_Fire_Points",
+          "loading": 0.5733
+        },
+        {
+          "feature": "Horizontal_Distance_To_Roadways",
+          "loading": 0.5161
+        },
+        {
+          "feature": "Hillshade_Noon",
+          "loading": -0.3591
+        },
+        {
+          "feature": "Slope",
+          "loading": 0.3495
+        },
+        {
+          "feature": "Hillshade_9am",
+          "loading": -0.2842
+        }
+      ]
+    },
+    {
+      "component": 5,
+      "explained_variance_pct": 7.71,
+      "top_5_loadings": [
+        {
+          "feature": "Horizontal_Distance_To_Fire_Points",
+          "loading": 0.637
+        },
+        {
+          "feature": "Elevation",
+          "loading": -0.6062
+        },
+        {
+          "feature": "Horizontal_Distance_To_Roadways",
+          "loading": -0.2966
+        },
+        {
+          "feature": "Vertical_Distance_To_Hydrology",
+          "loading": 0.198
+        },
+        {
+          "feature": "Horizontal_Distance_To_Hydrology",
+          "loading": 0.1827
+        }
+      ]
+    }
+  ]
+}
