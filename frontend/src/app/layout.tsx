@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Roosevelt National Forest | Cover Type & Wildfire Analytics",
-  description: "2026 Alpine Botanical Intelligence System: Multi-tool pipeline connecting Python, Supabase, KNIME, Tableau, and Next.js for forest cover classification and topographic wildfire hazard screening.",
+  description: "2026 Alpine Botanical Intelligence System: High-performance machine learning pipeline connecting Python, FastAPI, PostgreSQL / Supabase, and Next.js for forest cover classification and topographic wildfire hazard screening.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

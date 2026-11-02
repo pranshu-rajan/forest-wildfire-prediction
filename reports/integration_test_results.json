@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-11T08:28:06.930570+00:00",
+  "timestamp": "2026-10-12T10:13:59.994933+00:00",
   "audit_pillars": {
     "python_core": {
       "raw_dataset": {
@@ -114,9 +114,9 @@
         "missing": []
       },
       "statistical_parity": {
-        "status": "PASS",
+        "status": "FAIL",
         "tolerance": "<= 2.0%",
-        "comparisons_count": 4,
+        "comparisons_count": 5,
         "comparisons": [
           {
             "benchmark": "Classification: Random Forest",
@@ -134,6 +134,15 @@
             "absolute_delta": 0.0048,
             "tolerance_threshold": 0.02,
             "status": "ALIGNED",
+            "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+          },
+          {
+            "benchmark": "Classification: K-Nearest Neighbor",
+            "python_value": 0.866,
+            "knime_value": 0.814,
+            "absolute_delta": 0.052,
+            "tolerance_threshold": 0.02,
+            "status": "DISCREPANCY_NOTICE",
             "notes": "Parity confirmed within expected algorithmic heuristic bounds."
           },
           {

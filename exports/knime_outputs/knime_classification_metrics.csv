@@ -1,3 +1,4 @@
-model,accuracy,macro_f1,cohen_kappa,records_evaluated
-Random Forest,0.9284,0.8992,0.8871,87152
-Decision Tree,0.8612,0.7985,0.7840,87152
+model,accuracy,balanced_accuracy,macro_f1,weighted_f1,cohen_kappa,records_evaluated,run_id
+Random Forest,0.9284,0.8841,0.8992,0.9275,0.8871,87152,knime_run_20261012_v2
+Decision Tree,0.8612,0.7812,0.7985,0.8598,0.784,87152,knime_run_20261012_v2
+K-Nearest Neighbor,0.814,0.723,0.741,0.8115,0.7105,20000,knime_run_20261012_v2

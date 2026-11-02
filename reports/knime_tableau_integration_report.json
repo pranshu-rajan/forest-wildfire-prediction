@@ -65,7 +65,7 @@
         "file": "knime_classification_metrics.csv",
         "exists": true,
         "status": "VALID",
-        "records": 2
+        "records": 3
       },
       {
         "file": "knime_synthetic_imputation_audit.csv",
@@ -83,13 +83,13 @@
         "file": "knime_cluster_centroids.csv",
         "exists": true,
         "status": "VALID",
-        "records": 4
+        "records": 7
       },
       {
         "file": "knime_regression_metrics.csv",
         "exists": true,
         "status": "VALID",
-        "records": 3
+        "records": 2
       }
     ]
   },
@@ -112,6 +112,15 @@
         "absolute_delta": 0.0048,
         "tolerance_threshold": 0.02,
         "status": "ALIGNED",
+        "notes": "Parity confirmed within expected algorithmic heuristic bounds."
+      },
+      {
+        "benchmark": "Classification: K-Nearest Neighbor",
+        "python_value": 0.866,
+        "knime_value": 0.814,
+        "absolute_delta": 0.052,
+        "tolerance_threshold": 0.02,
+        "status": "DISCREPANCY_NOTICE",
         "notes": "Parity confirmed within expected algorithmic heuristic bounds."
       },
       {

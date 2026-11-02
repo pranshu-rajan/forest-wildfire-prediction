@@ -1,0 +1,9 @@
+feature,method,score,rank,decision,run_id
+Elevation,Random Forest Importance,0.2845,1,keep,knime_run_20261012_v2
+Horizontal_Distance_To_Roadways,Random Forest Importance,0.1264,2,keep,knime_run_20261012_v2
+Horizontal_Distance_To_Fire_Points,Random Forest Importance,0.1082,3,keep,knime_run_20261012_v2
+Horizontal_Distance_To_Hydrology,Random Forest Importance,0.0821,4,keep,knime_run_20261012_v2
+Vertical_Distance_To_Hydrology,Random Forest Importance,0.0715,5,keep,knime_run_20261012_v2
+Wilderness_Area4,Chi-Square,45120.4,6,keep,knime_run_20261012_v2
+Wilderness_Area1,Chi-Square,38410.2,7,keep,knime_run_20261012_v2
+Soil_Type15,Low Variance Filter,5e-06,54,flag_sparse,knime_run_20261012_v2

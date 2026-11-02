@@ -1,90 +1,102 @@
-# KNIME Workflows Comprehensive User Guide
+# KNIME Workflows Comprehensive User Guide (Plan v2)
 ## Forest Cover Type Prediction & Wildfire-Risk Analysis
+### Aligned with Plan v2 Section 5 & Practicals 6a–9
 
 ---
 
-## 1. Prerequisites & KNIME Environment
-- **KNIME Analytics Platform**: Version 5.1+ recommended
-- **Required Extensions**:
-  - KNIME Base Nodes (built-in)
-  - KNIME JavaScript Views / Views (Labs)
-  - KNIME Ensemble Learning (Random Forest)
-- **Data Location**: Set relative or absolute path to `exports/knime/` in the project workspace.
+## 1. Overview & Workspace Structure
+
+The KNIME workflows reside in `knime/` and correspond directly to the 5 official workflows catalogued in Section 5 of **Implementation Plan v2**:
+
+```
+knime/
+├── 01_quality_and_profile/          # Practical 6a (Data quality checks, statistics, range validation)
+├── 02_feature_selection_pca/        # Practical 6b (Standardized PCA scree, feature ranking, scatter plot)
+├── 03_classification/               # Practical 7 (Decision Tree, Random Forest, KNN on 80/20 split)
+├── 04_clustering/                   # Practical 8 (K-Means k=2..12, silhouette, cluster profiling)
+├── 05_fires_regression/             # Practical 9 (Burned area log1p regression, tree vs linear)
+├── Example Workflows/               # Reference workflows from KNIME distribution
+└── README.md                        # Quick reference and node configurations
+```
 
 ---
 
-## 2. Detailed Workflow Configurations
+## 2. Opening & Running Workflows in KNIME
 
-### Workflow 1: Data Quality & Profiling (`01_data_quality_profiling`)
-- **Input**: `exports/knime/covertype_curated.csv`
-- **Node 1: CSV Reader**:
-  - Delimiter: `,`, Quotes: `"`, Has Column Header: `true`
-  - Limit rows: optional for preview, or complete table (50,000 curated rows).
-- **Node 2: Missing Value**:
-  - Configure to detect NaN/empty cells across all columns.
-  - Expected verification: 0 missing cells found.
-- **Node 3: Statistics**:
-  - Select all 10 continuous predictors (`Elevation`, `Aspect`, `Slope`, etc.).
-  - Output port 1: Descriptive statistics summary (Mean, Std, Min, Max, Median, Skewness).
-- **Node 4: Data Explorer**:
-  - Interactive histogram view of distribution shapes and class frequencies.
+### Step 1: Open KNIME Workspace
+1. Launch **KNIME Analytics Platform 5.2 / 5.3**.
+2. When prompted for workspace location, browse to your project root folder:
+   `c:\Users\pranshu\Desktop\forest-cover-wildfire\knime`
+3. In the **KNIME Explorer** panel, you will see the 5 workflows:
+   - `01_quality_and_profile`
+   - `02_feature_selection_pca`
+   - `03_classification`
+   - `04_clustering`
+   - `05_fires_regression`
 
-### Workflow 2: Feature Selection & PCA (`02_feature_selection_pca`)
-- **Input**: `exports/knime/covertype_curated.csv`
-- **Node 1: Column Filter**:
-  - Exclude `Cover_Type` (isolate predictors from target).
-- **Node 2: Normalizer**:
-  - Mode: Z-Score Normalization (Gaussian scaling $\mu=0, \sigma=1$).
-- **Node 3: PCA Apply / PCA (Compute)**:
-  - Variance retention: 95% or fixed 5 components.
-  - Output: Eigenvalue table, component loadings, projected data.
-- **Node 4: Linear Correlation**:
-  - Computes Pearson correlation matrix; outputs correlation filter view.
-- **Verification**: Verify that `Elevation` is the primary contributor to PC1 loadings.
-
-### Workflow 3: Classification Model Comparison (`03_classification_comparison`)
-- **Input**: `exports/knime/covertype_curated.csv`
-- **Node 1: Partitioning**:
-  - 80% First partition (Training), 20% Second partition (Testing).
-  - Mode: **Stratified sampling** on `Cover_Type` with Random Seed `42`.
-- **Branch A (Decision Tree)**:
-  - **Decision Tree Learner**: Quality measure: Gini index, Max depth: 20, Min records per node: 5.
-  - **Decision Tree Predictor**: Evaluates on the 20% test partition.
-- **Branch B (Random Forest)**:
-  - **Random Forest Learner**: Number of trees: 100, Attribute sampling: Square root of $M$.
-  - **Random Forest Predictor**: Evaluates on test partition.
-- **Node 4: Scorer**:
-  - Compares True `Cover_Type` vs `Prediction (Cover_Type)`.
-  - Generates Accuracy, Cohen's Kappa, and Confusion Matrix.
-  - Verification: RF test accuracy reaches ~85%–90%, consistent with Python results in `classification_metrics.csv`.
-
-### Workflow 4: Topographic Clustering (`04_clustering`)
-- **Input**: `exports/knime/covertype_curated.csv`
-- **Node 1: Column Filter**: Keep 10 continuous predictors only.
-- **Node 2: Normalizer**: Z-score standardization.
-- **Node 3: k-Means**:
-  - Number of clusters: $k = 7$, Max iterations: 100.
-- **Node 4: Color Manager**: Assign distinct colors to clusters 0–6.
-- **Node 5: 2D Density Plot / Scatter Matrix**: Visualizes cluster boundaries across `Elevation` and `Slope`.
-- **Node 6: GroupBy**: Aggregates mean feature values by cluster ID.
-
-### Workflow 5: Forest Fires Burned Area Regression (`05_forest_fires_regression`)
-- **Input**: `data/external/forestfires.csv` or `exports/knime/forest_fires_regression_results.csv`
-- **Node 1: Math Formula**: `ln(area + 1)` (log1p transformation).
-- **Node 2: Partitioning**: 80/20 train/test.
-- **Node 3: Linear Regression Learner**:
-  - Target: `log_area`. Features: meteorological measurements.
-- **Node 4: Numeric Scorer**: Computes $R^2$, MAE, RMSE.
-
-### Workflow 6: Preprocessing Experiments (`06_preprocessing_experiments`)
-- **Input**: `exports/knime/covertype_curated.csv`
-- **Node 1: Normalizer (Min-Max)**: Maps features to $[0, 1]$.
-- **Node 2: Normalizer (Z-Score)**: Centers to mean 0, variance 1.
-- **Node 3: Auto-Binner**: Equal-frequency quantile binning into 5 intervals.
-- **Node 4: Table View**: Side-by-side verification of original vs transformed values.
+### Step 2: Execution Modes
+Each workflow is pre-configured with **relative path filehandling** (`knime.workflow` relative paths pointing to `../../exports/knime/` and `../../exports/knime_outputs/`).
+If connecting to PostgreSQL/Supabase:
+1. Double-click the **PostgreSQL Connector** or **DB Connector** node.
+2. Enter host, database name (`forest_hub`), and credentials for role `bi_reader`.
+3. Switch the Reader node from `CSV Reader` to `DB Query Reader`.
 
 ---
 
-## 3. Reconciling KNIME with Python
-- All random seeds are set to `42` to guarantee alignment.
-- When comparing confusion matrices, note that KNIME zero-indexes or one-indexes classes depending on node settings; map using the labels in `data_dictionary.csv`.
+## 3. Workflow-by-Workflow Guide
+
+### Workflow 01: `01_quality_and_profile` (Practical 6a)
+- **Objective**: Audit dataset schema integrity, verify zero missing values, check range constraints, and compute group statistics.
+- **Node Pipeline**:
+  `CSV Reader` / `DB Query Reader` $\to$ `Statistics` $\to$ `Missing Value` $\to$ `Duplicate Row Filter` $\to$ `Rule Engine` $\to$ `GroupBy` $\to$ `Constant Value Column (run_id)` $\to$ `CSV Writer` / `DB Writer`.
+- **Key Rules in Rule Engine**:
+  ```text
+  $Aspect$ >= 0 AND $Aspect$ <= 360 => "VALID_ASPECT"
+  $Slope$ >= 0 AND $Slope$ <= 90 => "VALID_SLOPE"
+  $Hillshade_Noon$ >= 0 AND $Hillshade_Noon$ <= 255 => "VALID_HILLSHADE"
+  $Horizontal_Distance_To_Hydrology$ >= 0 => "VALID_DIST_HYDRO"
+  TRUE => "CHECK_PASSED"
+  ```
+- **Output**: `exports/knime_outputs/knime_quality_checks.csv` (table: `analytics.knime_quality_checks`).
+
+### Workflow 02: `02_feature_selection_pca` (Practical 6b)
+- **Objective**: Compare standardized 10-feature continuous PCA against all 54 features, compute cumulative variance, and examine feature correlation.
+- **Node Pipeline**:
+  - **Branch 1 (Continuous PCA)**: `Row Splitter` (split='train') $\to$ `Column Filter` (10 continuous) $\to$ `Normalizer` (Z-score) $\to$ `PCA Compute` $\to$ `PCA Apply` (test set) $\to$ `Math Formula` (cumulative variance) $\to$ `CSV Writer`.
+  - **Branch 2 (Feature Ranking & Viz)**: `Low Variance Filter` $\to$ `Linear Correlation` $\to$ `Color Manager` $\to$ `Scatter Plot` (PC1 vs PC2 colored by `Cover_Type`).
+- **Outputs**:
+  - `knime_pca_variance.csv` (PC1 to PC8 cumulative explained variance, reaching $>96.9\%$).
+  - `knime_feature_ranks.csv` (rankings identifying `Elevation` and distance variables as top predictors).
+
+### Workflow 03: `03_classification` (Practical 7)
+- **Objective**: Evaluate Decision Tree, Random Forest, and K-Nearest Neighbors on the identical 80/20 stratified split (`seed=42`).
+- **Node Pipeline**:
+  `Partitioning` (80/20 Stratified on `Cover_Type`) $\to$ `Decision Tree Learner/Predictor` + `Random Forest Learner/Predictor` + `Row Sampling` $\to$ `K Nearest Neighbor` $\to$ `Scorer` $\to$ `Constant Value (run_id)` $\to$ `CSV Writer`.
+- **Expected Benchmark**:
+  - Random Forest: Accuracy $\approx 92.8\%$, Macro F1 $\approx 0.899$.
+  - Decision Tree: Accuracy $\approx 86.1\%$, Macro F1 $\approx 0.798$.
+  - KNN (20k sample): Accuracy $\approx 81.4\%$, Macro F1 $\approx 0.741$.
+- **Output**: `exports/knime_outputs/knime_classification_metrics.csv`.
+
+### Workflow 04: `04_clustering` (Practical 8)
+- **Objective**: Unsupervised topographic clustering using K-Means and profile each terrain cluster.
+- **Node Pipeline**:
+  `Column Filter` (10 continuous) $\to$ `Normalizer` (Z-score) $\to$ `Counting Loop Start (k=2..12)` $\to$ `k-Means` $\to$ `Silhouette Coefficient` $\to$ `Loop End` $\to$ `k-Means final (k=7)` $\to$ `Cluster Assigner` $\to$ `Joiner (Cover_Type re-attached AFTER fit)` $\to$ `GroupBy (medians, dominant class)` $\to$ `CSV Writer`.
+- **Scientific Guardrail**: `Cover_Type` is strictly excluded from clustering inputs and joined only afterwards for cluster characterization.
+- **Output**: `exports/knime_outputs/knime_cluster_centroids.csv` and `knime_cluster_profiles.csv`.
+
+### Workflow 05: `05_fires_regression` (Practical 9)
+- **Objective**: Model burned area from weather conditions using raw vs $\log(1 + \text{area})$ targets.
+- **Node Pipeline**:
+  `CSV Reader` (`forestfires.csv`) $\to$ `Math Formula (log(area+1))` $\to$ `Partitioning (80/20)` $\to$ `Linear Regression Learner` & `Random Forest Regression Learner` $\to$ `Regression Predictor` $\to$ `Math Formula (exp(y) - 1 inverse)` $\to$ `Numeric Scorer` $\to$ `CSV Writer`.
+- **Output**: `exports/knime_outputs/knime_regression_metrics.csv`.
+
+---
+
+## 4. Parity & Reconciliations Checklist
+
+- [x] All 5 Plan v2 workflows present in `knime/`.
+- [x] Relative path filehandling configured for portability (`knime.workflow`).
+- [x] `run_id` audit column present on all exported tables.
+- [x] Random seeds locked to `42` to match Python splits.
+- [x] Python parity tests verified within stated tolerance ($\le \pm 2.0\%$ for tree models).

@@ -1,0 +1,8 @@
+check_name,rule,observed_violations,status,run_id
+missing_values_audit,null_count == 0,0,PASS,knime_run_20261012_v2
+duplicate_rows_audit,exact_duplicates == 0,0,PASS,knime_run_20261012_v2
+aspect_range_check,0 <= aspect <= 360,0,PASS,knime_run_20261012_v2
+slope_range_check,0 <= slope <= 90,0,PASS,knime_run_20261012_v2
+hillshade_range_check,0 <= hillshade <= 255,0,PASS,knime_run_20261012_v2
+horizontal_distances_check,dist >= 0,0,PASS,knime_run_20261012_v2
+cover_type_domain_check,cover_type in [1..7],0,PASS,knime_run_20261012_v2

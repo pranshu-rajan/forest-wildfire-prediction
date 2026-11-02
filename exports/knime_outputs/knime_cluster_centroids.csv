@@ -1,5 +1,8 @@
-cluster_id,cluster_name,mean_elevation,mean_slope,mean_dist_hydrology,mean_dist_fire
-0,Alpine Ridges,3320.4,24.1,310.2,2140.5
-1,Upper Montane,2980.1,14.3,230.5,1890.2
-2,Lower Montane,2460.8,16.2,190.1,1350.4
-3,Riparian Valleys,2120.3,8.4,85.2,890.1
+cluster_id,cluster_name,cluster_size,mean_elevation,mean_slope,mean_dist_hydrology,mean_dist_fire,dominant_cover,run_id
+0,Low Elevation Subalpine,18420,2420.5,12.4,210.3,1850.2,Ponderosa Pine,knime_run_20261012_v2
+1,High Alpine Spruce Zone,24150,3280.1,18.2,145.0,2400.8,Spruce/Fir,knime_run_20261012_v2
+2,Mid Elevation Montane,29800,2890.4,14.1,280.6,1920.4,Lodgepole Pine,knime_run_20261012_v2
+3,Riparian Lowland,4210,2180.2,7.8,42.1,1230.5,Cottonwood/Willow,knime_run_20261012_v2
+4,Steep Shaded Ravine,11020,2750.6,28.5,190.2,1420.0,Aspen,knime_run_20261012_v2
+5,Dry Foothill Slopes,9540,2340.8,19.3,310.4,980.2,Douglas-fir,knime_run_20261012_v2
+6,Krummholz Timberline,2860,3590.2,22.1,180.5,2890.1,Krummholz,knime_run_20261012_v2

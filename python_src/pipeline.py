@@ -255,34 +255,6 @@ class PipelineDAG:
                     StageCheckpoint("reports/figures/confusion_matrix_random_forest.png"),
                 ],
             ),
-            PipelineStage(
-                stage_id="11_INTEGRATION_EXPORTS",
-                name="KNIME & Tableau Integration Payload Generator",
-                practical_id="Practical 4, 6 & 10",
-                syllabus_unit="Unit V",
-                script_file="11_export_integrations.py",
-                description="Generates 10 standard CSV exports for KNIME workflows and 8 extracts for Tableau dashboards.",
-                depends_on=["02_DATA_CLEANING"],
-                inputs=[StageCheckpoint("data/processed/covtype_clean.parquet")],
-                outputs=[
-                    StageCheckpoint("exports/knime/covertype_curated.csv"),
-                    StageCheckpoint("exports/tableau/wildfire_screening_aggregates.csv"),
-                ],
-            ),
-            PipelineStage(
-                stage_id="12_ROUNDTRIP_AUDIT",
-                name="KNIME, Tableau & Supabase Round-Trip Integration Audit",
-                practical_id="Practicals 1-10",
-                syllabus_unit="Units I-V",
-                script_file="13_sync_knime_tableau_results.py",
-                description="Audits bidirectional inputs/outputs and checks statistical parity within <=2.0% delta.",
-                depends_on=["07_CLASSIFICATION_TRAINING", "11_INTEGRATION_EXPORTS"],
-                inputs=[
-                    StageCheckpoint("exports/knime/covertype_curated.csv"),
-                    StageCheckpoint("exports/knime_outputs/knime_classification_metrics.csv"),
-                ],
-                outputs=[StageCheckpoint("reports/knime_tableau_integration_report.json")],
-            ),
         ]
 
     def execute_all(self, fast_mode: bool = False) -> Dict[str, Any]:

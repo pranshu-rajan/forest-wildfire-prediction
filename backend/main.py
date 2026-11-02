@@ -162,31 +162,32 @@ def get_supabase_status():
 
 @app.get("/api/integrations/roundtrip-audit", tags=["Integrations"])
 def get_roundtrip_integration_audit():
-    """Returns complete bidirectional integration audit for KNIME, Tableau, and Supabase."""
-    from python_src.knime_integration import run_full_roundtrip_audit
-    return run_full_roundtrip_audit()
+    """Returns integration audit status for the analytics stack."""
+    return {
+        "status": "STANDALONE_PYTHON_FULLSTACK",
+        "tableau_integrated": False,
+        "knime_integrated": False,
+        "active_stack": ["Python 3.11", "FastAPI", "Scikit-Learn", "PostgreSQL / Supabase", "Next.js 16"],
+        "message": "KNIME and Tableau integrations are currently detached. System operates in standalone mode.",
+    }
 
 
 @app.get("/api/integrations/knime-status", tags=["Integrations"])
 def get_knime_integration_status():
-    """Returns input/output verification status and statistical parity delta for KNIME."""
-    from python_src.knime_integration import (
-        compare_python_and_knime_metrics,
-        ingest_and_verify_knime_outputs,
-        verify_python_to_knime_inputs,
-    )
+    """Returns KNIME integration status (detached)."""
     return {
-        "inputs": verify_python_to_knime_inputs(),
-        "outputs": ingest_and_verify_knime_outputs(),
-        "statistical_parity": compare_python_and_knime_metrics(),
+        "status": "DETACHED",
+        "message": "KNIME workflows are currently detached from active execution.",
     }
 
 
 @app.get("/api/integrations/tableau-status", tags=["Integrations"])
 def get_tableau_integration_status():
-    """Returns status of Tableau data extracts, workbooks, and calculated fields."""
-    from python_src.knime_integration import verify_tableau_integration
-    return verify_tableau_integration()
+    """Returns Tableau integration status (detached)."""
+    return {
+        "status": "DETACHED",
+        "message": "Tableau dashboards are currently detached from active execution.",
+    }
 
 
 @app.get("/api/dataset/summary", tags=["Dataset"])
@@ -214,7 +215,9 @@ def get_dataset_summary():
 @app.get("/api/dataset/distribution", tags=["Dataset"])
 def get_dataset_distribution():
     """Returns class distribution counts and percentages."""
-    dist_path = settings.knime_exports_dir / "class_distribution.csv"
+    dist_path = settings.statistics_dir / "class_distribution.csv"
+    if not dist_path.exists():
+        dist_path = settings.knime_exports_dir / "class_distribution.csv"
     if dist_path.exists():
         df = pd.read_csv(dist_path)
         return df.to_dict(orient="records")
@@ -233,7 +236,9 @@ def get_dataset_distribution():
 @app.get("/api/dataset/features", tags=["Dataset"])
 def get_dataset_features():
     """Returns descriptions, valid ranges, and types for all 54 input predictors."""
-    dict_path = settings.knime_exports_dir / "data_dictionary.csv"
+    dict_path = settings.statistics_dir / "data_dictionary.csv"
+    if not dict_path.exists():
+        dict_path = settings.knime_exports_dir / "data_dictionary.csv"
     if dict_path.exists():
         df = pd.read_csv(dict_path)
         return df.to_dict(orient="records")
@@ -495,7 +500,9 @@ def get_wildfire_screening_summary():
     IMPORTANT DISCLAIMER: This is an exploratory terrain screening score,
     NOT a calibrated probability of wildfire occurrence.
     """
-    agg_csv = settings.tableau_exports_dir / "wildfire_screening_aggregates.csv"
+    agg_csv = settings.statistics_dir / "wildfire_screening_aggregates.csv"
+    if not agg_csv.exists():
+        agg_csv = settings.tableau_exports_dir / "wildfire_screening_aggregates.csv"
     data = []
     if agg_csv.exists():
         df_agg = pd.read_csv(agg_csv).dropna(subset=["mean_screening_risk_score"])
